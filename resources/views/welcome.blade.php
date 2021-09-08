@@ -10,7 +10,7 @@
 
                 <div class="links">
                     <div class="text-center">
-                        <a href="" class="menu-top">&nbsp;Cơm&nbsp;  </a>
+                        <a href="" class="menu-top">&nbsp;Cơm&nbsp;</a>
                         <a href="" class="menu-top">&nbsp;Cháo&nbsp;</a>
                         <a href="" class="menu-top">&nbsp;Phở&nbsp;</a>
                         <a href="" class="menu-top">&nbsp;Đồ Ăn Vặt&nbsp;</a>
@@ -39,7 +39,6 @@
                             </div>
                         </div>
                     </div>
-                    <p><a href="">dat hang</a></p>
                 </div>
                 @endforeach
                 <div></div>

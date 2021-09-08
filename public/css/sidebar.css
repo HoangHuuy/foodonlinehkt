@@ -1,0 +1,96 @@
+.navbar {
+    background-color: white;
+}
+
+.navbar {
+    padding-left: 0px;
+}
+
+.nav-special {
+    height: 100%;
+}
+
+.title-seller-sidebar {
+    color: rgb(177, 177, 177);
+}
+
+.my-color-text {
+    color: black;
+    border-color: white;
+}
+.my-color-text:hover {
+    border-left: 10px solid white;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:not(:hover) {
+    color: black;
+}
+
+.nav-special {
+    height: 6500px;
+}
+
+.text-light {
+    color: black;
+}
+
+.nav-link {
+    font-size: 1.25em;
+    position: relative;
+}
+.nav-link:hover {
+    color: red;
+    transition: 0s;
+}
+
+.a-deco {
+    list-style-type: none;
+    display: block;
+}
+
+.dropdown-item{
+    color: black;
+}
+
+.dropdown-item:active {
+    color: black;
+}
+.a-deco li a.aaactive {
+    color: red;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.dropdown-item:hover {
+    background: white;
+    
+}
+
+.fas {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.fas{
+    transition: 0.3s;
+}
+
+.dddrop-one-show.show {
+    display: none;
+}
+.dddrop-two-show.show1 {
+    display: none;
+}
+.dddrop-three-show.show2 {
+    display: none;
+}
+
+.dddrop-one span, .dddrop-two span, .dddrop-three span{
+    color: rgb(143, 143, 143);
+}
+
+

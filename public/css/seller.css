@@ -61,6 +61,10 @@
     border-bottom: 1px solid #90909091;
 }
 
+.seller-title h3 {
+    color: red;
+}
+
 .seller-main-content-wrapper .container{
     padding-top: 10px;
 }

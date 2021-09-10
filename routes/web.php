@@ -36,6 +36,6 @@ Route::group(['prefix' => 'seller'], function (){
 
 });
 Route::group(['prefix' => 'account'], function (){
-    Route::get('/profile', 'AccountController@index')->name('user.profile');
-    Route::post('/profile', 'AccountController@store')->name('seller.storeAccount');
+    Route::get('/profile/{id}', 'AccountController@edit')->name('user.profile');
+    Route::post('/profile/{id}', 'AccountController@store')->name('seller.storeAccount');
 });

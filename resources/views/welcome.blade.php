@@ -10,7 +10,7 @@
 
                 <div class="links">
                     <div class="text-center">
-                        <a href="" class="menu-top">&nbsp;Cơm&nbsp;  </a>
+                        <a href="" class="menu-top">&nbsp;Cơm adsf</a>
                         <a href="" class="menu-top">&nbsp;Cháo&nbsp;</a>
                         <a href="" class="menu-top">&nbsp;Phở&nbsp;</a>
                         <a href="" class="menu-top">&nbsp;Đồ Ăn Vặt&nbsp;</a>
@@ -26,8 +26,8 @@
                     <div class="box-wrapper">
                         <div class="box-top">
                             <a href="">
-                                <img src="{{ asset('uploads/product/' .$item->image_product )}}" alt="Image">   
-                            </a>                            
+                                <img src="{{ asset('uploads/product/' .$item->image_product )}}" alt="Image">
+                            </a>
                         </div>
                         <div class="box-bottom">
                             <div class="product-name">

@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function sellerIndex()
     {
         $product = Product::query()->where('username', Auth::user()->username)->get();
-        return view('seller.showproduct', compact('product'));
+        return view('seller.showproduct',compact('product'));
     }
 
     public function indexAll()

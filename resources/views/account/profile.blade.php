@@ -1,4 +1,6 @@
+@extends('..layouts.app')
 
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,6 +19,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
+{{--    </script>--}}
     <!-- Styles -->
     <link href="http://127.0.0.1:8000/css/app.css" rel="stylesheet">
     <link href="http://127.0.0.1:8000/css/seller.css" rel="stylesheet">
@@ -28,8 +32,9 @@
     <div class="container">
         <div class="flex-center position-ref full-height">
             <div class="content">
+                @include('..layouts.ssb')
                 @if (Route::has('login'))
-                    @auth
+                   @auth
                         <a href="/seller">Trang người bán</a>
 
                     @else
@@ -46,25 +51,27 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
+{{--                      @foreach ($products as $item)--}}
+{{--                        {{dd($account)}}--}}
                         <div class="card-header">Thông tin tài khoản</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{route('seller.storeAccount')}}">
+                            <form method="POST" action="{{route('seller.storeAccount', ['id' => $account[0]->id])}}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
 
                                     <div class="col-md-6">
-                                        <input id="username" readonly type="text" class="form-control " value = '{{Auth::user()-> username}}'name="username" >
+                                        <input id="txtUsername" readonly type="text" class="form-control " value = '{{Auth::user()-> username}}'name="username" >
 
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Ho và tên</label>
+                                    <label for="fullname" class="col-md-4 col-form-label text-md-right">Ho và tên</label>
 
                                     <div class="col-md-6">
-                                        <input id="shopname" type="text" class="form-control " name="fullname" >
+                                        <input id="txtFullname" type="text" class="form-control " name="fullname" value="{{isset($account[0]->fullname) ? old('fullname', $account[0]->fullname) : ' '}}">
 
                                     </div>
                                 </div>
@@ -72,7 +79,7 @@
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Ngày Sinh</label>
 
                                     <div class="col-md-6">
-                                        <input id="dtUser" type="date" class="form-control " name="doB" >
+                                        <input id="dtUser" type="date" class="form-control " name="doB" value="{{isset($account[0]->doB) ? old('doB', $account[0]->doB) : ' '}}" >
 
                                     </div>
 
@@ -81,16 +88,18 @@
                                     <label class="col-md-4 col-form-label text-md-right">Giới tính</label>
 
                                     <div class="col-md-6">
-                                        <input id="rdGioitinh" type="radio" value = "Nam"  name="gender" >Nam
-                                        <input id="rdGioitinh" type="radio"  value = "Nữ" name="gender" >Nữ
-                                        <input id="rdGioitinh" type="radio"  value = "Khác" name="gender" >Khác
+                                        <select value = "{{isset($account[0]->gender) ? old('doB', $account[0]->gender) : ' '}}"  name="gender" >
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                        <option value="Khác">Khác</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="username" class="col-md-4 col-form-label text-md-right">Email</label>
 
                                     <div class="col-md-6">
-                                        <input id="txtEmails" type="text" class="form-control " name="emails" >
+                                        <input id="txtEmails" type="text" class="form-control " name="emails" value="{{isset($account[0]->emails) ? old('emails', $account[0]->emails) : ' '}}">
 
                                     </div>
                                 </div>
@@ -98,13 +107,22 @@
                                     <label for="sđt" class="col-md-4 col-form-label text-md-right">SĐT</label>
 
                                     <div class="col-md-6">
-                                        <input id="txtSĐT" type="text" class="form-control" name="sđt" >
+                                        <input id="txtSĐT" type="text" class="form-control" name="sđt" value="{{isset($account[0]->sđt) ? old('sđt', $account[0]->sđt) : ' '}}">
 
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <div class="form-group row">
+                                    <label for="sđt" class="col-md-4 col-form-label text-md-right">Địa chỉ</label>
+
+                                    <div class="col-md-6">
+                                        <input id="txtAddress" type="text" class="form-control" name="address" value="{{isset($account[0]->address) ? old('sđt', $account[0]->address) : ' '}}">
+
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" type = "submit" >Lưu</button>
                             </form>
                         </div>
+{{--                        @endforeach--}}
                     </div>
                 </div>
             </div>

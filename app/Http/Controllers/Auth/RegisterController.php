@@ -79,10 +79,14 @@ class RegisterController extends Controller
     public function username()
     {
         return 'username';
-    }   
+    }
 
     protected function authenticated(Request $request, $user)
     {
         return redirect('/');
+    }
+    protected function registered(Request $request, $account)
+    {
+        //
     }
 }

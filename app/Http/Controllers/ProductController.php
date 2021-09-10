@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function sellerIndex()
     {
         $product = Product::query()->where('username', Auth::user()->username)->get();
-        return view('seller.showproduct', compact('product'));
+        return view('seller.showproduct',compact('product'));
     }
 
     public function indexAll()
@@ -92,7 +92,7 @@ class ProductController extends Controller
     public function edit(Request $request, $id)
     {
         $product = Product::query()->where('id', $id)->get();
-        
+
         return view('seller.editproduct', compact('product'));
     }
 
@@ -111,7 +111,7 @@ class ProductController extends Controller
             $product->title = $request->title;
             $product->type = $request->type;
             $product->price = $request->price;
-    
+
             if($request->hasfile('image_product')){
                 $file = $request->file('image_product');
                 $extension = $file->getClientOriginalExtension();
@@ -123,8 +123,8 @@ class ProductController extends Controller
                 $product->image_product = "imagedefaults.jpg";
             }
 
-            Product::where('id', $id)->update(['username' => $product->username, 
-            'title' => $product->title, 'type' => $product->type, 
+            Product::where('id', $id)->update(['username' => $product->username,
+            'title' => $product->title, 'type' => $product->type,
             'price' => $product->price, 'image_product' => $product->image_product ]);
             // dd("success");
             return redirect()->route('seller.showProduct')->with('success', 'Thay đổi thành công');
@@ -142,9 +142,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $products = Product::query()->where('id', $id)->get();
+        $filename = $products[0]['image_product'];
+        $file = 'uploads/product/'.$filename;
+        unlink($file);
         Product::query()->where('id', $id)->delete();
         $product = Product::query()->where('username', Auth::user()->username)->get();
         return view('seller.showproduct', compact('product'));
-
     }
 }

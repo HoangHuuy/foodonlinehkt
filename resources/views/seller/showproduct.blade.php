@@ -1,6 +1,8 @@
 @extends('..layouts.app')
 
 @section('content')
+{{--    {{dd($product)}}}--}}
+
 <div id="seller-wrapper">
     <nav id="seller-sidebar" class="nav-special navbar navbar-expand d-flex flex-column align-item-start">
         @include('..layouts.ssb')
@@ -12,6 +14,7 @@
                 <span class="note">Bạn có thể xem tất cả các sản phẩm bạn đang bán tại đây</span>
             </div>
             <table class="table table-striped">
+
                 <thead>
                     <tr>
                         <th>Ảnh</th>
@@ -22,7 +25,9 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     @foreach ($product as $item)
+
                     <tr>
                         <td>
                             <img src="{{ asset('uploads/product/' .$item->image_product )}}" width="160px"

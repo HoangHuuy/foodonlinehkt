@@ -6,15 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-   protected $fillable = [
-       'username',
-       'doB',
-       'emails',
-       'sđt',
-       'gender',
-       'fullname',
-
-   ];
-
-
+    protected $fillable = [
+        'doB',
+        'emails',
+        'sđt',
+        'gender',
+        'fullname',
+        'address',
+    ];
 }

@@ -56,7 +56,7 @@
                         <div class="card-header">Thông tin tài khoản</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{route('seller.storeAccount', ['id' => $account[0]->id])}}">
+                            <form method="POST" action="{{route('user.storeAccount', ['id' => $account[0]->id])}}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>

@@ -26,6 +26,10 @@ class ProductController extends Controller
         return view('welcome', compact('product'));
     }
 
+    public function indexDetail(){
+        return view('productdetail');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -89,7 +93,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         $product = Product::query()->where('id', $id)->get();
 

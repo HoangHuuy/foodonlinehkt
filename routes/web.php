@@ -31,11 +31,13 @@ Route::group(['prefix' => 'seller'], function (){
     Route::get('/product/edit/{id}', 'ProductController@edit')->name('seller.editProduct');
     Route::post('/product/update/{id}', 'ProductController@update')->name('seller.updateProduct');
     Route::get('/product/delete/{id}', 'ProductController@destroy')->name('seller.deleteProduct');
-
-
-
 });
+
 Route::group(['prefix' => 'account'], function (){
     Route::get('/profile/{id}', 'AccountController@edit')->name('user.profile');
-    Route::post('/profile/{id}', 'AccountController@store')->name('seller.storeAccount');
+    Route::post('/profile/{id}', 'AccountController@store')->name('user.storeAccount');
+});
+
+Route::group(['prefix' => 'product'], function (){
+    Route::get('/detail', 'ProductController@indexDetail')->name('product.detail');
 });

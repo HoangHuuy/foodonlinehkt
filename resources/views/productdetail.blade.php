@@ -18,23 +18,23 @@
   ============================================ -->
 
             <!-- Vendor CSS (Bootstrap & Icon Font) -->
-        <!-- <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/ionicons.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/simple-line-icons.css">
-        <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css"> -->
+        <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/ionicons.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/simple-line-icons.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/font-awesome.min.css"> -->
 
             <!-- Plugins CSS (All Plugins Files) -->
-         <!-- <link rel="stylesheet" href="assets/css/plugins/animate.css">
-        <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
-        <link rel="stylesheet" href="assets/css/plugins/swiper.css">  -->
+         <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/animate.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/jquery-ui.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/swiper.css">  -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
-        <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
-        <link rel="stylesheet" href="assets/css/style.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/vendor.min.css" />
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/plugins.min.css" />
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.min.css">
 
         <!-- Main Style CSS -->
-        <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
+        <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css" /> -->
     </head>
 
     <body>

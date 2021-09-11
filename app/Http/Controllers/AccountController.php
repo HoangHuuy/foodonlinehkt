@@ -11,6 +11,15 @@ use Auth;
 
 class AccountController extends Controller
 {
+
+//    public function index($id){
+//
+//        $account = User::query()->where('id', $id)->get();
+//        return view('layouts.app', compact('account'));
+//    }
+
+
+
     public function edit($id){
 
         $account = User::query()->where('id', $id)->get();

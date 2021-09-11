@@ -2,7 +2,7 @@
     <li class="nav-item w-100">
         <a href="#" class="nav-link my-color-text title-seller-sidebar p1-4 dddrop-one"
         role="button" aria-expanded="false">
-        <img data-v-5fe982fb="" src="https://cf.shopee.vn/file/f82f8ccb649afcdf4f07f1dd9c41bcb0" 
+        <img data-v-5fe982fb="" src="https://cf.shopee.vn/file/f82f8ccb649afcdf4f07f1dd9c41bcb0"
         class="sidebar-menu-item-icon">
             <span>Quản lý đơn hàng</span>
             <i class="fas fa-caret-down first"></i>
@@ -22,7 +22,7 @@
     <li class="nav-item w-100">
         <a href="#" class="nav-link my-color-text p1-4 dddrop-two"
         role="button" aria-expanded="false">
-        <img data-v-5fe982fb="" src="https://cf.shopee.vn/file/3fa3bdb20eb201ae3f157ee8d11a39d5" 
+        <img data-v-5fe982fb="" src="https://cf.shopee.vn/file/3fa3bdb20eb201ae3f157ee8d11a39d5"
         class="sidebar-menu-item-icon">
                 <span>Quản lý sản phẩm</span>
                 <i class="fas fa-caret-down second"></i>
@@ -39,15 +39,30 @@
     <li class="nav-item w-100">
         <a href="#" class="nav-link my-color-text p1-4 title-seller-sidebar dddrop-three"
         role="button" aria-expanded="false">
-        <img data-v-5fe982fb="" src="https://cf.shopee.vn/file/789f116a0778cf137519cadb1165d70f" 
+        <img data-v-5fe982fb="" src="https://cf.shopee.vn/file/789f116a0778cf137519cadb1165d70f"
         class="sidebar-menu-item-icon">
             <span>Thiết lập shop</span>
             <i class="fas fa-caret-down third"></i>
         </a>
         <ul class="a-deco w-100 dddrop-three-show">
-            <li><a href="#" class="active-link dropdown-item my-color-text p1-4 p-2">
+            <li><a href= "{{route('seller.showAddress',['id'=>getId()])}}"  class ="active-link dropdown-item my-color-text p1-4 p-2">
                 Địa chỉ
             </a></li>
+            <li><a href="/seller/address/add" class="active-link dropdown-item my-color-text p1-4 p-2">
+                    Thêm địa chỉ
+                </a></li>
         </ul>
     </li>
 </ul>
+<?php
+use App\Seller;
+use Illuminate\Support\Facades\Auth;
+function getId()
+        {
+            $username = Auth::user()->username;
+           $username1 = Seller::query()->where('username', $username)->get();
+            return isset($username1[0]->id) ? $username1[0]->id : ' ';
+
+
+        }
+    ?>

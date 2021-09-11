@@ -1,73 +1,82 @@
-@extends('layouts.app')
+<html>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Đăng Nhập</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <link href="{{ asset('css/signInAndUp.css') }}" rel="stylesheet">
 
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">Tên đăng nhập</label>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Đăng nhập</title>
+</head>
 
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+<body>
+    <header>
+        <a href="/"><img src="" alt="logo"></a>
+        <span></span>
+    </header>
 
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+    <div class="main-wrapper">
+        <div class="main">
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Mật khẩu</label>
+            <p class="sign">Đăng nhập</p>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <form method="POST" action="{{ route('login') }}" class="form1">
+                @csrf
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                <div class="center-items">
+                    <input id="username" type="text" 
+                        class="un form-control @error('username') is-invalid @enderror"
+                        name="username" value="{{ old('username') }}" required autofocus
+                        placeholder="Username">
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
-                                    <label class="form-check-label" for="remember">
-                                        Nhớ tài khoản
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                <div class="center-items">
+                    <input id="password" type="password"
+                        class="pass form-control @error('password') is-invalid @enderror" name="password" required
+                        placeholder="Password">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Đăng Nhập
-                                </button>
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Quên mật khẩu?
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                <div class="center-items">
+                    <a onclick="this.closest('form').submit();return false;" class="submit">Đăng nhập</a>
+                </div>
+
+                <!-- phần đầu code chưa xử lí -->
+                <div class="center-items">
+                    @if (Route::has('password.request'))
+                    <p class="forgot"><a href="{{ route('password.request') }}">Quên mật khẩu</a></p>
+                    @endif
+                </div>
+                <!-- kết thúc code chưa xử lí -->
+
+            </form>
+
+            <div class="center-items">
+
+                <div class="no-account">
+                    <span>Bạn chưa có tài khoản? &nbsp; </span>
+                    <a class="" href="{{ route('register') }}">
+                        Đăng ký ngay
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+</body>
+
+</html>

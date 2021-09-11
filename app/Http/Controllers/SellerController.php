@@ -34,12 +34,6 @@ class SellerController extends Controller
         return view('seller.addaddress');
     }
 
-    public function indexSsbAddress($id)
-    {
-        $seller = Seller::query()->where('id', $id)->get();
-        return view('layouts.ssb',compact('seller'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -80,7 +74,7 @@ class SellerController extends Controller
 
     }catch(Exception $e )
         {
-
+            dd($e);
         }
 
     }

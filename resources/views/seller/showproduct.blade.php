@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="seller-title">
+    @if(session()->has('success'))
+        <div class="alert add-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <h3>Gian hàng của bạn</h3>
     <span class="note">Bạn có thể xem tất cả các sản phẩm bạn đang bán tại đây</span>
 </div>
@@ -34,7 +39,9 @@
                         class="link-btn link-btn-action">Xóa</a></button>
             </td>
         </tr>
+
         @endforeach
+
     </tbody>
 </table>
 @endsection

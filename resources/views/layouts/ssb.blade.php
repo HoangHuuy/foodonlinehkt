@@ -45,7 +45,7 @@
             <i class="fas fa-caret-down third"></i>
         </a>
         <ul class="a-deco w-100 dddrop-three-show">
-            <li><a href= "{{route('seller.showAddress',['id'=>getId()])}}"  class ="active-link dropdown-item my-color-text p1-4 p-2">
+            <li><a href= "{{route('seller.showAddress',['id'=>getIdSeller()])}}"  class ="active-link dropdown-item my-color-text p1-4 p-2">
                 Địa chỉ
             </a></li>
             <li><a href="/seller/address/add" class="active-link dropdown-item my-color-text p1-4 p-2">
@@ -57,12 +57,10 @@
 <?php
 use App\Seller;
 use Illuminate\Support\Facades\Auth;
-function getId()
+function getIdSeller()
         {
             $username = Auth::user()->username;
            $username1 = Seller::query()->where('username', $username)->get();
             return isset($username1[0]->id) ? $username1[0]->id : ' ';
-
-
         }
     ?>

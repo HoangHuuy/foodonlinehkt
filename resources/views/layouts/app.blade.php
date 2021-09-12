@@ -81,9 +81,9 @@
                             </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-{{--                                    <a class="dropdown-item" href="{{ route('user.showprofile', ['id' => $account[0]->id]) }}">--}}
-{{--                                       Thông tin tài khoản--}}
-{{--                                    </a>--}}
+                                    <a class="dropdown-item" href="{{ route('user.showprofile', ['id' => getIdUser()]) }}">
+                                       Thông tin tài khoản
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -118,3 +118,17 @@
 </body>
 
 </html>
+
+<?php
+use App\User;
+use Illuminate\Support\Facades\Auth;
+function getIdUser()
+{
+    $username = Auth::user()->username;
+    $username1 = User::query()->where('username', $username)->get();
+    return isset($username1[0]->id) ? $username1[0]->id : ' ';
+
+
+}
+?>
+

@@ -64,7 +64,8 @@ class ProductController extends Controller
 
             $product->save();
 
-            return redirect()->route('seller.addProduct')->with('success', 'Thêm thành công');
+//            return redirect()->route('seller.addProduct')->with('success', 'Thêm thành công');
+            return redirect()->route('seller.showProduct')->with('success', 'Thêm thành công');
         }catch(Exception $error){
             dd($error);
             return redirect()->route('seller.addProduct')->with('error', 'Có lỗi trong quá trình thực hiện');

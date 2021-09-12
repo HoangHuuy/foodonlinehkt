@@ -20,18 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69163916-eadc-42d3-ae34-9f400c1ff496" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/seller/addaddress.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/seller/showAddress.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/foodthk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/foodthk.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SellerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SellerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/account/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/account/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/ssb.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/ssb.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/sellerhome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/sellerhome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/showproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/showproduct.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +202,8 @@
       <workItem from="1631322840636" duration="4806000" />
       <workItem from="1631329503448" duration="2173000" />
       <workItem from="1631343018602" duration="1994000" />
-      <workItem from="1631374475726" duration="9955000" />
+      <workItem from="1631374475726" duration="10120000" />
+      <workItem from="1631434739685" duration="3571000" />
     </task>
     <servers />
   </component>
@@ -270,5 +267,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1630773497515" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1631437497027">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1631437497027" />
   </component>
 </project>

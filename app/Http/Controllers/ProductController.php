@@ -26,6 +26,10 @@ class ProductController extends Controller
         return view('welcome', compact('product'));
     }
 
+    public function indexDetail(){
+        return view('productdetail');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -64,7 +68,8 @@ class ProductController extends Controller
 
             $product->save();
 
-            return redirect()->route('seller.addProduct')->with('success', 'Thêm thành công');
+//            return redirect()->route('seller.addProduct')->with('success', 'Thêm thành công');
+            return redirect()->route('seller.showProduct')->with('success', 'Thêm thành công');
         }catch(Exception $error){
             dd($error);
             return redirect()->route('seller.addProduct')->with('error', 'Có lỗi trong quá trình thực hiện');
@@ -89,7 +94,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         $product = Product::query()->where('id', $id)->get();
 

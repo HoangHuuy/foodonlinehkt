@@ -34,13 +34,13 @@ Route::group(['prefix' => 'seller'], function (){
     Route::get('/address/show/{id}', 'SellerController@indexAddress')->name('seller.showAddress');
     Route::post('/address/add/{id}', 'SellerController@update')->name('seller.updateAddress');
     Route::get('/address/add', 'SellerController@index3')->name('seller.addAddress');
-
-
-
-
 });
+
 Route::group(['prefix' => 'account'], function (){
-//    Route::get('/profile111/{id}', 'AccountController@index')->name('user.showprofile');
-    Route::get('/profile/{id}', 'AccountController@edit')->name('user.profile');
+    Route::get('/profile/{id}', 'AccountController@edit')->name('user.showprofile');
     Route::post('/profile/{id}', 'AccountController@store')->name('user.storeAccount');
+});
+
+Route::group(['prefix' => 'product'], function (){
+    Route::get('/detail', 'ProductController@indexDetail')->name('product.detail');
 });

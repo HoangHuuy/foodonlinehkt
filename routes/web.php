@@ -22,6 +22,12 @@ Route::get('/', 'ProductController@indexAll')->name('showAllProduct');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'product'], function (){
+    Route::get('/{type}', 'ProductController@typeIndex')->name('user.showProduct');
+    Route::get('details/{id}', 'ProductController@detailProduct')->name('user.showProduct');
+    Route::get('/search/id', 'ProductController@searchProduct')->name('user.searchProduct');
+});
+
 
 Route::group(['prefix' => 'seller'], function (){
     Route::get('/', 'SellerController@index')->name('seller.home');
@@ -34,9 +40,6 @@ Route::group(['prefix' => 'seller'], function (){
     Route::get('/address/show/{id}', 'SellerController@indexAddress')->name('seller.showAddress');
     Route::post('/address/add/{id}', 'SellerController@update')->name('seller.updateAddress');
     Route::get('/address/add', 'SellerController@index3')->name('seller.addAddress');
-
-
-
 
 });
 Route::group(['prefix' => 'account'], function (){

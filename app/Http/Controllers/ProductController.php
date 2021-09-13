@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Seller;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\storeProductRequest;
 use Auth;
+use function PHPUnit\Framework\isNull;
 
 class ProductController extends Controller
 {
@@ -19,12 +22,43 @@ class ProductController extends Controller
         $product = Product::query()->where('username', Auth::user()->username)->get();
         return view('seller.showproduct',compact('product'));
     }
+    public function typeIndex($type)
+    {
+        $product = Product::query()->where('type', $type)->get();
+        return view('welcome',compact('product'));
+    }
 
     public function indexAll()
     {
         $product = Product::all();
         return view('welcome', compact('product'));
     }
+    public function detailProduct($id){
+        $product = Product::query()->where('id', $id)->get();
+        $seller = Seller::query()->where('username', $product[0]->username)->get();
+        return view('productdetail',compact('product','seller'));
+}
+    public function searchProduct(){
+        if(isset($_GET['searchProduct'])){
+            $searchProduct  = $_GET['searchProduct'] ;
+            $product = Product::query()->where('title','like', "%$searchProduct%")->get();
+            if(isset($_GET['sltSearch'])){
+                $sltSearch = $_GET['sltSearch'];
+                if($sltSearch == "up")
+                   $pro = $product->sortBy('price');
+                else if($sltSearch == "down");
+               $pro = $product->sortByDesc('price');
+                if(isset($product))
+                    return view('welcome',compact('product'))->with("error","Khong tim thay san pham ");
+                else
+                    return view('welcome',compact('product'));
+            }
+        }else{
+            $product = Product::all();
+            return view('welcome', compact('product'));
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -58,8 +92,7 @@ class ProductController extends Controller
                 $file->move('uploads/product/', $filename);
                 $product->image_product = $filename;
             }else {
-                return $request;
-                $product->image_product = '';
+                $product->image_product = "imagedefaults.jpg";
             }
 
             $product->save();

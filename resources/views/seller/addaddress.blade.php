@@ -1,4 +1,5 @@
 {{--@include('..layouts.ssb')--}}
+@extends('..layouts.app')
 @section('content')
     <div class="seller-title">
         <h3>Địa chỉ của bạn</h3>

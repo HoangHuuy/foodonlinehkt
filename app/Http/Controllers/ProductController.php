@@ -26,8 +26,9 @@ class ProductController extends Controller
         return view('welcome', compact('product'));
     }
 
-    public function indexDetail(){
-        return view('productdetail');
+    public function indexDetail($id){
+        $product = Product::query()->where('id', $id)->get();
+        return view('productdetail', compact('product'));
     }
 
     /**
@@ -97,7 +98,6 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::query()->where('id', $id)->get();
-
         return view('seller.editproduct', compact('product'));
     }
 

@@ -45,49 +45,47 @@
                 <div class="container">
                     <div class="header-nav-wrapper d-md-flex d-sm-flex d-xl-flex d-lg-flex justify-content-between">
                         <div class="header-static-nav">
-                            <p>Welcome you to Rozer Store!</p>
+                            <p>Chào mừng đến với foodTHK!</p>
                         </div>
                         <div class="header-menu-nav">
+
+                            {{-- dang nhap, dang ki, hien thi ten tai khoan --}}
                             <ul class="menu-nav">
-                                <li>
-                                    <div class="dropdown">
-                                        <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Setting <i class="ion-ios-arrow-down"></i></button>
 
-                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton">
-                                            <li><a href="my-account.html">My account</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="login.html">Sign in</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                <!-- Authentication Links -->
+                                @guest
                                 <li>
-                                    <div class="dropdown">
-                                        <button type="button" id="dropdownMenuButton-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD $ <i class="ion-ios-arrow-down"></i></button>
-
-                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton-2">
-                                            <li><a href="#">EUR €</a></li>
-                                            <li><a href="#">USD $</a></li>
-                                        </ul>
-                                    </div>
+                                    <a href="{{ route('login') }}">Đăng nhập</a>
                                 </li>
+                                @if (Route::has('register'))
+                                <li  class="pr-0">
+                                    <a href="{{ route('register') }}">Đăng kí</a>
+                                </li>
+                                @endif
+                                @else
                                 <li class="pr-0">
                                     <div class="dropdown">
-                                        <button type="button" id="dropdownMenuButton-3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img src="assets/images/flag/1.jpg" alt="" /> English <i class="ion-ios-arrow-down"></i>
-                                        </button>
+                                        <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }} <i class="ion-ios-arrow-down"></i></button>
 
-                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton-3">
-                                            <li>
-                                                <a href="#"><img src="assets/images/flag/1.jpg" alt="" /> English</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img src="assets/images/flag/2.jpg" alt="" /> Français</a>
+                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton">
+                                            <li><a href="login.html"  href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                    Đăng xuất
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
+                                @endguest
                             </ul>
                         </div>
+
+                        {{-- ket thuc phan xac thuc: dang nhap, dang ki, ten tai khoan --}}
+
                     </div>
                 </div>
             </div>
@@ -97,7 +95,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
+                                <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
                             </div>
                         </div>
                         <div class="col-md-10 align-self-center">
@@ -218,7 +216,7 @@
                                 <div class="header-tools d-flex">
                                     <div class="cart-info d-flex align-self-center">
                                         <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i class="icon-heart"></i></a>
-                                        <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span>$20.00</span></a>
+                                        <a href="/cart" data-number="3"><i class="icon-bag"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +334,7 @@
                                     <li class="active menu-dropdown">
                                         <a href="/">Trang chủ</a>
                                     </li>
-                                    <!-- <li class="menu-dropdown">
+                                    {{-- <li class="menu-dropdown">
                                         <a href="#">Shop <i class="ion-ios-arrow-down"></i></a>
                                         <ul class="mega-menu-wrap">
                                             <li>
@@ -427,14 +425,14 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </li> -->
-                                    <li><a href="contact.html">Danh sách món ưa thích</a></li>
+                                    </li> --}}
+                                    <li><a href="#">Danh sách món ưa thích</a></li>
                                 </ul>
                             </div>
                             <!-- header horizontal menu -->
-                            <!-- <div class="intro-text-shipping text-end">
+                            {{-- <div class="intro-text-shipping text-end">
                                 <div class="free-ship">Free Shipping on Orders $50+</div>
-                            </div> -->
+                            </div>  --}}
                         </div>
                     </div>
                     <!-- row -->
@@ -486,57 +484,6 @@
             </div>
         </div>
     </div>
-    <!-- OffCanvas Wishlist End -->
-
-    <!-- OffCanvas Cart Start -->
-    <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
-        <div class="inner">
-            <div class="head">
-                <span class="title">Cart</span>
-                <button class="offcanvas-close">×</button>
-            </div>
-            <div class="body customScroll">
-                <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg" alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">Walnut Cutting Board</a>
-                            <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg" alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">Lucky Wooden Elephant</a>
-                            <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg" alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">Fish Cut Out Set</a>
-                            <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="foot">
-                <div class="sub-total">
-                    <strong>Subtotal :</strong>
-                    <span class="amount">$144.00</span>
-                </div>
-                <div class="buttons">
-                    <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
-                </div>
-                <p class="minicart-message">Free Shipping on All Orders Over $100!</p>
-            </div>
-        </div>
-    </div>
-    <!-- OffCanvas Cart End -->
 
     <div class="offcanvas-overlay"></div>
     <!-- Breadcrumb Area Start -->
@@ -546,7 +493,7 @@
                     <div class="col-md-12">
                         <div class="breadcrumb-content">
                             <ul class="nav">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="/">Home</a></li>
                                 <li>Shop</li>
                             </ul>
                         </div>
@@ -602,7 +549,8 @@
                                             <div class="col-xl-3 col-md-4 col-sm-6 ">
                                                 <article class="list-product">
                                                     <div class="img-block">
-                                                        <a href="single-product.html" class="thumbnail">
+                                                        <a href="{{ route('product.detail', ['id' => $item->id]) }}" class="thumbnail">
+                                                            {{-- <a href="{{ dd('$item[]') }}" class="thumbnail"> --}}
                                                             <img class="first-img" src="{{ asset('uploads/product/' . $item->image_product )}}" height="140px" alt="{{$item->title}}">
                                                         </a>
                                                     </div>
@@ -620,7 +568,8 @@
                                                     </div>
                                                     <div class="add-to-link">
                                                         <ul>
-                                                            <li class="cart"><a class="cart-btn" href="#">THÊM VÀO GIỎ</a></li>
+                                                            <li class="cart"><a class="cart-btn" href="#">THÊM VÀO GIỎ</a>
+                                                            </li>
                                                             <li>
                                                                 <a href="wishlist.html"><i class="icon-heart"></i></a>
                                                             </li>

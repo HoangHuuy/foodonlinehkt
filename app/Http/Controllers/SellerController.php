@@ -22,7 +22,7 @@ class SellerController extends Controller
     {
         $username = Auth::user()->username;
         $seller = Seller::query()->where('username', $username)->get();
-        return view('seller.addAddress',compact('seller'));
+        return view('seller.addaddress',compact('seller'));
     }
     public function indexAddress($id)
     {

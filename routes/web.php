@@ -16,12 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'CartController@indexIcon')->name('cart.icon');
 
 Route::get('/', 'ProductController@indexAll')->name('showAllProduct');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'seller'], function (){
     Route::get('/', 'SellerController@index')->name('seller.home');
@@ -42,5 +41,13 @@ Route::group(['prefix' => 'account'], function (){
 });
 
 Route::group(['prefix' => 'product'], function (){
-    Route::get('/detail', 'ProductController@indexDetail')->name('product.detail');
+    Route::get('/detail/{id}', 'ProductController@indexDetail')->name('product.detail');
+});
+
+Route::group(['prefix' => 'don-hang'], function (){
+    Route::post('/','OderController@store')->name('oder.store');
+});
+
+Route::group(['prefix' => 'cart'], function (){
+    Route::get('/', 'CartController@index')->name('cart');
 });

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Seller;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\storeProductRequest;
 use Auth;
+use function PHPUnit\Framework\isNull;
 
 class ProductController extends Controller
 {
@@ -14,17 +17,48 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sellerIndex()
-    {
+    public function sellerIndex(){
         $product = Product::query()->where('username', Auth::user()->username)->get();
         return view('seller.showproduct',compact('product'));
     }
 
-    public function indexAll()
-    {
+    //hien thi theo loai
+    public function typeIndex($type){
+        $product = Product::query()->where('type', $type)->get();
+        return view('type',compact('product'));
+    }
+
+    public function indexAll(){
         $product = Product::all();
         return view('welcome', compact('product'));
     }
+
+    public function detailProduct($id){
+        $product = Product::query()->where('id', $id)->get();
+        $seller = Seller::query()->where('username', $product[0]->username)->get();
+        return view('productdetail',compact('product','seller'));
+    }
+
+    public function searchProduct(){
+        if(isset($_GET['searchProduct'])){
+            $searchProduct  = $_GET['searchProduct'] ;
+            $product = Product::query()->where('title','like', "%$searchProduct%")->get();
+            // if(isset($_GET['sltSearch'])){
+            //     $sltSearch = $_GET['sltSearch'];
+            //     if($sltSearch == "up")
+            //        $pro = $product->sortBy('price');
+            //     else if($sltSearch == "down");
+            //    $pro = $product->sortByDesc('price');
+                // if(isset($product))
+                //     return view('searchProduct',compact('product'))->with("error","Khong tim thay san pham ");
+                // else
+                    return view('searchProduct',compact('product'));
+        }else{
+            $product = Product::all();
+            return view('welcome', compact('product'));
+        }
+    }
+
 
     public function indexDetail($id){
         $product = Product::query()->where('id', $id)->get();
@@ -63,8 +97,7 @@ class ProductController extends Controller
                 $file->move('uploads/product/', $filename);
                 $product->image_product = $filename;
             }else {
-                return $request;
-                $product->image_product = '';
+                $product->image_product = "imagedefaults.jpg";
             }
 
             $product->save();
@@ -116,7 +149,13 @@ class ProductController extends Controller
             $product->title = $request->title;
             $product->type = $request->type;
             $product->price = $request->price;
-
+            // dd($product->id);
+    
+            // dd($request->hasfile('image_product'));
+            // dd($file = $request->file('image_product'));
+            // dd($request->image_product);
+            
+            // dd($product2[0]->image_product);
             if($request->hasfile('image_product')){
                 $file = $request->file('image_product');
                 $extension = $file->getClientOriginalExtension();
@@ -125,11 +164,15 @@ class ProductController extends Controller
                 $product->image_product = $filename;
 
             }else {
-                $product->image_product = "imagedefaults.jpg";
+                
+                $product2 = Product::query()->where('id', $id)->get();
+                // dd($product->username);
+                // dd($product2);
+                $product->image_product = $product2[0]->image_product;
             }
 
-            Product::where('id', $id)->update(['username' => $product->username,
-            'title' => $product->title, 'type' => $product->type,
+            Product::where('id', $id)->update(['username' => $product->username, 
+            'title' => $product->title, 'type' => $product->type, 
             'price' => $product->price, 'image_product' => $product->image_product ]);
             // dd("success");
             return redirect()->route('seller.showProduct')->with('success', 'Thay đổi thành công');

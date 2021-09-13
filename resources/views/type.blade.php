@@ -10,7 +10,7 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/assets/images/favicon/favicon.png" />
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&amp;display=swap" rel="stylesheet" />
 
@@ -18,23 +18,23 @@
   ============================================ -->
 
             <!-- Vendor CSS (Bootstrap & Icon Font) -->
-        <!-- <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/ionicons.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/simple-line-icons.css">
-        <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css"> -->
+        <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/ionicons.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/simple-line-icons.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/font-awesome.min.css"> -->
 
             <!-- Plugins CSS (All Plugins Files) -->
-         <!-- <link rel="stylesheet" href="assets/css/plugins/animate.css">
-        <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
-        <link rel="stylesheet" href="assets/css/plugins/swiper.css">  -->
+         <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/animate.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/jquery-ui.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/swiper.css">  -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
-        <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
-        <link rel="stylesheet" href="assets/css/style.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/vendor.min.css" />
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/plugins.min.css" />
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.min.css">
 
         <!-- Main Style CSS -->
-        <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
+        <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css" /> -->
     </head>
 
     <body>
@@ -95,27 +95,121 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="logo">
-                                <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
+                                <a href="/"><img class="img-responsive" src="http://127.0.0.1:8000/assets/images/logo/logo.png" alt="logo.jpg" /></a>
                             </div>
                         </div>
                         <div class="col-md-10 align-self-center">
                             <div class="header-right-element d-flex">
                                 <div class="search-element media-body">
-                                    <form class="d-flex" action="{{ route('user.searchProduct') }}" method="get">
-                                       
+                                    <form class="d-flex" action="#">
                                         <div class="search-category">
                                             <select>
-                                                <option>Tất cả</option>
-                                                <option>Cơm</option>
-                                                <option>Cháo</option>
-                                                <option>Phở</option>
-                                                <option>Đồ ăn vặt</option>
-                                                <option>Đồ uống</option>
-                                                <option>Đồ ăn khác</option>
+                                                <option value="0">All categories</option>
+                                                <option value="12">Laptop</option>
+                                                <option value="13">- - Hot Categories</option>
+                                                <option value="19">- - - - Dresses</option>
+                                                <option value="20">- - - - Jackets &amp; Coats</option>
+                                                <option value="21">- - - - Sweaters</option>
+                                                <option value="22">- - - - Jeans</option>
+                                                <option value="23">- - - - Blouses &amp; Shirts</option>
+                                                <option value="14">- - Outerwear &amp; Jackets</option>
+                                                <option value="24">- - - - Basic Jackets</option>
+                                                <option value="25">- - - - Real Fur</option>
+                                                <option value="26">- - - - Down Coats</option>
+                                                <option value="27">- - - - Blazers</option>
+                                                <option value="28">- - - - Trench Coats</option>
+                                                <option value="15">- - Weddings &amp; Events</option>
+                                                <option value="29">- - - - Wedding Dresses</option>
+                                                <option value="30">- - - - Evening Dresses</option>
+                                                <option value="31">- - - - Prom Dresses</option>
+                                                <option value="32">- - - - Bridesmaid Dresses</option>
+                                                <option value="33">- - - - Wedding Accessories</option>
+                                                <option value="16">- - Bottoms</option>
+                                                <option value="34">- - - - Skirts</option>
+                                                <option value="35">- - - - Leggings</option>
+                                                <option value="36">- - - - Pants &amp; Capris</option>
+                                                <option value="37">- - - - Wide Leg Pants</option>
+                                                <option value="38">- - - - Shorts</option>
+                                                <option value="17">- - Tops &amp; Sets</option>
+                                                <option value="39">- - - - Tank Tops</option>
+                                                <option value="40">- - - - Suits &amp; Sets</option>
+                                                <option value="41">- - - - Jumpsuits</option>
+                                                <option value="42">- - - - Rompers</option>
+                                                <option value="43">- - - - Sleep &amp; Lounge</option>
+                                                <option value="18">- - Accessories</option>
+                                                <option value="44">- - - - Eyewear &amp; Accessories</option>
+                                                <option value="45">- - - - Hats &amp; Caps</option>
+                                                <option value="46">- - - - Belts &amp; Cummerbunds</option>
+                                                <option value="47">- - - - Scarves &amp; Wraps</option>
+                                                <option value="48">- - - - Gloves &amp; Mittens</option>
+                                                <option value="49">Computer</option>
+                                                <option value="50">- - Bottoms</option>
+                                                <option value="53">- - - - Skirts</option>
+                                                <option value="54">- - - - Leggings</option>
+                                                <option value="55">- - - - Jeans</option>
+                                                <option value="56">- - - - Pants &amp; Capris</option>
+                                                <option value="57">- - - - Shorts</option>
+                                                <option value="51">- - Outerwear &amp; Jackets</option>
+                                                <option value="58">- - - - Trench</option>
+                                                <option value="59">- - - - Genuine Leather</option>
+                                                <option value="60">- - - - Parkas</option>
+                                                <option value="61">- - - - Down Jackets</option>
+                                                <option value="62">- - - - Wool &amp; Blends</option>
+                                                <option value="52">- - Underwear &amp; Loungewear</option>
+                                                <option value="63">- - - - Boxers</option>
+                                                <option value="64">- - - - Briefs</option>
+                                                <option value="65">- - - - Long Johns</option>
+                                                <option value="66">- - - - Men's Sleep &amp; Lounge</option>
+                                                <option value="67">- - - - Pajama Sets</option>
+                                                <option value="68">Smartphone</option>
+                                                <option value="69">- - Accessories &amp; Parts</option>
+                                                <option value="75">- - - - Cables &amp; Adapters</option>
+                                                <option value="76">- - - - Batteries</option>
+                                                <option value="77">- - - - Chargers</option>
+                                                <option value="78">- - - - Bags &amp; Cases</option>
+                                                <option value="79">- - - - Electronic Cigarettes</option>
+                                                <option value="70">- - Audio &amp; Video</option>
+                                                <option value="80">- - - - Televisions</option>
+                                                <option value="81">- - - - TV Receivers</option>
+                                                <option value="82">- - - - Projectors</option>
+                                                <option value="83">- - - - Audio Amplifier Boards</option>
+                                                <option value="84">- - - - TV Sticks</option>
+                                                <option value="71">- - Camera &amp; Photo</option>
+                                                <option value="85">- - - - Digital Cameras</option>
+                                                <option value="86">- - - - Camcorders</option>
+                                                <option value="87">- - - - Camera Drones</option>
+                                                <option value="88">- - - - Action Cameras</option>
+                                                <option value="89">- - - - Photo Studio Supplies</option>
+                                                <option value="72">- - Portable Audio &amp; Video</option>
+                                                <option value="90">- - - - Headphones</option>
+                                                <option value="91">- - - - Speakers</option>
+                                                <option value="92">- - - - MP3 Players</option>
+                                                <option value="93">- - - - VR/AR Devices</option>
+                                                <option value="94">- - - - Microphones</option>
+                                                <option value="73">- - Smart Electronics</option>
+                                                <option value="95">- - - - Wearable Devices</option>
+                                                <option value="96">- - - - Smart Home Appliances</option>
+                                                <option value="97">- - - - Smart Remote Controls</option>
+                                                <option value="98">- - - - Smart Watches</option>
+                                                <option value="99">- - - - Smart Wristbands</option>
+                                                <option value="74">- - Video Games</option>
+                                                <option value="100">- - - - Handheld Game Players</option>
+                                                <option value="101">- - - - Game Controllers</option>
+                                                <option value="102">- - - - Joysticks</option>
+                                                <option value="103">- - - - Stickers</option>
+                                                <option value="104">Game Consoles</option>
+                                                <option value="105">Mp3 &amp; headphone</option>
+                                                <option value="106">Tv &amp; Video</option>
+                                                <option value="107">Watches</option>
+                                                <option value="108">Washing Machine</option>
+                                                <option value="109">Camera</option>
+                                                <option value="110">Audio &amp; Theater</option>
+                                                <option value="111">Accessories</option>
+                                                <option value="112">Games &amp; Consoles</option>
                                             </select>
                                         </div>
-                                        <input name="searchProduct" type="text" placeholder="Nhập tên sản phẩm (tối thiểu 3 kí tự) ..." />
-                                        <button type="submit"><i class="icon-magnifier"></i></button>
+                                        <input type="text" placeholder="Nhập tên sản phẩm (tối thiểu 3 kí tự) ..." />
+                                        <button><i class="icon-magnifier"></i></button>
                                     </form>
                                 </div>
                                 <!--Cart info Start -->
@@ -200,10 +294,10 @@
                                             <li class="w-100">
                                                 <ul class="banner-megamenu-wrapper d-flex">
                                                     <li class="banner-wrapper mr-30px">
-                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="http://127.0.0.1:8000/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="http://127.0.0.1:8000/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -274,7 +368,7 @@
             <div class="body customScroll">
                 <ul class="minicart-product-list">
                     <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/7.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Walnut Cutting Board</a>
                             <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
@@ -282,7 +376,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/9.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/9.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Lucky Wooden Elephant</a>
                             <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
@@ -290,7 +384,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/8.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/8.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Fish Cut Out Set</a>
                             <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
@@ -414,8 +508,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/7.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/8.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/8.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -480,8 +574,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/9.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/10.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/9.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/10.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -546,8 +640,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/11.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/12.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/11.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -612,8 +706,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/13.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/14.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -678,8 +772,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/15.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/16.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/15.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/16.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -744,8 +838,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/17.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/18.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/17.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/18.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -810,8 +904,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/19.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/20.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/19.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/20.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -876,8 +970,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/21.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/22.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/21.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/22.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -942,8 +1036,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/23.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/24.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/23.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/24.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1008,8 +1102,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/25.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/26.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/25.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/26.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1074,8 +1168,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/27.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/28.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/27.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/28.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1140,8 +1234,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/29.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/17.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/29.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/17.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1206,8 +1300,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/11.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/12.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/11.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1272,8 +1366,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/17.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/18.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/17.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/18.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1338,8 +1432,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/13.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/14.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1404,8 +1498,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/15.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/16.jpg" alt="" />
+                                                                        <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/15.jpg" alt="" />
+                                                                        <img class="second-img" src="http://127.0.0.1:8000/assets/images/product-image/16.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1598,7 +1692,7 @@
                                 <strong> HasThemes</strong></a>.</p>
                             </div>
                             <div class="col-md-6 text-end">
-                                <img class="payment-img" src="assets/images/icons/payment.png" alt="" />
+                                <img class="payment-img" src="http://127.0.0.1:8000/assets/images/icons/payment.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1620,32 +1714,32 @@
                                   <div class="swiper-container gallery-top">
                                         <div class="swiper-wrapper">
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/11.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/11.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/12.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/13.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/14.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="">
                                           </div>
                                         </div>
                                   </div>
                                   <div class="swiper-container gallery-thumbs">
                                     <div class="swiper-wrapper">
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/11.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/11.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/12.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/13.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/14.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="">
                                           </div>
                                         </div>
                                   </div>
@@ -1728,24 +1822,24 @@
 ============================================ -->
 
             <!-- Vendors JS -->
-        <!-- <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
+        <!-- <script src="http://127.0.0.1:8000/assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
 
             <!-- Plugins JS -->
-         <!-- <script src="assets/js/plugins/jquery-ui.min.js"></script>
-        <script src="assets/js/plugins/swiper.min.js"></script>
-        <script src="assets/js/plugins/countdown.js"></script>
-        <script src="assets/js/plugins/scrollup.js"></script>
-        <script src="assets/js/plugins/elevateZoom.js"></script> -->
+         <!-- <script src="http://127.0.0.1:8000/assets/js/plugins/jquery-ui.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/plugins/swiper.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/plugins/countdown.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/plugins/scrollup.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/plugins/elevateZoom.js"></script> -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <script src="assets/js/vendor/vendor.min.js"></script>
-        <script src="assets/js/plugins/plugins.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/vendor/vendor.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/plugins/plugins.min.js"></script>
 
         <!-- Main Activation JS -->
-        <script src="assets/js/main.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/main.js"></script>
     </body>
 
 <!-- Mirrored from template.hasthemes.com/rozer/rozer/shop-4-column.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:27:46 GMT -->

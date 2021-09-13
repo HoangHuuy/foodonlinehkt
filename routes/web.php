@@ -22,6 +22,11 @@ Route::get('/', 'ProductController@indexAll')->name('showAllProduct');
 
 Auth::routes();
 
+Route::group(['prefix' => 'product'], function (){
+    Route::get('/{type}', 'ProductController@typeIndex')->name('user.showProduct');
+    Route::get('/search/id', 'ProductController@searchProduct')->name('user.searchProduct');
+});
+
 Route::group(['prefix' => 'seller'], function (){
     Route::get('/', 'SellerController@index')->name('seller.home');
     Route::get('/product/add', 'ProductController@create')->name('seller.addProduct');

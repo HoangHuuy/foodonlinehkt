@@ -29,9 +29,9 @@
         <link rel="stylesheet" href="assets/css/plugins/swiper.css">  -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
-        <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
-        <link rel="stylesheet" href="assets/css/style.min.css">
+        <link rel="stylesheet" href="/assets/css/vendor/vendor.min.css" />
+        <link rel="stylesheet" href="/assets/css/plugins/plugins.min.css" />
+        <link rel="stylesheet" href="/assets/css/style.min.css">
 
         <!-- Main Style CSS -->
         <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
@@ -95,14 +95,14 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="logo">
-                                <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
+                                <a href="/"><img class="img-responsive" src="/assets/images/logo/logo.png" alt="logo.jpg" /></a>
                             </div>
                         </div>
                         <div class="col-md-10 align-self-center">
                             <div class="header-right-element d-flex">
                                 <div class="search-element media-body">
                                     <form class="d-flex" action="{{ route('user.searchProduct') }}" method="get">
-                                       
+                                        @csrf
                                         <div class="search-category">
                                             <select>
                                                 <option>Tất cả</option>
@@ -200,10 +200,10 @@
                                             <li class="w-100">
                                                 <ul class="banner-megamenu-wrapper d-flex">
                                                     <li class="banner-wrapper mr-30px">
-                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -274,7 +274,7 @@
             <div class="body customScroll">
                 <ul class="minicart-product-list">
                     <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/7.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="/assets/images/product-image/7.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Walnut Cutting Board</a>
                             <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
@@ -282,7 +282,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/9.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="/assets/images/product-image/9.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Lucky Wooden Elephant</a>
                             <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
@@ -290,7 +290,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/8.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="/assets/images/product-image/8.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Fish Cut Out Set</a>
                             <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
@@ -315,8 +315,7 @@
                     <div class="col-md-12">
                         <div class="breadcrumb-content">
                             <ul class="nav">
-                                <li><a href="/">Home</a></li>
-                                <li>Shop</li>
+                                <li>Tìm kiếm</li>
                             </ul>
                         </div>
                     </div>
@@ -414,8 +413,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/7.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/8.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/7.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/8.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -480,8 +479,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/9.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/10.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/9.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/10.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -546,8 +545,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/11.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/12.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/11.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/12.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -612,8 +611,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/13.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/14.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/13.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/14.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -678,8 +677,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/15.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/16.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/15.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/16.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -744,8 +743,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/17.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/18.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/17.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/18.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -810,8 +809,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/19.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/20.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/19.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/20.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -876,8 +875,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/21.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/22.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/21.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/22.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -942,8 +941,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/23.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/24.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/23.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/24.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1008,8 +1007,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/25.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/26.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/25.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/26.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1074,8 +1073,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/27.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/28.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/27.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/28.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1140,8 +1139,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/29.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/17.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/29.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/17.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1206,8 +1205,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/11.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/12.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/11.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/12.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1272,8 +1271,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/17.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/18.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/17.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/18.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1338,8 +1337,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/13.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/14.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/13.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/14.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1404,8 +1403,8 @@
                                                             <div class="left-img">
                                                                 <div class="img-block">
                                                                     <a href="single-product.html" class="thumbnail">
-                                                                        <img class="first-img" src="assets/images/product-image/15.jpg" alt="" />
-                                                                        <img class="second-img" src="assets/images/product-image/16.jpg" alt="" />
+                                                                        <img class="first-img" src="/assets/images/product-image/15.jpg" alt="" />
+                                                                        <img class="second-img" src="/assets/images/product-image/16.jpg" alt="" />
                                                                     </a>
                                                                     <div class="quick-view">
                                                                         <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1598,7 +1597,7 @@
                                 <strong> HasThemes</strong></a>.</p>
                             </div>
                             <div class="col-md-6 text-end">
-                                <img class="payment-img" src="assets/images/icons/payment.png" alt="" />
+                                <img class="payment-img" src="/assets/images/icons/payment.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1620,32 +1619,32 @@
                                   <div class="swiper-container gallery-top">
                                         <div class="swiper-wrapper">
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/11.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/11.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/12.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/12.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/13.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/13.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/14.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/14.jpg" alt="">
                                           </div>
                                         </div>
                                   </div>
                                   <div class="swiper-container gallery-thumbs">
                                     <div class="swiper-wrapper">
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/11.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/11.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/12.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/12.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/13.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/13.jpg" alt="">
                                           </div>
                                           <div class="swiper-slide"> 
-                                                <img class="img-responsive m-auto" src="assets/images/product-image/14.jpg" alt="">
+                                                <img class="img-responsive m-auto" src="/assets/images/product-image/14.jpg" alt="">
                                           </div>
                                         </div>
                                   </div>
@@ -1728,24 +1727,24 @@
 ============================================ -->
 
             <!-- Vendors JS -->
-        <!-- <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
+        <!-- <script src="/assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="/assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <script src="/assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
 
             <!-- Plugins JS -->
-         <!-- <script src="assets/js/plugins/jquery-ui.min.js"></script>
-        <script src="assets/js/plugins/swiper.min.js"></script>
-        <script src="assets/js/plugins/countdown.js"></script>
-        <script src="assets/js/plugins/scrollup.js"></script>
-        <script src="assets/js/plugins/elevateZoom.js"></script> -->
+         <!-- <script src="/assets/js/plugins/jquery-ui.min.js"></script>
+        <script src="/assets/js/plugins/swiper.min.js"></script>
+        <script src="/assets/js/plugins/countdown.js"></script>
+        <script src="/assets/js/plugins/scrollup.js"></script>
+        <script src="/assets/js/plugins/elevateZoom.js"></script> -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <script src="assets/js/vendor/vendor.min.js"></script>
-        <script src="assets/js/plugins/plugins.min.js"></script>
+        <script src="/assets/js/vendor/vendor.min.js"></script>
+        <script src="/assets/js/plugins/plugins.min.js"></script>
 
         <!-- Main Activation JS -->
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
     </body>
 
 <!-- Mirrored from template.hasthemes.com/rozer/rozer/shop-4-column.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:27:46 GMT -->

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Models\Cart;
 use Auth;
 use App\Models\Product;
 use DB;
+use Session;
 
 class CartController extends Controller
 {
@@ -19,40 +20,9 @@ class CartController extends Controller
     //show trong trang /cart
     public function index()
     {
-        $find_user_order = Order::query()->where('user_username', Auth::user()->username)
-                                        ->orderBy('id_product', 'asc')
-                                        ->get();
 
-        //them sap xep vao day
-        if(!is_null($find_user_order)){
-            for($i = 0; $i < $find_user_order->count(); $i++){
-                $id_product[$i] = $find_user_order[$i]->id_product;
-            }
-        }
-
-        $data_product = Product::find($id_product);
-
-        return view('cart')->with(['data_product'=>$data_product, 'data_order'=>$find_user_order]);
     }
 
-    //show trong trang chu
-    public function indexIcon()
-    {
-        $find_user_order = Order::query()->where('user_username', Auth::user()->username)
-                                        ->orderBy('id_product', 'asc')
-                                        ->get();
-
-        //them sap xep vao day
-        if(!is_null($find_user_order)){
-            for($i = 0; $i < $find_user_order->count(); $i++){
-                $id_product[$i] = $find_user_order[$i]->id_product;
-            }
-        }
-
-        $data_product = Product::find($id_product);
-
-        return view('welcome')->with(['data_product'=>$data_product, 'data_order'=>$find_user_order]);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -69,9 +39,25 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    public function getAddToCart(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+        
+        $request->session()->put('cart', $cart);
+        return redirect()->route('showAllProduct');
+    }
+
+    public function getCart(){
+        if(!Session::has('cart')){
+            return view('cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
     /**

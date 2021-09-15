@@ -10,12 +10,12 @@
         @csrf
         <button type="submit" class="btn btn-primary" >Thêm địa chỉ mới</button>
         <div class="mb-3">
-            <label for="title" class="form-label">Họ tên</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="fullname" value="{{isset($seller[0]->fullname) ? old('fullname', $seller[0]->fullname) : ' '}}">
+            <label for="title" class="form-label">Tên Shop</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="shopName" value="{{isset($seller[0]->shopName) ? old('shopName', $seller[0]->shopName) : ' '}}">
         </div>
         <div class="mb-3">
             <label for="title" class="form-label">Số điện thoại</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="sđt" value="{{isset($seller[0]->sđt) ? old('sđt', $seller[0]->sđt) : ' '}}">
+            <input type="text" class="form-control" id="exampleInputPassword1" name="phoneNumber" value="{{isset($seller[0]->phoneNumber) ? old('phoneNumber', $seller[0]->phoneNumber) : ' '}}">
         </div>
         <div class="mb-3">
             <label for="title" class="form-label">Địa chỉ </label>

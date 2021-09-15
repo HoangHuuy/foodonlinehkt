@@ -96,28 +96,28 @@
 
                                                 <div class="col-md-6">
                                                     <input id="txtEmails" type="text" class="form-control "
-                                                           name="emails"
-                                                           value="{{isset($account[0]->emails) ? old('emails', $account[0]->emails) : ' '}}">
+                                                           name="email"
+                                                           value="{{isset($account[0]->email) ? old('email', $account[0]->email) : ' '}}">
 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="sđt"
+                                                <label for="phoneNumber"
                                                        class="col-md-4 col-form-label text-md-right">SĐT</label>
 
                                                 <div class="col-md-6">
-                                                    <input id="txtSĐT" type="text" class="form-control" name="sđt"
-                                                           value="{{isset($account[0]->sđt) ? old('sđt', $account[0]->sđt) : ' '}}">
+                                                    <input id="txtphoneNumber" type="text" class="form-control" name="phoneNumber"
+                                                           value="{{isset($account[0]->phoneNumber) ? old('phoneNumber', $account[0]->phoneNumber) : ' '}}">
 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="sđt" class="col-md-4 col-form-label text-md-right">Địa chỉ</label>
+                                                <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">Địa chỉ</label>
 
                                                 <div class="col-md-6">
                                                     <input id="txtAddress" type="text" class="form-control"
                                                            name="address"
-                                                           value="{{isset($account[0]->address) ? old('sđt', $account[0]->address) : ' '}}">
+                                                           value="{{isset($account[0]->address) ? old('phoneNumber', $account[0]->address) : ' '}}">
 
                                                 </div>
                                             </div>

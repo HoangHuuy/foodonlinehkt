@@ -30,9 +30,10 @@ class AccountController extends Controller
     {
         try{
             User::where('id', $id)->update(['fullname' =>  $request->fullname,
-                'doB' => $request->doB, 'emails' => $request->emails,
-                'sđt' => $request->sđt, 'gender' => $request->gender,'address' => $request->address ]);
+                'doB' => $request->doB, 'email' => $request->email,
+                'phoneNumber' => $request->phoneNumber, 'gender' => $request->gender,'address' => $request->address ]);
 
+                return redirect()->route('user.showprofile', ['id' => $id]);
         }catch(Exception $error){
             return redirect()->route('seller.storeAccount')->with('error', 'loi');
         }

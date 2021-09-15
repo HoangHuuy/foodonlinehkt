@@ -63,6 +63,9 @@
                                 </li>
                                 @endif
                                 @else
+                                <li >
+                                    <a href="{{ route('seller.home') }}">Trang người bán</a>
+                                </li>
                                 <li class="pr-0">
                                     <div class="dropdown">
                                         <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }} <i class="ion-ios-arrow-down"></i></button>
@@ -122,7 +125,10 @@
                                 <div class="header-tools d-flex">
                                     <div class="cart-info d-flex align-self-center">
                                         <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i class="icon-heart"></i></a>
-                                        <a href="/cart" data-number="3"><i class="icon-bag"></i></a>
+                                        <a href="{{ route('shoppingCart') }}" 
+                                            data-number="{{ Session::has('cart') ? Session::get('cart')->totalQty : "0" }}">
+                                            <i class="icon-bag"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -390,7 +396,8 @@
                                                     </div>
                                                     <div class="add-to-link">
                                                         <ul>
-                                                            <li class="cart"><a class="cart-btn" href="#">THÊM VÀO GIỎ</a>
+                                                            <li class="cart">
+                                                                <a class="cart-btn" href="{{ route('addToCart', ['id' => $item->id])}}">THÊM VÀO GIỎ</a>
                                                             </li>
                                                             <li>
                                                                 <a href="wishlist.html"><i class="icon-heart"></i></a>

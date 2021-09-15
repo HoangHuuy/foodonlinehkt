@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', 'CartController@indexIcon')->name('cart.icon');
-
 Route::get('/', 'ProductController@indexAll')->name('showAllProduct');
 
 Auth::routes();
+
+Route::get('/add-to-cart/{id}','CartController@getAddToCart')->name('addToCart');
+Route::get('/shopping-cart','CartController@getCart')->name('shoppingCart');
+
 
 Route::group(['prefix' => 'product'], function (){
     Route::get('/{type}', 'ProductController@typeIndex')->name('user.showProduct');
@@ -47,12 +46,4 @@ Route::group(['prefix' => 'account'], function (){
 
 Route::group(['prefix' => 'product'], function (){
     Route::get('/detail/{id}', 'ProductController@indexDetail')->name('product.detail');
-});
-
-Route::group(['prefix' => 'don-hang'], function (){
-    Route::post('/','OderController@store')->name('oder.store');
-});
-
-Route::group(['prefix' => 'cart'], function (){
-    Route::get('/', 'CartController@index')->name('cart');
 });

@@ -926,6 +926,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            
+                            {{-- hien thi gio hang              --}}
+                            @if(Session::has('cart'))   
                             <form action="#">
                                 <div class="table-content table-responsive cart-table-content">
                                     <table>
@@ -940,26 +943,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                            @foreach($data_order as $key => $row)
+                                            @foreach($products as $product)
                                             <tr>
                                                 <td class="product-thumbnail">
-                                                    <a  href="#"><img class="img-responsive" src="{{ asset('uploads/product/' .$data_product[$key]->image_product )}}" alt="" /></a>
+                                                    <a  href="#">
+                                                        <img class="img-responsive" src="{{ asset('uploads/product/' .$product['item']['image_product'] )}}" alt="{{ $product['item']['title'] }}" />
+                                                    </a>
                                                 </td>
-                                                <td class="product-name"><a href="#">{{ $data_product[$key]->title }}</a></td>
-                                                <td class="product-price-cart"><span class="amount">{{ $data_product[$key]->price }}</span></td>
+                                                <td class="product-name">
+                                                    <a href="#">{{ $product['item']['title'] }}</a>
+                                                </td>
+                                                <td class="product-price-cart"><span class="amount">
+                                                    {{ $product['item']['price'] }}
+                                                </span></td>
                                                 <td class="product-quantity">
                                                     <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $row['quantity'] }}" />
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $product['qty'] }}" />
                                                     </div>
                                                 </td>
-                                                <td class="product-subtotal">{{ $row['quantity'] * $data_product[$key]->price }}</td>
+                                                <td class="product-subtotal">{{ $product['price'] }}</td>
                                                 <td class="product-remove">
                                                     <a href="#"><i class="icon-close"></i></a>
+                                                    <a href="#"><i class="icon-pencil"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -1038,9 +1046,9 @@
                                 <div class="col-lg-4 col-md-12 mt-md-30px">
                                     <div class="grand-totall">
                                         <div class="title-wrap">
-                                            <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
+                                            <h4 class="cart-bottom-title section-bg-gary-cart">Tổng tiền</h4>
                                         </div>
-                                        <h5>Total products <span>$260.00</span></h5>
+                                        <h5>Tổng sản phẩm <span>{{ $totalPrice }}&#8363;</span></h5>
                                         <div class="total-shipping">
                                             <h5>Total shipping</h5>
                                             <ul>
@@ -1048,11 +1056,18 @@
                                                 <li><input type="checkbox" /> Express <span>$30.00</span></li>
                                             </ul>
                                         </div>
-                                        <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
-                                        <a href="#">Proceed to Checkout</a>
+                                        <h4 class="grand-totall-title">Tổng <span>{{ $totalPrice }}&#8363;</span></h4>
+                                        <a href="#">Tiến hành thanh toán</a>
                                     </div>
                                 </div>
                             </div>
+                            @else
+                                <div>
+                                    <h2>Khong co san pham trong gio hang</h2>
+                                </div>
+                            @endif
+
+                    {{-- ket thuc hien thi gio hang --}}
                         </div>
                     </div>
                 </div>

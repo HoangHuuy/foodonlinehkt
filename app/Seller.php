@@ -8,10 +8,9 @@ class Seller extends Model
 {
     protected $fillable = [
         'username',
-        'fullname',
-        'sđt',
+        'shopName',
+        'phoneNumber',
         'address',
-
     ];
 
 }

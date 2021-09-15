@@ -57,8 +57,8 @@ class SellerController extends Controller
         if($id == " ")
         {
             $seller->username= Auth::user()->username;
-            $seller->fullname = $request->fullname;
-            $seller->sđt = $request->sđt;
+            $seller->shopName = $request->shopName;
+            $seller->phoneNumber = $request->phoneNumber;
             $seller->address = $request->address."-".$request->district."-".$request->province;
             $seller->save();
            $seller1 = Seller::where('username', $seller->username)->get();
@@ -66,7 +66,7 @@ class SellerController extends Controller
 
         }else{
             Seller::where('id', $id)->update([
-                'fullname' => $request->fullname, 'sđt' => $request->sđt,
+                'shopName' => $request->shopName, 'phoneNumber' => $request->phoneNumber,
                 'address' => $request->address."-".$request->district."-".$request->province ]);
             return redirect()->route('seller.showAddress',['id'=> $id]);
         }

@@ -9,12 +9,12 @@
     <form class="container" action="{{ route('seller.updateAddress',['id'=>isset($seller[0]->id) ? $seller[0]->id : ' '])}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Họ tên</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="fullname">
+            <label for="title" class="form-label">Tên Shop</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="shopName">
         </div>
         <div class="mb-3">
             <label for="title" class="form-label">Số điện thoại</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="sđt">
+            <input type="text" class="form-control" id="exampleInputPassword1" name="phoneNumber">
         </div>
         <div class="mb-3">
             <label for="title" class="form-label">Tỉnh</label>

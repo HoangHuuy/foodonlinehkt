@@ -42,6 +42,11 @@
                         <div class="row justify-content-center">
                             <div class="col-md-8">
                                 <div class="card">
+                                    <div class="alert-success">
+                                        @if(session()->has("success"))
+                                            {{session()->get("success")}}
+                                            @endif
+                                    </div>
                                     <div class="card-header">Thông tin tài khoản</div>
 
                                     <div class="card-body">
@@ -66,8 +71,11 @@
                                                     <input id="txtFullname" type="text" class="form-control "
                                                            name="fullname"
                                                            value="{{isset($account[0]->fullname) ? old('fullname', $account[0]->fullname) : ' '}}">
-
+                                                    @error('fullname')
+                                                    <p style="color: red">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
+
                                             </div>
                                             <div class="form-group row">
                                                 <label for="password" class="col-md-4 col-form-label text-md-right">Ngày
@@ -108,7 +116,9 @@
                                                 <div class="col-md-6">
                                                     <input id="txtphoneNumber" type="text" class="form-control" name="phoneNumber"
                                                            value="{{isset($account[0]->phoneNumber) ? old('phoneNumber', $account[0]->phoneNumber) : ' '}}">
-
+                                                    @error('phoneNumber')
+                                                    <p style="color: red">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -118,7 +128,9 @@
                                                     <input id="txtAddress" type="text" class="form-control"
                                                            name="address"
                                                            value="{{isset($account[0]->address) ? old('phoneNumber', $account[0]->address) : ' '}}">
-
+                                                    @error('address')
+                                                    <p style="color: red">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <button class="btn btn-primary" type="submit">Lưu</button>

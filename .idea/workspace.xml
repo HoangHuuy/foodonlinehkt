@@ -20,12 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69163916-eadc-42d3-ae34-9f400c1ff496" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BuyerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BuyerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productdetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/addproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/addproduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/showproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/showproduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/storeAccountRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ExampleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ExampleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/account/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/account/profile.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

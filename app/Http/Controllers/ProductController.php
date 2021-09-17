@@ -150,11 +150,11 @@ class ProductController extends Controller
             $product->type = $request->type;
             $product->price = $request->price;
             // dd($product->id);
-    
+
             // dd($request->hasfile('image_product'));
             // dd($file = $request->file('image_product'));
             // dd($request->image_product);
-            
+
             // dd($product2[0]->image_product);
             if($request->hasfile('image_product')){
                 $file = $request->file('image_product');
@@ -164,15 +164,15 @@ class ProductController extends Controller
                 $product->image_product = $filename;
 
             }else {
-                
+
                 $product2 = Product::query()->where('id', $id)->get();
                 // dd($product->username);
                 // dd($product2);
                 $product->image_product = $product2[0]->image_product;
             }
 
-            Product::where('id', $id)->update(['username' => $product->username, 
-            'title' => $product->title, 'type' => $product->type, 
+            Product::query()->where('id', $id)->update(['username' => $product->username,
+            'title' => $product->title, 'type' => $product->type,
             'price' => $product->price, 'image_product' => $product->image_product ]);
             // dd("success");
             return redirect()->route('seller.showProduct')->with('success', 'Thay đổi thành công');

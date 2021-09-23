@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     
-<!-- Mirrored from template.hasthemes.com/rozer/rozer/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:28:10 GMT -->
+<!-- Mirrored from template.hasthemes.com/rozer/rozer/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:27:29 GMT -->
 <head>
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -10,7 +11,7 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/assets/images/favicon/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.png" />
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&amp;display=swap" rel="stylesheet" />
 
@@ -18,23 +19,23 @@
   ============================================ -->
 
             <!-- Vendor CSS (Bootstrap & Icon Font) -->
-        <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/ionicons.min.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/simple-line-icons.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/font-awesome.min.css"> -->
+        <!-- <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/simple-line-icons.css">
+        <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css"> -->
 
             <!-- Plugins CSS (All Plugins Files) -->
-         <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/animate.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/jquery-ui.min.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/swiper.css">  -->
+         <!-- <link rel="stylesheet" href="assets/css/plugins/animate.css">
+        <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/css/plugins/swiper.css">  -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/vendor/vendor.min.css" />
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/plugins.min.css" />
-        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
+        <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
+        <link rel="stylesheet" href="assets/css/style.min.css">
 
         <!-- Main Style CSS -->
-        <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css" /> -->
+        <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
     </head>
 
     <body>
@@ -45,50 +46,49 @@
                 <div class="container">
                     <div class="header-nav-wrapper d-md-flex d-sm-flex d-xl-flex d-lg-flex justify-content-between">
                         <div class="header-static-nav">
-                            <p>Chào mừng đến với foodTHK!</p>
+                            <p>Welcome you to Rozer Store!</p>
                         </div>
                         <div class="header-menu-nav">
-    
-                            {{-- dang nhap, dang ki, hien thi ten tai khoan --}}
                             <ul class="menu-nav">
-    
-                                <!-- Authentication Links -->
-                                @guest
                                 <li>
-                                    <a href="{{ route('login') }}">Đăng nhập</a>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Setting <i class="ion-ios-arrow-down"></i></button>
+
+                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton">
+                                            <li><a href="my-account.html">My account</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="login.html">Sign in</a></li>
+                                        </ul>
+                                    </div>
                                 </li>
-                                @if (Route::has('register'))
-                                <li class="pr-0">
-                                    <a href="{{ route('register') }}">Đăng kí</a>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD $ <i class="ion-ios-arrow-down"></i></button>
+
+                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton-2">
+                                            <li><a href="#">EUR €</a></li>
+                                            <li><a href="#">USD $</a></li>
+                                        </ul>
+                                    </div>
                                 </li>
-                                @endif
-                                @else
                                 <li class="pr-0">
                                     <div class="dropdown">
-                                        <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }} <i
-                                                class="ion-ios-arrow-down"></i></button>
-    
-                                        <ul class="dropdown-menu animation slideDownIn"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <li><a href="login.html" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                    Đăng xuất
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
+                                        <button type="button" id="dropdownMenuButton-3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="assets/images/flag/1.jpg" alt="" /> English <i class="ion-ios-arrow-down"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton-3">
+                                            <li>
+                                                <a href="#"><img src="assets/images/flag/1.jpg" alt="" /> English</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><img src="assets/images/flag/2.jpg" alt="" /> Français</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                @endguest
                             </ul>
                         </div>
-    
-                        {{-- ket thuc phan xac thuc: dang nhap, dang ki, ten tai khoan --}}
-    
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="logo">
-                                <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
+                                <a href="index.html"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
                             </div>
                         </div>
                         <div class="col-md-10 align-self-center">
@@ -211,15 +211,22 @@
                                                 <option value="112">Games &amp; Consoles</option>
                                             </select>
                                         </div>
-                                        <input type="text" placeholder="Nhập tên sản phẩm (tối thiểu 3 kí tự) ..." />
+                                        <input type="text" placeholder="Enter your search key ... " />
                                         <button><i class="icon-magnifier"></i></button>
                                     </form>
+                                </div>
+                                <div class="contact-link">
+                                    <div class="phone">
+                                        <p>Call us:</p>
+                                        <a href="tel:(+800)345678">(+800)345678</a>
+                                    </div>
                                 </div>
                                 <!--Cart info Start -->
                                 <div class="header-tools d-flex">
                                     <div class="cart-info d-flex align-self-center">
+                                        <a href="compare.html" class="shuffle" data-number="3"><i class="icon-shuffle"></i></a>
                                         <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i class="icon-heart"></i></a>
-                                        <a href="#offcanvas-cart" data-number="3"><i class="icon-bag"></i></a>
+                                        <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span>$20.00</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +307,7 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <img src="http://127.0.0.1:8000/assets/images/menu-image/banner-mega1.jpg" alt="" />
+                                                <img src="assets/images/menu-image/banner-mega1.jpg" alt="" />
                                             </li>
                                         </ul>
                                         <!-- sub menu -->
@@ -387,10 +394,10 @@
                                             <li class="w-100">
                                                 <ul class="banner-megamenu-wrapper d-flex">
                                                     <li class="banner-wrapper mr-30px">
-                                                        <a href="single-product.html"><img src="http://127.0.0.1:8000/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="http://127.0.0.1:8000/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -451,6 +458,44 @@
             <!-- header menu -->
         </header>
         <!-- Header Section End Here -->    
+
+        <!-- Mobile Header Section Start -->
+    <div class="mobile-header d-xl-none sticky-nav bg-white ptb-10px">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Header Logo Start -->
+                <div class="col">
+                    <div class="header-logo">
+                        <a href="index.html"><img class="img-responsive" src="assets/images/logo/logo.png" alt="logo.jpg" /></a>
+                    </div>
+                </div>
+                <!-- Header Logo End -->
+
+                <!-- Header Tools Start -->
+                <div class="col-auto">
+                    <div class="header-tools justify-content-end">
+                        <div class="cart-info d-flex align-self-center">
+                            <a href="compare.html" class="shuffle d-xs-none" data-number="3"><i class="icon-shuffle"></i></a>
+                            <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i class="icon-heart"></i></a>
+                            <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span>$20.00</span></a>
+                        </div>
+                        <div class="mobile-menu-toggle">
+                            <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
+                                <svg viewBox="0 0 800 600">
+                                    <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
+                                    <path d="M300,320 L540,320" id="middle"></path>
+                                    <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Tools End -->
+
+            </div>
+        </div>
+    </div>
 
     <!-- Search Category Start -->
     <div class="mobile-search-area d-xl-none mb-15px">
@@ -686,7 +731,7 @@
             <div class="body customScroll">
                 <ul class="minicart-product-list">
                     <li>
-                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="assets/images/product-image/7.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Walnut Cutting Board</a>
                             <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
@@ -694,7 +739,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/9.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="assets/images/product-image/9.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Lucky Wooden Elephant</a>
                             <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
@@ -702,7 +747,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/8.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="assets/images/product-image/8.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Fish Cut Out Set</a>
                             <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
@@ -730,7 +775,7 @@
             <div class="body customScroll">
                 <ul class="minicart-product-list">
                     <li>
-                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/1.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Walnut Cutting Board</a>
                             <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
@@ -738,7 +783,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/2.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Lucky Wooden Elephant</a>
                             <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
@@ -746,7 +791,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="single-product.html" class="image"><img src="http://127.0.0.1:8000/assets/images/product-image/3.jpg" alt="Cart product Image"></a>
+                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg" alt="Cart product Image"></a>
                         <div class="content">
                             <a href="single-product.html" class="title">Fish Cut Out Set</a>
                             <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
@@ -912,8 +957,8 @@
                     <div class="col-md-12">
                         <div class="breadcrumb-content">
                             <ul class="nav">
-                                <li><a href="index.html">Home</a></li>
-                                <li>Cart</li>
+                                <li><a href="/">Trang chủ</a></li>
+                                <li>Thanh toán</li>
                             </ul>
                         </div>
                     </div>
@@ -921,158 +966,253 @@
             </div>
         </div>
     <!-- Breadcrumb Area End-->
-            <!-- cart area start -->
-            <div class="cart-main-area mtb-60px">
+            <!-- checkout area start -->
+            <div class="checkout-area mt-60px mb-40px">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                            
-                            {{-- hien thi gio hang              --}}
-                            @if(Session::has('cart'))   
-                            <form action="#">
-                                <div class="table-content table-responsive cart-table-content">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Hình Ảnh</th>
-                                                <th>Tên</th>
-                                                <th>Đơn Giá</th>
-                                                <th>Số Lượng</th>
-                                                <th>Số Tiền</th>
-                                                <th>Thao tác</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($products as $product)
-                                            <tr>
-                                                <td class="product-thumbnail">
-                                                    <a  href="#">
-                                                        <img class="img-responsive" src="{{ asset('uploads/product/' .$product['item']['image_product'] )}}" alt="{{ $product['item']['title'] }}" />
-                                                    </a>
-                                                </td>
-                                                <td class="product-name">
-                                                    <a href="#">{{ $product['item']['title'] }}</a>
-                                                </td>
-                                                <td class="product-price-cart"><span class="amount">
-                                                    {{ $product['item']['price'] }}
-                                                </span></td>
-                                                <td class="product-quantity">
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $product['qty'] }}" />
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal">{{ $product['price'] }}</td>
-                                                <td class="product-remove">
-                                                    <a href="#"><i class="icon-close"></i></a>
-                                                    <a href="#"><i class="icon-pencil"></i></a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <div class="col-lg-7">
+                            <div class="billing-info-wrap">
+                                <h3>Chi tiết đơn hàng</h3>
                                 <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="billing-info mb-20px">
+                                            <label>Họ Tên</label>
+                                            <input type="text" />
+                                        </div>
+                                    </div>
                                     <div class="col-lg-12">
-                                        <div class="cart-shiping-update-wrapper">
-                                            <div class="cart-shiping-update">
-                                                <a href="#">Continue Shopping</a>
-                                            </div>
-                                            <div class="cart-clear">
-                                                <button>Update Shopping Cart</button>
-                                                <a href="#">Clear Shopping Cart</a>
-                                            </div>
+                                        <div class="billing-info mb-20px">
+                                            <label>Số Điện Thoại</label>
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="billing-select mb-20px">
+                                            <label>Vui lòng chọn tỉnh/thành phố</label>
+                                            <select>
+                                                <option>--Tỉnh/Thành phố--</option>
+                                                <option>Azerbaijan</option>
+                                                <option>Bahamas</option>
+                                                <option>Bahrain</option>
+                                                <option>Bangladesh</option>
+                                                <option>Barbados</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="billing-select mb-20px">
+                                            <label>Vui lòng chọn quận/huyện</label>
+                                            <select>
+                                                <option>--Quận/Huyện--</option>
+                                                <option>Azerbaijan</option>
+                                                <option>Bahamas</option>
+                                                <option>Bahrain</option>
+                                                <option>Bangladesh</option>
+                                                <option>Barbados</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="billing-select mb-20px">
+                                            <label>Vui lòng chọn phường/xã</label>
+                                            <select>
+                                                <option>--Phường/Xã--</option>
+                                                <option>Azerbaijan</option>
+                                                <option>Bahamas</option>
+                                                <option>Bahrain</option>
+                                                <option>Bangladesh</option>
+                                                <option>Barbados</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="billing-info mb-20px">
+                                            <label>Nhập địa chỉ chi tiết của bạn</label>
+                                            <input class="billing-address" placeholder="Số nhà, tên đường" type="text" />
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6 mb-lm-30px">
-                                    <div class="cart-tax">
-                                        <div class="title-wrap">
-                                            <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
+                                {{-- <div class="checkout-account mb-30px">
+                                    <input class="checkout-toggle2" type="checkbox" />
+                                    <label>Create an account?</label>
+                                </div> --}}
+                                {{-- <div class="checkout-account-toggle open-toggle2 mb-30">
+                                    <input placeholder="Email address" type="email" />
+                                    <input placeholder="Password" type="password" />
+                                    <button class="btn-hover checkout-btn" type="submit">register</button>
+                                </div> --}}
+                                <div class="additional-info-wrap">
+                                    <h4>Thêm lưu ý cho người bán</h4>
+                                    <div class="additional-info">
+                                        <textarea placeholder="Thêm lưu ý cho người bán, ví dụ như bánh mì không dưa chuột, phở không hành,..." name="message"></textarea>
+                                    </div>
+                                </div>
+                                {{-- <div class="checkout-account mt-25">
+                                    <input class="checkout-toggle" type="checkbox" />
+                                    <label>Ship to a different address?</label>
+                                </div>
+                                <div class="different-address open-toggle mt-30px">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20px">
+                                                <label>First Name</label>
+                                                <input type="text" />
+                                            </div>
                                         </div>
-                                        <div class="tax-wrapper">
-                                            <p>Enter your destination to get a shipping estimate.</p>
-                                            <div class="tax-select-wrapper">
-                                                <div class="tax-select">
-                                                    <label>
-                                                        * Country
-                                                    </label>
-                                                    <select class="email s-email s-wid">
-                                                        <option>Bangladesh</option>
-                                                        <option>Albania</option>
-                                                        <option>Åland Islands</option>
-                                                        <option>Afghanistan</option>
-                                                        <option>Belgium</option>
-                                                    </select>
-                                                </div>
-                                                <div class="tax-select">
-                                                    <label>
-                                                        * Region / State
-                                                    </label>
-                                                    <select class="email s-email s-wid">
-                                                        <option>Bangladesh</option>
-                                                        <option>Albania</option>
-                                                        <option>Åland Islands</option>
-                                                        <option>Afghanistan</option>
-                                                        <option>Belgium</option>
-                                                    </select>
-                                                </div>
-                                                <div class="tax-select mb-25px">
-                                                    <label>
-                                                        * Zip/Postal Code
-                                                    </label>
-                                                    <input type="text" />
-                                                </div>
-                                                <button class="cart-btn-2" type="submit">Get A Quote</button>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20px">
+                                                <label>Last Name</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="billing-info mb-20px">
+                                                <label>Company Name</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="billing-select mb-20px">
+                                                <label>Country</label>
+                                                <select>
+                                                    <option>Select a country</option>
+                                                    <option>Azerbaijan</option>
+                                                    <option>Bahamas</option>
+                                                    <option>Bahrain</option>
+                                                    <option>Bangladesh</option>
+                                                    <option>Barbados</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="billing-info mb-20px">
+                                                <label>Street Address</label>
+                                                <input class="billing-address" placeholder="House number and street name" type="text" />
+                                                <input placeholder="Apartment, suite, unit etc." type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="billing-info mb-20px">
+                                                <label>Town / City</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20px">
+                                                <label>State / County</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20px">
+                                                <label>Postcode / ZIP</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20px">
+                                                <label>Phone</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20px">
+                                                <label>Email Address</label>
+                                                <input type="text" />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-lm-30px">
-                                    <div class="discount-code-wrapper">
-                                        <div class="title-wrap">
-                                            <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
-                                        </div>
-                                        <div class="discount-code">
-                                            <p>Enter your coupon code if you have one.</p>
-                                            <form>
-                                                <input type="text" required="" name="name" />
-                                                <button class="cart-btn-2" type="submit">Apply Coupon</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12 mt-md-30px">
-                                    <div class="grand-totall">
-                                        <div class="title-wrap">
-                                            <h4 class="cart-bottom-title section-bg-gary-cart">Tổng tiền</h4>
-                                        </div>
-                                        <h5>Tổng sản phẩm <span>{{ $totalPrice }}&#8363;</span></h5>
-                                        <div class="total-shipping">
-                                            <h5>Total shipping</h5>
+                                </div> --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-5 mt-md-30px mt-lm-30px ">
+                            <div class="your-order-area">
+                                <h3>Hóa đơn</h3>
+                                <div class="your-order-wrap gray-bg-4">
+                                    <div class="your-order-product-info">
+                                        <div class="your-order-top">
                                             <ul>
-                                                <li><input type="checkbox" /> Standard <span>$20.00</span></li>
-                                                <li><input type="checkbox" /> Express <span>$30.00</span></li>
+                                                <li>Sản phẩm</li>
+                                                <li>Tổng</li>
                                             </ul>
                                         </div>
-                                        <h4 class="grand-totall-title">Tổng <span>{{ $totalPrice }}&#8363;</span></h4>
-                                        <a href="#">Tiến hành thanh toán</a>
+                                        <div class="your-order-middle">
+                                            <ul>
+                                                <li><span class="order-middle-left">Bún ốc cô Lan X 2</span> <span class="order-price">70,000 &#8363; </span></li>
+                                                <li><span class="order-middle-left">Bún Chả X 1</span> <span class="order-price">30,000 &#8363; </span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="your-order-bottom">
+                                            <ul>
+                                                <li class="your-order-shipping">Shipping</li>
+                                                <li>Free shipping</li>
+                                            </ul>
+                                        </div>
+                                        <div class="your-order-total">
+                                            <ul>
+                                                <li class="order-total">Tổng</li>
+                                                <li>100,000 &#8363;</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="payment-accordion element-mrg">
+                                            <div class="panel-group" id="accordion">
+                                                <div class="panel payment-accordion">
+                                                    <div class="panel-heading" id="method-one">
+                                                        <h4 class="panel-title">
+                                                            <a data-bs-toggle="collapse" data-parent="#accordion" href="#method1">
+                                                                Phương thức thanh toán
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="method1" class="panel-collapse collapse show">
+                                                        <div class="panel-body">
+                                                            <p>Thanh toán khi nhận hàng</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="panel payment-accordion">
+                                                    <div class="panel-heading" id="method-two">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" data-bs-toggle="collapse" data-parent="#accordion" href="#method2">
+                                                                Check payments
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="method2" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel payment-accordion">
+                                                    <div class="panel-heading" id="method-three">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" data-bs-toggle="collapse" data-parent="#accordion" href="#method3">
+                                                                Cash on delivery
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="method3" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            @else
-                                <div>
-                                    <h2>Khong co san pham trong gio hang</h2>
+                                <div class="Place-order mt-25">
+                                    <a class="btn-hover" href="#">Đặt hàng</a>
                                 </div>
-                            @endif
-
-                    {{-- ket thuc hien thi gio hang --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- cart area end -->
+            <!-- checkout area end -->
         <!-- Footer Area Start -->
         <div class="footer-area">
             <div class="footer-container">
@@ -1184,7 +1324,7 @@
                                 <strong> HasThemes</strong></a>.</p>
                             </div>
                             <div class="col-md-6 text-end">
-                                <img class="payment-img" src="http://127.0.0.1:8000/assets/images/icons/payment.png" alt="" />
+                                <img class="payment-img" src="assets/images/icons/payment.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1199,26 +1339,26 @@
         <!-- JS
 ============================================ -->
 
-        <!-- Vendors JS -->
-        <!-- <script src="http://127.0.0.1:8000/assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
+            <!-- Vendors JS -->
+        <!-- <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
 
             <!-- Plugins JS -->
-         <!-- <script src="http://127.0.0.1:8000/assets/js/plugins/jquery-ui.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/plugins/swiper.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/plugins/countdown.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/plugins/scrollup.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/plugins/elevateZoom.js"></script> -->
+         <!-- <script src="assets/js/plugins/jquery-ui.min.js"></script>
+        <script src="assets/js/plugins/swiper.min.js"></script>
+        <script src="assets/js/plugins/countdown.js"></script>
+        <script src="assets/js/plugins/scrollup.js"></script>
+        <script src="assets/js/plugins/elevateZoom.js"></script> -->
 
         <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-        <script src="http://127.0.0.1:8000/assets/js/vendor/vendor.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/plugins/plugins.min.js"></script>
+        <script src="assets/js/vendor/vendor.min.js"></script>
+        <script src="assets/js/plugins/plugins.min.js"></script>
 
         <!-- Main Activation JS -->
-        <script src="http://127.0.0.1:8000/assets/js/main.js"></script>
+        <script src="assets/js/main.js"></script>
     </body>
 
-<!-- Mirrored from template.hasthemes.com/rozer/rozer/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:28:10 GMT -->
+<!-- Mirrored from template.hasthemes.com/rozer/rozer/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:27:29 GMT -->
 </html>

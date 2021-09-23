@@ -48,16 +48,65 @@ class CartController extends Controller
         $cart->add($product, $product->id);
         
         $request->session()->put('cart', $cart);
-        return redirect()->route('showAllProduct');
+        return view('cart.cartItem');
     }
-
+    
     public function getCart(){
         if(!Session::has('cart')){
-            return view('cart');
+            return view('cart.cart');
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        return view('cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        return view('cart.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+    
+    public function DeleteItemCart(Request $request, $id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->DeleteItemCart($id);
+        if(count( $cart->items ) > 0){
+            $request->Session()->put('cart', $cart);
+        }
+        else {
+            $request->Session()->forget('cart');
+        }
+        return view('cart.cartItem');
+    }
+
+    public function DeleteSingleItem(Request $request, $id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->DeleteItemCart($id);
+        if(count( $cart->items ) > 0){
+            $request->Session()->put('cart', $cart);
+        }
+        else {
+            $request->Session()->forget('cart');
+        }
+        return view('cart.listCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+    public function SaveItemCart(Request $request, $id, $qty){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->UpdateItemCart($id, $qty);
+    
+        $request->Session()->put('cart', $cart);
+
+        return view('cart.listCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+
+    }
+
+    public function getCheckOut(){
+        if(!Session::has('cart')){
+            return view('cart.cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('cart.checkOut', ['total' => $total]);
     }
 
     /**

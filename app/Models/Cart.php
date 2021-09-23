@@ -6,7 +6,7 @@ class Cart
 {   
     public $items = null;
     public $totalQty = 0;
-    public $totalPrice = null;
+    public $totalPrice = 0;
 
     function __construct($oldCart){
         if($oldCart) {
@@ -28,5 +28,22 @@ class Cart
         $this->items[$id] = $storeItem;
         $this->totalQty++;
         $this->totalPrice += $item->price;
+    }
+
+    public function DeleteItemCart($id){
+        $this->totalQty -= $this->items[$id]['qty'];
+        $this->totalPrice -= $this->items[$id]['price'];
+        unset($this->items[$id]);
+    }
+
+    public function UpdateItemCart($id, $qty){
+        $this->totalQty -= $this->items[$id]['qty'];
+        $this->totalPrice -= $this->items[$id]['price'];
+
+        $this->items[$id]['qty'] = $qty;
+        $this->items[$id]['price'] = $qty * $this->items[$id]['item']->price;
+
+        $this->totalQty += $this->items[$id]['qty'];
+        $this->totalPrice += $this->items[$id]['price'];
     }
 }

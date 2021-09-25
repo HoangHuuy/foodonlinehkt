@@ -15,8 +15,10 @@
 
 <body>
     <header>
-        <a href="/"><img src="" alt="logo"></a>
-        <span></span>
+        <div class="logo">
+            <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png"
+                             alt="logo.jpg" /></a>
+        </div>
     </header>
 
     <div class="main-wrapper">
@@ -28,7 +30,7 @@
                 @csrf
 
                 <div class="center-items">
-                    <input id="username" type="text" 
+                    <input id="username" type="text"
                         class="un form-control @error('username') is-invalid @enderror"
                         name="username" value="{{ old('username') }}" required autofocus
                         placeholder="Username">

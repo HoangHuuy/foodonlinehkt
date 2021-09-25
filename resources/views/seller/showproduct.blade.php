@@ -29,7 +29,7 @@
             </td>
             <td>{{ $item->title }}</td>
             <td>{{ $item->type }}</td>
-            <td>{{ $item->price }}</td>
+            <td>{{ $item->price }}đ</td>
             <td>
                 <button class="btn btn-primary"><a href="{{ route('seller.editProduct', ['id' => $item->id]) }}"
                         class="link-btn link-btn-action">Sửa</a></button>

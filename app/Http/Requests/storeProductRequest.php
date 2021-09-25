@@ -37,6 +37,9 @@ class storeProductRequest extends FormRequest
             'title.required' => 'Bạn cần thêm tên sản phẩm',
             'title.max' => 'Tên sản phẩm phải không quá 32 kí tự',
             'image_product.mimes' => 'Định dạng file không phù hợp',
+            'price.required' => 'Bạn cần thêm giá sản phẩm',
+            'price.numeric' =>'Giá sản phẩm phải là số',
+
             'image_product.max' => 'Dung lượng ảnh quá lớn',
         ];
     }

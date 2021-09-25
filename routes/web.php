@@ -17,6 +17,7 @@ Route::get('/', 'ProductController@indexAll')->name('showAllProduct');
 
 Auth::routes();
 
+// gio hang
 Route::get('/add-to-cart/{id}','CartController@getAddToCart')->name('addToCart');
 
 Route::get('/delete-item-cart/{id}', 'CartController@DeleteItemCart')->name('deleteCart');
@@ -27,15 +28,20 @@ Route::get('/delete-single-item-cart/{id}','CartController@DeleteSingleItem')->n
 
 Route::get('/save-item-cart/{id}/{qty}','CartController@SaveItemCart')->name('saveItemCart');
 
-Route::get('/check-out','CartController@getCheckOut')->name('checkout')->middleware('auth');
 
+// thanh toan
+Route::get('/check-out','CheckOutController@getCheckOut')->name('checkout')->middleware('auth');
+Route::post('/check-out','CheckOutController@postCheckOut')->name('postCheckout');
 
+// san pham 
 Route::group(['prefix' => 'product'], function (){
     Route::get('/{type}', 'ProductController@typeIndex')->name('user.showProduct');
 
     Route::get('/search/id', 'ProductController@searchProduct')->name('user.searchProduct');
 });
 
+
+//nguoi ban
 Route::group(['prefix' => 'seller'], function (){
     Route::get('/', 'SellerController@index')->name('seller.home');
 
@@ -58,10 +64,14 @@ Route::group(['prefix' => 'seller'], function (){
     Route::get('/address/add', 'SellerController@index3')->name('seller.addAddress');
 });
 
+
+//tai khoan nguoi dung
 Route::group(['prefix' => 'account'], function (){
-    Route::get('/profile/{id}', 'AccountController@edit')->name('user.showprofile');
+    Route::get('/profile', 'AccountController@edit')->name('user.showprofile');
 
     Route::post('/profile/{id}', 'AccountController@store')->name('user.storeAccount');
+
+    Route::get('/orders', 'AccountController@showOrders')->name('user.showOrders');
 });
 
 Route::group(['prefix' => 'product'], function (){

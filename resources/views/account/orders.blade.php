@@ -402,161 +402,69 @@
             <div class="row">
                 <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
                     <div class="billing-info-wrap">
-                        <h3>Hồ Sơ Của Tôi</h3>
-                        <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                        <h3>Đơn Mua</h3>
+                        <p>Quản lý thông tin đơn hàng</p>
                         <hr>
-                        <form action="{{route('user.storeAccount', ['id' => $account->id])}}" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-20px">
-                                        <label>Họ Tên</label>
-                                        <input name="fullname" type="text" value="{{ isset($account->fullname) ? $account->fullname : ""}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-20px">
-                                        <label>Email</label>
-                                        <input name="email" type="text" value="{{ isset($account->email) ? $account->email : ""}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-20px">
-                                        <label>Số Điện Thoại</label>
-                                        <input name="phoneNumber" type="text" value="{{ isset($account->phoneNumber) ? $account->phoneNumber : ""}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-select mb-20px">
-                                        <label>Giới Tính</label>
-                                        <br>
-                                        <br>
-                                        <input style="margin: 0 10px 0 10px;" name="gender" type="radio" value="Nam" {{ (isset($account->gender) && $account->gender == "Nam") ? "checked" : ""}}/>Nam 
-                                        <input style="margin: 0 10px 0 10px;" name="gender" type="radio" value="Nữ" {{ (isset($account->gender) && $account->gender == "Nữ") ? "checked" : ""}}/>Nữ 
-                                        <input style="margin: 0 10px 0 10px;" name="gender" type="radio" value="Khác" {{ (isset($account->gender) && $account->gender == "Khác") ? "checked" : ""}}/>Khác
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="billing-select mb-20px">
-                                        <label>Ngày sinh</label>
-                                        <select name="day" id="day">
-                                            <option {{ (isset($account->day) && $account->day == "1") ? "selected" : ""}} value="1">1</option>
-                                            <option {{ (isset($account->day) && $account->day == "2") ? "selected" : ""}} value="2">2</option>
-                                            <option {{ (isset($account->day) && $account->day == "3") ? "selected" : ""}} value="3">3</option>
-                                            <option {{ (isset($account->day) && $account->day == "4") ? "selected" : ""}} value="4">4</option>
-                                            <option {{ (isset($account->day) && $account->day == "5") ? "selected" : ""}} value="5">5</option>
-                                            <option {{ (isset($account->day) && $account->day == "6") ? "selected" : ""}} value="6">6</option>
-                                            <option {{ (isset($account->day) && $account->day == "7") ? "selected" : ""}} value="7">7</option>
-                                            <option {{ (isset($account->day) && $account->day == "8") ? "selected" : ""}} value="8">8</option>
-                                            <option {{ (isset($account->day) && $account->day == "9") ? "selected" : ""}} value="9">9</option>
-                                            <option {{ (isset($account->day) && $account->day == "10") ? "selected" : ""}} value="10">10</option>
-                                            <option {{ (isset($account->day) && $account->day == "11") ? "selected" : ""}} value="11">11</option>
-                                            <option {{ (isset($account->day) && $account->day == "12") ? "selected" : ""}} value="12">12</option>
-                                            <option {{ (isset($account->day) && $account->day == "13") ? "selected" : ""}} value="13">13</option>
-                                            <option {{ (isset($account->day) && $account->day == "14") ? "selected" : ""}} value="14">14</option>
-                                            <option {{ (isset($account->day) && $account->day == "15") ? "selected" : ""}} value="15">15</option>
-                                            <option {{ (isset($account->day) && $account->day == "16") ? "selected" : ""}} value="16">16</option>
-                                            <option {{ (isset($account->day) && $account->day == "17") ? "selected" : ""}} value="17">17</option>
-                                            <option {{ (isset($account->day) && $account->day == "18") ? "selected" : ""}} value="18">18</option>
-                                            <option {{ (isset($account->day) && $account->day == "19") ? "selected" : ""}} value="19">19</option>
-                                            <option {{ (isset($account->day) && $account->day == "20") ? "selected" : ""}} value="20">20</option>
-                                            <option {{ (isset($account->day) && $account->day == "21") ? "selected" : ""}} value="21">21</option>
-                                            <option {{ (isset($account->day) && $account->day == "22") ? "selected" : ""}} value="22">22</option>
-                                            <option {{ (isset($account->day) && $account->day == "23") ? "selected" : ""}} value="23">23</option>
-                                            <option {{ (isset($account->day) && $account->day == "24") ? "selected" : ""}} value="24">24</option>
-                                            <option {{ (isset($account->day) && $account->day == "25") ? "selected" : ""}} value="25">25</option>
-                                            <option {{ (isset($account->day) && $account->day == "26") ? "selected" : ""}} value="26">26</option>
-                                            <option {{ (isset($account->day) && $account->day == "27") ? "selected" : ""}} value="27">27</option>
-                                            <option {{ (isset($account->day) && $account->day == "28") ? "selected" : ""}} value="28">28</option>
-                                            <option {{ (isset($account->day) && $account->day == "29") ? "selected" : ""}} value="29">29</option>
-                                            <option {{ (isset($account->day) && $account->day == "30") ? "selected" : ""}} value="30">30</option>
-                                            <option {{ (isset($account->day) && $account->day == "31") ? "selected" : ""}} value="31">31</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="billing-select mb-20px">
-                                        <label></label>
-                                        <select name="month" id="month">
-                                            <option {{ (isset($account->month) && $account->month == "1") ? "selected" : ""}} value="1">Tháng 1</option>
-                                            <option {{ (isset($account->month) && $account->month == "2") ? "selected" : ""}} value="2">Tháng 2</option>
-                                            <option {{ (isset($account->month) && $account->month == "3") ? "selected" : ""}} value="3">Tháng 3</option>
-                                            <option {{ (isset($account->month) && $account->month == "4") ? "selected" : ""}} value="4">Tháng 4</option>
-                                            <option {{ (isset($account->month) && $account->month == "5") ? "selected" : ""}} value="5">Tháng 5</option>
-                                            <option {{ (isset($account->month) && $account->month == "6") ? "selected" : ""}} value="6">Tháng 6</option>
-                                            <option {{ (isset($account->month) && $account->month == "7") ? "selected" : ""}} value="7">Tháng 7</option>
-                                            <option {{ (isset($account->month) && $account->month == "8") ? "selected" : ""}} value="8">Tháng 8</option>
-                                            <option {{ (isset($account->month) && $account->month == "9") ? "selected" : ""}} value="9">Tháng 9</option>
-                                            <option {{ (isset($account->month) && $account->month == "10") ? "selected" : ""}} value="10">Tháng 10</option>
-                                            <option {{ (isset($account->month) && $account->month == "11") ? "selected" : ""}} value="11">Tháng 11</option>
-                                            <option {{ (isset($account->month) && $account->month == "12") ? "selected" : ""}} value="12">Tháng 12</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="billing-select mb-20px">
-                                        <label></label>
-                                        <select name="year" id="year">
-                                            <option {{ (isset($account->year) && $account->year == "2021") ? "selected" : ""}} value="2021">2021</option>
-                                            <option {{ (isset($account->year) && $account->year == "2020") ? "selected" : ""}} value="2020">2020</option>
-                                            <option {{ (isset($account->year) && $account->year == "2019") ? "selected" : ""}} value="2019">2019</option>
-                                            <option {{ (isset($account->year) && $account->year == "2018") ? "selected" : ""}} value="2018">2018</option>
-                                            <option {{ (isset($account->year) && $account->year == "2017") ? "selected" : ""}} value="2017">2017</option>
-                                            <option {{ (isset($account->year) && $account->year == "2016") ? "selected" : ""}} value="2016">2016</option>
-                                            <option {{ (isset($account->year) && $account->year == "2015") ? "selected" : ""}} value="2015">2015</option>
-                                            <option {{ (isset($account->year) && $account->year == "2014") ? "selected" : ""}} value="2014">2014</option>
-                                            <option {{ (isset($account->year) && $account->year == "2013") ? "selected" : ""}} value="2013">2013</option>
-                                            <option {{ (isset($account->year) && $account->year == "2012") ? "selected" : ""}} value="2012">2012</option>
-                                            <option {{ (isset($account->year) && $account->year == "2011") ? "selected" : ""}} value="2011">2011</option>
-                                            <option {{ (isset($account->year) && $account->year == "2010") ? "selected" : ""}} value="2010">2010</option>
-                                            <option {{ (isset($account->year) && $account->year == "2009") ? "selected" : ""}} value="2009">2009</option>
-                                            <option {{ (isset($account->year) && $account->year == "2008") ? "selected" : ""}} value="2008">2008</option>
-                                            <option {{ (isset($account->year) && $account->year == "2007") ? "selected" : ""}} value="2007">2007</option>
-                                            <option {{ (isset($account->year) && $account->year == "2006") ? "selected" : ""}} value="2006">2006</option>
-                                            <option {{ (isset($account->year) && $account->year == "2005") ? "selected" : ""}} value="2005">2005</option>
-                                            <option {{ (isset($account->year) && $account->year == "2004") ? "selected" : ""}} value="2004">2004</option>
-                                            <option {{ (isset($account->year) && $account->year == "2003") ? "selected" : ""}} value="2003">2003</option>
-                                            <option {{ (isset($account->year) && $account->year == "2002") ? "selected" : ""}} value="2002">2002</option>
-                                            <option {{ (isset($account->year) && $account->year == "2001") ? "selected" : ""}} value="2001">2001</option>
-                                            <option {{ (isset($account->year) && $account->year == "2000") ? "selected" : ""}} value="2000">2000</option>
-                                            <option {{ (isset($account->year) && $account->year == "1999") ? "selected" : ""}} value="1999">1999</option>
-                                            <option {{ (isset($account->year) && $account->year == "1998") ? "selected" : ""}} value="1998">1998</option>
-                                            <option {{ (isset($account->year) && $account->year == "1997") ? "selected" : ""}} value="1997">1997</option>
-                                            <option {{ (isset($account->year) && $account->year == "1996") ? "selected" : ""}} value="1996">1996</option>
-                                            <option {{ (isset($account->year) && $account->year == "1995") ? "selected" : ""}} value="1995">1995</option>
-                                            <option {{ (isset($account->year) && $account->year == "1994") ? "selected" : ""}} value="1994">1994</option>
-                                            <option {{ (isset($account->year) && $account->year == "1993") ? "selected" : ""}} value="1993">1993</option>
-                                            <option {{ (isset($account->year) && $account->year == "1992") ? "selected" : ""}} value="1992">1992</option>
-                                            <option {{ (isset($account->year) && $account->year == "1991") ? "selected" : ""}} value="1991">1991</option>
-                                            <option {{ (isset($account->year) && $account->year == "1990") ? "selected" : ""}} value="1990">1990</option>
-                                            <option {{ (isset($account->year) && $account->year == "1989") ? "selected" : ""}} value="1989">1989</option>
-                                            <option {{ (isset($account->year) && $account->year == "1988") ? "selected" : ""}} value="1988">1988</option>
-                                            <option {{ (isset($account->year) && $account->year == "1987") ? "selected" : ""}} value="1987">1987</option>
-                                            <option {{ (isset($account->year) && $account->year == "1986") ? "selected" : ""}} value="1986">1986</option>
-                                            <option {{ (isset($account->year) && $account->year == "1985") ? "selected" : ""}} value="1985">1985</option>
-                                            <option {{ (isset($account->year) && $account->year == "1984") ? "selected" : ""}} value="1984">1984</option>
-                                            <option {{ (isset($account->year) && $account->year == "1983") ? "selected" : ""}} value="1983">1983</option>
-                                            <option {{ (isset($account->year) && $account->year == "1982") ? "selected" : ""}} value="1982">1982</option>
-                                            <option {{ (isset($account->year) && $account->year == "1981") ? "selected" : ""}} value="1981">1981</option>
-                                            <option {{ (isset($account->year) && $account->year == "1980") ? "selected" : ""}} value="1980">1980</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-20px">
-                                        <label>Địa Chỉ</label>
-                                        <input name="address" type="text" value="{{ isset($account->address) ? $account->address : ""}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 mt-md-30px mt-lm-30px ">
-                                    <div class="your-order-area">
-                                        <div class="Place-order mt-25">
-                                            <a onclick="this.closest('form').submit();return false;" class="btn-hover" href="#">Lưu</a>
+                        <div class="cart-main-area mtb-60px">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12" id="list-cart">
+                                        <form action="">
+                                            <input type="hidden" name="_token" value="sZNYVtEC8uN3Hgsa6XqfOP1C4cyYI68VQw2ojtRb">                                <div class="table-content table-responsive cart-table-content">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Hình Ảnh</th>
+                                                            <th>Tên</th>
+                                                            <th>Đơn Giá</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach($product as $key => $value)
+                                                        <tr>
+                                                            <td class="product-thumbnail">
+                                                                <a href="#">
+                                                                    <img class="img-responsive" src="#" alt="Cánh gà rán">
+                                                                </a>
+                                                            </td>
+                                                            <td class="product-name">
+                                                                <a href="#"></a>
+                                                            </td>
+                                                            <td class="product-price-cart"><span class="amount">
+                                                                
+                                                            </span></td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </form>
+                                        <div style="justify-content: right;" class="row">
+                                            
+                                            <div class="col-lg-4 col-md-12 mt-md-30px">
+                                                <div class="grand-totall">
+                                                    <div class="title-wrap">
+                                                        <h4 class="cart-bottom-title section-bg-gary-cart">Tổng tiền</h4>
+                                                    </div>
+                                                    <h5>Tổng sản phẩm <span>120000 ₫</span></h5>
+                                                    <div class="total-shipping">
+                                                        <h5>Total shipping</h5>
+                                                        <ul>
+                                                            <li><input type="checkbox"> Standard <span>$20.00</span></li>
+                                                            <li><input type="checkbox"> Express <span>$30.00</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <h4 class="grand-totall-title">Tổng <span>120000 ₫</span></h4>
+                                                    <a href="http://127.0.0.1:8000/check-out">Tiến hành thanh toán</a>
+                                                </div>
+                                            </div>
                                         </div>
+                                        
+                                
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <!-- Sidebar Area Start -->

@@ -99,16 +99,6 @@ class CartController extends Controller
 
     }
 
-    public function getCheckOut(){
-        if(!Session::has('cart')){
-            return view('cart.cart');
-        }
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        $total = $cart->totalPrice;
-        return view('cart.checkOut', ['total' => $total]);
-    }
-
     /**
      * Display the specified resource.
      *

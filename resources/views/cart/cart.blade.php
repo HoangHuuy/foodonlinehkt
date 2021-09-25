@@ -272,19 +272,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="cart-shiping-update-wrapper">
-                                            <div class="cart-shiping-update">
-                                                <a href="#">Tiếp tục mua hàng</a>
-                                            </div>
-                                            <div class="cart-clear">
-                                                <button class="update-all">Cập nhập giỏ hàng</button>
-                                                <a class="delete-all" href="#">Xóa giỏ hàng</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </form>
                             <div style="justify-content: right;" class="row">
                                 {{-- <div class="col-lg-4 col-md-6 mb-lm-30px">
@@ -346,17 +333,7 @@
                                 </div> --}}
                                 <div class="col-lg-4 col-md-12 mt-md-30px">
                                     <div class="grand-totall">
-                                        <div class="title-wrap">
-                                            <h4 class="cart-bottom-title section-bg-gary-cart">Tổng tiền</h4>
-                                        </div>
-                                        <h5>Tổng sản phẩm <span>{{ $totalPrice }} &#8363;</span></h5>
-                                        <div class="total-shipping">
-                                            <h5>Total shipping</h5>
-                                            <ul>
-                                                <li><input type="checkbox" /> Standard <span>$20.00</span></li>
-                                                <li><input type="checkbox" /> Express <span>$30.00</span></li>
-                                            </ul>
-                                        </div>
+                                       
                                         <h4 class="grand-totall-title">Tổng <span>{{ $totalPrice }} &#8363;</span></h4>
                                         <a href="{{ route('checkout') }}">Tiến hành thanh toán</a>
                                     </div>

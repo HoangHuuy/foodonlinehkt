@@ -245,7 +245,7 @@
                                         <ul class="main-sub-menu">
                                             <li><a href="about.html">About Page</a></li>
                                             <li><a href="cart.html">Cart Page</a></li>
-                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                            <li><a href="/check-out">Thanh Toán Page</a></li>
                                             <li><a href="compare.html">Compare Page</a></li>
                                             <li><a href="login.html">Login & Register Page</a></li>
                                             <li><a href="my-account.html">Account Page</a></li>
@@ -376,7 +376,7 @@
                 </div>
                 <div class="buttons">
                     <a href="{{route('shoppingCart')}}" class="btn btn-dark btn-hover-primary mb-30px">xem giỏ hàng</a>
-                    <a href="/check-out" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="/check-out" class="btn btn-outline-dark current-btn">Thanh Toán</a>
                 </div>
             </div>
             @endif
@@ -385,22 +385,6 @@
     <!-- OffCanvas Cart End -->
 
     <div class="offcanvas-overlay"></div>
-    <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="breadcrumb-content">
-                        <ul class="nav">
-                            <li><a href="/">Home</a></li>
-                            <li>Shop</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Area End-->
     <!-- Shop Category Area End -->
     <div class="shop-category-area mt-30px">
         <div class="container">

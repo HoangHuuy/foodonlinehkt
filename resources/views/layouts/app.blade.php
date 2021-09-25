@@ -1,3 +1,4 @@
+@include('..layouts.add1')
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -11,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'FoodHKT') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -119,16 +120,5 @@
 
 </html>
 
-<?php
-use App\User;
-use Illuminate\Support\Facades\Auth;
-function getIdUser()
-{
-    $username = Auth::user()->username;
-    $username1 = User::query()->where('username', $username)->get();
-    return isset($username1[0]->id) ? $username1[0]->id : ' ';
 
-
-}
-?>
 

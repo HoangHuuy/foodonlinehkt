@@ -54,13 +54,3 @@
         </ul>
     </li>
 </ul>
-<?php
-use App\Seller;
-use Illuminate\Support\Facades\Auth;
-function getIdSeller()
-        {
-            $username = Auth::user()->username;
-           $username1 = Seller::query()->where('username', $username)->get();
-            return isset($username1[0]->id) ? $username1[0]->id : ' ';
-        }
-    ?>

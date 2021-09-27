@@ -560,7 +560,7 @@
                     </div>
                 </div>
                 <!-- Sidebar Area Start -->
-                <div class="col-lg-3 order-lg-first col-md-12 order-md-last mt-lm-50px mt-md-50px">
+                <div class="col-lg-2 order-lg-first col-md-12 order-md-last mt-lm-50px mt-md-50px">
                     <div class="left-sidebar shop-sidebar-wrap">
                         <div class="sidebar-widget mt-40px">
                             <h3 class="sidebar-title"><a style="color: black;" href="#">Tài Khoản Của Tôi</a></h3>

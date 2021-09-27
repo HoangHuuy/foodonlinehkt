@@ -6,6 +6,10 @@ use App\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mockery\Exception;
+use App\Models\Orders;
+use App\Models\Order_Detail;
+use App\Models\Product;
+
 
 class SellerController extends Controller
 {
@@ -74,7 +78,7 @@ class SellerController extends Controller
 
     }catch(Exception $e )
         {
-            dd($e);
+            
         }
 
     }
@@ -85,9 +89,34 @@ class SellerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showOrders()
     {
-        //
+
+        $seller = Auth::user()->username;
+        $order_code = Orders::where('seller_id', $seller)->get();
+        if($order_code->isEmpty()){
+            return view('seller.showOrders');
+        }
+
+        $count = 0;
+
+        foreach($order_code as $item){
+            $id_product[$count] = Order_Detail::where('order_code', $item->order_code)->get();
+            $count2 = 0;
+            foreach($id_product[$count] as $key => $value){
+                $product = Product::where('id', $id_product[$count][$count2]->id_product)->get();
+                $array[$count][$count2] = array_merge($value->toArray(), $product->toArray());
+                $count2++;
+            }
+            // echo $id_product[$count].'<br>';
+            $count++;
+
+        }
+        return view('seller.showOrders', compact('array'));
+    }
+
+    public function changeStatus(Request $request, $id){
+        dd('hi');
     }
 
     /**

@@ -10,6 +10,7 @@ use App\Models\Cart;
 use Auth;
 use App\Models\Orders;
 use App\Models\Order_Detail;
+use App\Http\Requests\storeOrders;
 
 class CheckOutController extends Controller
 {
@@ -31,7 +32,7 @@ class CheckOutController extends Controller
             ]);
     }
 
-    public function postCheckOut(Request $request){
+    public function postCheckOut(storeOrders $request){
         // dd($request);
 
         //sinh day ki tu ngau nhien
@@ -46,12 +47,12 @@ class CheckOutController extends Controller
         //luu vao bang order
         $order = new Orders;
         $order->buyer_id = Auth::user()->id;
+        $order->seller_id = $request->seller_id;
         $order->order_code = $random_string;
         $order->buyer_name = $request->fullname;
         $order->phoneNumber = $request->phoneNumber;
-        $order->address = "Ha Noi";
+        $order->address = $request->address;
         $order->totalPrice = $request->totalPrice;
-        $order->status = "Chưa xác nhận";
         $order->save();
 
         //luu vao bang Detail
@@ -60,6 +61,7 @@ class CheckOutController extends Controller
             $detail->order_code = $random_string;
             $detail->id_product = $request->id_product[$key];
             $detail->qty = $request->qty[$key];
+            $detail->status = 1;
             $detail->save();
             
             //xoa gio hang

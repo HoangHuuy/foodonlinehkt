@@ -8,7 +8,7 @@
             <i class="fas fa-caret-down first"></i>
         </a>
         <ul class="a-deco w-100 dddrop-one-show">
-            <li><a href="#" class="active-link dropdown-item my-color-text p1-4 p-2">
+            <li><a href="/seller/orders/show" class="active-link dropdown-item my-color-text p1-4 p-2">
                 Tất cả đơn
             </a></li>
             <li><a href="#" class="active-link dropdown-item my-color-text p1-4 p-2">

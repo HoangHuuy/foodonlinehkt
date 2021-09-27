@@ -400,7 +400,7 @@
     <div class="shop-category-area blog-grid mtb-60px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
+                <div class="col-lg-10 order-lg-last col-md-12 order-md-first">
                     <div class="billing-info-wrap">
                         <h3>Đơn Mua</h3>
                         <p>Quản lý thông tin đơn hàng</p>
@@ -410,57 +410,42 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12" id="list-cart">
                                         <form action="">
-                                            <input type="hidden" name="_token" value="sZNYVtEC8uN3Hgsa6XqfOP1C4cyYI68VQw2ojtRb">                                <div class="table-content table-responsive cart-table-content">
+                                            <input type="hidden" name="_token" value="sZNYVtEC8uN3Hgsa6XqfOP1C4cyYI68VQw2ojtRb">
+                                            <div class="table-content table-responsive cart-table-content">
                                                 <table>
                                                     <thead>
                                                         <tr>
-                                                            <th>Hình Ảnh</th>
-                                                            <th>Tên</th>
-                                                            <th>Đơn Giá</th>
+                                                            <th class="col-lg-2">Hình Ảnh</th>
+                                                            <th class="col-lg-5">Tên</th>
+                                                            <th class="col-lg-2">Số Lượng</th>
+                                                            <th class="col-lg-2">Đơn Giá</th>
+                                                            <th class="col-lg-2">Trạng Thái</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($product as $key => $value)
+                                                        @foreach($array as $item)
                                                         <tr>
                                                             <td class="product-thumbnail">
-                                                                <a href="#">
-                                                                    <img class="img-responsive" src="#" alt="Cánh gà rán">
-                                                                </a>
+                                                                <img class="img-responsive" src="{{ asset('uploads/product/' .$item[0]['image_product'] )}}" alt="Cánh gà rán">
                                                             </td>
                                                             <td class="product-name">
-                                                                <a href="#"></a>
+                                                                <span class="amount">{{$item[0]['title']}}</span>
                                                             </td>
-                                                            <td class="product-price-cart"><span class="amount">
-                                                                
-                                                            </span></td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{$item['qty']}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{$item[0]['price']}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{$item['status']}}</span>
+                                                            </td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </form>
-                                        <div style="justify-content: right;" class="row">
-                                            
-                                            <div class="col-lg-4 col-md-12 mt-md-30px">
-                                                <div class="grand-totall">
-                                                    <div class="title-wrap">
-                                                        <h4 class="cart-bottom-title section-bg-gary-cart">Tổng tiền</h4>
-                                                    </div>
-                                                    <h5>Tổng sản phẩm <span>120000 ₫</span></h5>
-                                                    <div class="total-shipping">
-                                                        <h5>Total shipping</h5>
-                                                        <ul>
-                                                            <li><input type="checkbox"> Standard <span>$20.00</span></li>
-                                                            <li><input type="checkbox"> Express <span>$30.00</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <h4 class="grand-totall-title">Tổng <span>120000 ₫</span></h4>
-                                                    <a href="http://127.0.0.1:8000/check-out">Tiến hành thanh toán</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                
                                     </div>
                                 </div>
                             </div>
@@ -468,7 +453,7 @@
                     </div>
                 </div>
                 <!-- Sidebar Area Start -->
-                <div class="col-lg-3 order-lg-first col-md-12 order-md-last mt-lm-50px mt-md-50px">
+                <div class="col-lg-2 order-lg-first col-md-12 order-md-last mt-lm-50px mt-md-50px">
                     <div class="left-sidebar shop-sidebar-wrap">
                         <div class="sidebar-widget mt-40px">
                             <h3 class="sidebar-title"><a style="color: black;" href="#">Tài Khoản Của Tôi</a></h3>

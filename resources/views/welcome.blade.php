@@ -88,7 +88,7 @@
                             <li class="pr-0">
                                 <div class="dropdown">
                                     <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }} <i
+                                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>&#160; {{ Auth::user()->username }} <i
                                             class="ion-ios-arrow-down"></i></button>
 
                                     <ul class="dropdown-menu animation slideDownIn"
@@ -101,6 +101,14 @@
                                                 class="d-none">
                                                 @csrf
                                             </form>
+                                        </li>
+                                        <li><a href="{{ route('user.showprofile') }}" >
+                                            Tài khoản của tôi
+                                            </a>
+                                        </li>
+                                        <li><a href="{{ route('user.showOrders') }}" >
+                                            Đơn mua
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -128,9 +136,6 @@
                         <div class="header-right-element d-flex">
                             <div class="search-element media-body">
                                 <form class="d-flex" action="#">
-                                    <div class="search-category">
-                                        <select name="" id=""></select>
-                                    </div>
                                     <input type="text" placeholder="Enter your search key ... " />
                                     <button><i class="icon-magnifier"></i></button>
                                 </form>

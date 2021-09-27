@@ -76,12 +76,12 @@
                                 <li class="pr-0">
                                     <div class="dropdown">
                                         <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }} <i
+                                            aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>&#160; {{ Auth::user()->username }} <i
                                                 class="ion-ios-arrow-down"></i></button>
     
                                         <ul class="dropdown-menu animation slideDownIn"
                                             aria-labelledby="dropdownMenuButton">
-                                            <li><a href="login.html" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                                     Đăng xuất
                                                 </a>
@@ -89,6 +89,14 @@
                                                     class="d-none">
                                                     @csrf
                                                 </form>
+                                            </li>
+                                            <li><a href="{{ route('user.showprofile') }}" >
+                                                Tài khoản của tôi
+                                                </a>
+                                            </li>
+                                            <li><a href="{{ route('user.showOrders') }}" >
+                                                Đơn mua
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -102,6 +110,182 @@
                     </div>
                 </div>
             </div>
+            <!-- Header Nav End -->
+            <div class="header-top bg-white ptb-30px d-xl-block d-none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="logo">
+                                <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png"
+                                        alt="logo.jpg" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 align-self-center">
+                            <div class="header-right-element d-flex"> 
+                                <div class="search-element media-body">
+                                    <form class="d-flex" action="#">
+                                        <input type="text" placeholder="Tìm theo tên... " />
+                                        <button><i class="icon-magnifier"></i></button>
+                                    </form>
+                                </div>
+                                <!--Cart info Start -->
+                                <div class="header-tools d-flex">
+                                    <div class="cart-info d-flex align-self-center">
+                                        {{-- <a href="compare.html" class="shuffle" data-number="3"><i class="icon-shuffle"></i></a> --}}
+                                        <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
+                                                class="icon-heart"></i></a>
+                                        @if(Session::has('cart') != null)
+                                        <a href="#offcanvas-cart" 
+                                            class="bag offcanvas-toggle" 
+                                            data-number="{{Session::get('cart')->totalQty}}"><i
+                                            class="icon-bag"
+                                            id="total-quanty-show"></i><span>{{number_format(Session::get('cart')->totalPrice)}}&#8363;</span></a>
+                                        @else
+                                        <a href="#offcanvas-cart" 
+                                            class="bag offcanvas-toggle" 
+                                            data-number="0"><i
+                                            class="icon-bag"
+                                            id="total-quanty-show"></i><span></span></a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Cart info End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Nav End -->
+            <div class="header-menu bg-blue sticky-nav d-xl-block d-none padding-0px">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 custom-col-2">
+                            <div class="header-menu-vertical">
+                                <h4 class="menu-title">Danh mục</h4>
+                                <ul class="menu-content display-none">
+                                    <li class="menu-item"><a href="/product/rice">Cơm </a></li>
+                                    <li class="menu-item"><a href="/product/congee">Cháo </a></li>
+                                    <li class="menu-item"><a href="/product/noodles">Phở</a></li>
+                                    <li class="menu-item"><a href="/product/snack">Đồ ăn vặt</a></li>
+                                    <li class="menu-item"><a href="/product/drink">Đồ uống</a></li>
+                                    <li class="menu-item"><a href="/product/others">Đồ ăn khác</a></li>
+                                </ul>
+                                <!-- menu content -->
+                            </div>
+                            <!-- header menu vertical -->
+                        </div>
+                        <div class="col-lg-9 custom-col-2">
+                            <div class="header-horizontal-menu">
+                                <ul class="menu-content">
+                                    <li class="active menu-dropdown">
+                                        <a href="/">Trang chủ</a>
+                                    </li>
+                                    {{-- <li class="menu-dropdown">
+                                            <a href="#">Shop <i class="ion-ios-arrow-down"></i></a>
+                                            <ul class="mega-menu-wrap">
+                                                <li>
+                                                    <ul>
+                                                        <li class="mega-menu-title"><a href="#">Shop Grid</a></li>
+                                                        <li><a href="shop-3-column.html">Shop Grid 3 Column</a></li>
+                                                        <li><a href="shop-4-column.html">Shop Grid 4 Column</a></li>
+                                                        <li><a href="shop-left-sidebar.html">Shop Grid Left Sidebar</a></li>
+                                                        <li><a href="shop-right-sidebar.html">Shop Grid Right Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <ul>
+                                                        <li class="mega-menu-title"><a href="#">Shop List</a></li>
+                                                        <li><a href="shop-list.html">Shop List</a></li>
+                                                        <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
+                                                        <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <ul>
+                                                        <li class="mega-menu-title"><a href="#">Shop Single</a></li>
+                                                        <li><a href="single-product.html">Shop Single</a></li>
+                                                        <li><a href="single-product-variable.html">Shop Variable</a></li>
+                                                        <li><a href="single-product-affiliate.html">Shop Affiliate</a></li>
+                                                        <li><a href="single-product-group.html">Shop Group</a></li>
+                                                        <li><a href="single-product-tabstyle-2.html">Shop Tab 2</a></li>
+                                                        <li><a href="single-product-tabstyle-3.html">Shop Tab 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <ul>
+                                                        <li class="mega-menu-title"><a href="#">Shop Single</a></li>
+                                                        <li><a href="single-product-slider.html">Shop Slider</a></li>
+                                                        <li><a href="single-product-gallery-left.html">Shop Gallery Left</a></li>
+                                                        <li><a href="single-product-gallery-right.html">Shop Gallery Right</a></li>
+                                                        <li><a href="single-product-sticky-left.html">Shop Sticky Left</a></li>
+                                                        <li><a href="single-product-sticky-right.html">Shop Sticky Right</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="w-100">
+                                                    <ul class="banner-megamenu-wrapper d-flex">
+                                                        <li class="banner-wrapper mr-30px">
+                                                            <a href="single-product.html"><img src="assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                        </li>
+                                                        <li class="banner-wrapper">
+                                                            <a href="single-product.html"><img src="assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-dropdown">
+                                            <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
+                                            <ul class="main-sub-menu">
+                                                <li><a href="about.html">About Page</a></li>
+                                                <li><a href="cart.html">Cart Page</a></li>
+                                                <li><a href="/check-out">Thanh Toán Page</a></li>
+                                                <li><a href="compare.html">Compare Page</a></li>
+                                                <li><a href="login.html">Login & Register Page</a></li>
+                                                <li><a href="my-account.html">Account Page</a></li>
+                                                <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-dropdown">
+                                            <a href="#">Blog <i class="ion-ios-arrow-down"></i></a>
+                                            <ul class="main-sub-menu">
+                                                <li class="menu-dropdown position-static">
+                                                    <a href="#">Blog Grid <i class="ion-ios-arrow-right"></i></a>
+                                                    <ul class="main-sub-menu main-sub-menu-2">
+                                                        <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                                                        <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-dropdown position-static">
+                                                    <a href="#">Blog List <i class="ion-ios-arrow-right"></i></a>
+                                                    <ul class="main-sub-menu main-sub-menu-2">
+                                                        <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
+                                                        <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-dropdown position-static">
+                                                    <a href="#">Blog Single <i class="ion-ios-arrow-right"></i></a>
+                                                    <ul class="main-sub-menu main-sub-menu-2">
+                                                        <li><a href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
+                                                        <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidbar</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li> --}}
+                                    <li><a href="#">Danh sách món ưa thích</a></li>
+                                </ul>
+                            </div>
+                            <!-- header horizontal menu -->
+                            {{-- <div class="intro-text-shipping text-end">
+                                    <div class="free-ship">Free Shipping on Orders $50+</div>
+                                </div>  --}}
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- header menu -->
         </header>
         <!-- Header Section End Here -->    
 

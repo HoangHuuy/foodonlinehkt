@@ -8,11 +8,11 @@ class Orders extends Model
 {
     protected $fillable = [
         'buyer_id',
+        'seller_id',
         'order_code',
         'buyer_name',
         'phoneNumber',
         'address',
         'totalPrice',
-        'status',
     ];
 }

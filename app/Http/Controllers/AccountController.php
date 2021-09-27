@@ -41,7 +41,8 @@ class AccountController extends Controller
 
         foreach ($order_detail as $key => $value) {
             $product = Product::where('id', $order_detail[$key]->id_product)->get();
+            $array[$key] = array_merge($order_detail[0]->toArray(), $product->toArray());
         }
-        return view('account.orders', ['account' => $account, 'product' => $product]);
+        return view('account.orders', ['array' => $array]);
     }
 }

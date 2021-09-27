@@ -18,6 +18,7 @@ class CreateOrderDetailsTable extends Migration
             $table->string('order_code');
             $table->string('id_product');
             $table->integer('qty');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -62,6 +62,13 @@ Route::group(['prefix' => 'seller'], function (){
     Route::post('/address/add/{id}', 'SellerController@update')->name('seller.updateAddress');
 
     Route::get('/address/add', 'SellerController@index3')->name('seller.addAddress');
+
+    Route::get('/orders/show', 'SellerController@showOrders')->name('seller.showOrders');
+
+    Route::post('/orders/show/{id}', 'SellerController@showOrders')->name('seller.showOrders');
+
+    Route::post('/change-status/{id}', 'SellerController@changeStatus')->name('seller.changeStatus');
+
 });
 
 

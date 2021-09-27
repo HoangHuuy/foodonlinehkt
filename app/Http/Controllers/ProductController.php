@@ -52,7 +52,7 @@ class ProductController extends Controller
                 // if(isset($product))
                 //     return view('searchProduct',compact('product'))->with("error","Khong tim thay san pham ");
                 // else
-                    return view('searchProduct',compact('product'));
+            return view('searchProduct',compact('product'));
         }else{
             $product = Product::all();
             return view('welcome', compact('product'));
@@ -105,7 +105,6 @@ class ProductController extends Controller
 //            return redirect()->route('seller.addProduct')->with('success', 'Thêm thành công');
             return redirect()->route('seller.showProduct')->with('success', 'Thêm thành công');
         }catch(Exception $error){
-            dd($error);
             return redirect()->route('seller.addProduct')->with('error', 'Có lỗi trong quá trình thực hiện');
         }
 

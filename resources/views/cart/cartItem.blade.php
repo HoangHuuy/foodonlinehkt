@@ -31,7 +31,7 @@
         </div>
         <div class="buttons">
             <a href="{{route('shoppingCart')}}" class="btn btn-dark btn-hover-primary mb-30px">Xem giỏ hàng</a>
-            <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+            <a href="/check-out" class="btn btn-outline-dark current-btn">Thanh Toán</a>
         </div>
     </div>
 </div>

@@ -514,7 +514,7 @@
                                                             type="hidden" 
                                                             value="{{ $product['qty'] }}"
                                                         />
-                                                        <input name="seller_id" type="hidden" value="{{ $product['item']->username }}"/>
+                                                        <input name="seller_id[]" type="hidden" value="{{ $product['item']->username }}"/>
                                                     </li>
                                                     @endforeach
                                                     @endif

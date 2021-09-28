@@ -67,7 +67,9 @@ Route::group(['prefix' => 'seller'], function (){
 
     Route::post('/orders/show/{id}', 'SellerController@showOrders')->name('seller.showOrders');
 
-    Route::post('/change-status/{id}', 'SellerController@changeStatus')->name('seller.changeStatus');
+    Route::get('/orders/change-status/{id}/{val}', 'SellerController@changeStatus')->name('seller.changeStatus');
+
+
 
 });
 
@@ -83,4 +85,7 @@ Route::group(['prefix' => 'account'], function (){
 
 Route::group(['prefix' => 'product'], function (){
     Route::get('/detail/{id}', 'ProductController@indexDetail')->name('product.detail');
+
+    Route::post('/comment/{id}', 'ProductController@storeComment')->name('product.storeComment');
+
 });

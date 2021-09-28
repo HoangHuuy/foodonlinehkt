@@ -19,7 +19,8 @@
     <script src="{{ asset('js/sidebar-rotate-arrow.js') }}" defer></script>
     <script src="{{ asset('js/active-link.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/6ea5a547fb.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('jquery-3.5.1.min.js')}}"></script>
+    
+    {{-- <script src="{{ asset('jquery-3.5.1.min.js')}}"></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -32,6 +33,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+
 
 
 </head>
@@ -117,6 +120,7 @@
                 </div>
         </main>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 </body>
 
 </html>

@@ -46,6 +46,9 @@
         .billing-info-wrap p {
             margin-bottom: 20px;
         }
+        .myTd {
+            color: white !important;
+        }
     </style>
 
 </head>
@@ -423,25 +426,90 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($array as $item)
-                                                        <tr>
+                                                        {{-- @if(isset($array)) --}}
+                                                        @foreach($order as $key => $value)
+                                                        @if($value['status'] == 1)
+                                                        <tr style="background-color: #204d7426;">
                                                             <td class="product-thumbnail">
-                                                                <img class="img-responsive" src="{{ asset('uploads/product/' .$item[0]['image_product'] )}}" alt="Cánh gà rán">
+                                                                <img class="img-responsive" src="{{ asset('uploads/product/' .\App\Models\Product::where('id', $value['id_product'])->get()[0]->image_product )}}" alt="Cánh gà rán">
                                                             </td>
                                                             <td class="product-name">
-                                                                <span class="amount">{{$item[0]['title']}}</span>
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->title}}</span>
                                                             </td>
                                                             <td class="product-price-cart">
-                                                                <span class="amount">{{$item['qty']}}</span>
+                                                                <span class="amount">{{$value['qty']}}</span>
                                                             </td>
                                                             <td class="product-price-cart">
-                                                                <span class="amount">{{$item[0]['price']}}</span>
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->price}}</span>
                                                             </td>
                                                             <td class="product-price-cart">
-                                                                <span class="amount">{{$item['status']}}</span>
+                                                                <span class="amount">Chưa Xác Nhận</span>
                                                             </td>
                                                         </tr>
+                                                        @endif
+
+                                                        @if($value['status'] == 2)
+                                                        <tr style="background-color: #c3b61f52">
+                                                            <td class="product-thumbnail">
+                                                                <img class="img-responsive" src="{{ asset('uploads/product/' .\App\Models\Product::where('id', $value['id_product'])->get()[0]->image_product )}}" alt="Cánh gà rán">
+                                                            </td>
+                                                            <td class="product-name">
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->title}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{$value['qty']}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->price}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">Chờ Nhận Hàng</span>
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+
+                                                        @if($value['status'] == 3)
+                                                        <tr style="background-color: #ac292536;">
+                                                            <td class="product-thumbnail">
+                                                                <img class="img-responsive" src="{{ asset('uploads/product/' .\App\Models\Product::where('id', $value['id_product'])->get()[0]->image_product )}}" alt="Cánh gà rán">
+                                                            </td>
+                                                            <td class="product-name">
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->title}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{$value['qty']}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->price}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">Đã Hủy</span>
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+
+                                                        @if($value['status'] == 4)
+                                                        <tr style="background-color: #39843952;">
+                                                            <td class="product-thumbnail">
+                                                                <img class="img-responsive" src="{{ asset('uploads/product/' .\App\Models\Product::where('id', $value['id_product'])->get()[0]->image_product )}}" alt="Cánh gà rán">
+                                                            </td>
+                                                            <td class="product-name">
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->title}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{$value['qty']}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">{{\App\Models\Product::where('id', $value['id_product'])->get()[0]->price}}</span>
+                                                            </td>
+                                                            <td class="product-price-cart">
+                                                                <span class="amount">Đã Thanh Toán</span>
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+
                                                         @endforeach
+                                                        {{-- @endif --}}
                                                     </tbody>
                                                 </table>
                                             </div>

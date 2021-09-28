@@ -6,6 +6,7 @@ use App\Seller;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Comment;
 use App\Http\Requests\storeProductRequest;
 use Auth;
 use function PHPUnit\Framework\isNull;
@@ -33,11 +34,12 @@ class ProductController extends Controller
         return view('welcome', compact('product'));
     }
 
-    public function detailProduct($id){
-        $product = Product::query()->where('id', $id)->get();
-        $seller = Seller::query()->where('username', $product[0]->username)->get();
-        return view('productdetail',compact('product','seller'));
-    }
+    // public function detailProduct($id){
+    //     $product = Product::query()->where('id', $id)->get();
+    //     $seller = Seller::query()->where('username', $product[0]->username)->get();
+    //     dd($seller);
+    //     // return view('productdetail', ['product' ]);
+    // }
 
     public function searchProduct(){
         if(isset($_GET['searchProduct'])){
@@ -62,7 +64,9 @@ class ProductController extends Controller
 
     public function indexDetail($id){
         $product = Product::query()->where('id', $id)->get();
-        return view('productdetail', compact('product'));
+        $seller = Seller::query()->where('username', $product[0]->username)->get();
+        $comment = Comment::where('id_product', $id)->get();
+        return view('productdetail', compact('product', 'seller', 'comment'));
     }
 
     /**
@@ -116,10 +120,6 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -196,5 +196,14 @@ class ProductController extends Controller
         Product::query()->where('id', $id)->delete();
         $product = Product::query()->where('username', Auth::user()->username)->get();
         return view('seller.showproduct', compact('product'));
+    }
+
+    public function storeComment(Request $request, $id){
+        $comment = new Comment;
+        $comment->id_user = Auth::user()->id;
+        $comment->id_product = $id;
+        $comment->comment = $request->comment;
+        $comment->save();
+        return redirect()->route('product.detail', ['id' => $id]);
     }
 }

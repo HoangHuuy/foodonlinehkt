@@ -17,14 +17,18 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->integer('buyer_id');
             $table->string('seller_id');
+            $table->string('id_product');
             $table->string('order_code');
+            $table->string('qty');
+            $table->string('status');
             $table->string('buyer_name');
             $table->string('phoneNumber');
             $table->string('address');
-            $table->integer('totalPrice');
             $table->timestamps();
         });
     }
+
+
 
     /**
      * Reverse the migrations.

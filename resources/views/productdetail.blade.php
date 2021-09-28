@@ -36,6 +36,16 @@
     <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/plugins/plugins.min.css" />
     <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.min.css">
 
+    <style>
+        .minicart-product-list li .content .remove {
+            font-size: 30px;
+        }
+        .header-menu .header-menu-vertical .menu-content {
+            min-width: 170px;
+        }
+
+    </style>
+
     <!-- Main Style CSS -->
     <!-- <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css" /> -->
 </head>
@@ -48,7 +58,7 @@
             <div class="container">
                 <div class="header-nav-wrapper d-md-flex d-sm-flex d-xl-flex d-lg-flex justify-content-between">
                     <div class="header-static-nav">
-                       
+                        <p>Chào mừng đến với foodTHK!</p>
                     </div>
                     <div class="header-menu-nav">
 
@@ -66,6 +76,9 @@
                             </li>
                             @endif
                             @else
+                            <li>
+                                <a href="{{ route('seller.home') }}">Trang người bán</a>
+                            </li>
                             <li class="pr-0">
                                 <div class="dropdown">
                                     <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -74,7 +87,7 @@
 
                                     <ul class="dropdown-menu animation slideDownIn"
                                         aria-labelledby="dropdownMenuButton">
-                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        <li><a href="login.html" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                                 Đăng xuất
                                             </a>
@@ -109,15 +122,15 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="logo">
-                            <a href="/"><img class="img-responsive" src="assets/images/logo/logo.png"
+                            <a href="/"><img class="img-responsive" src="/assets/images/logo/logo.png"
                                     alt="logo.jpg" /></a>
                         </div>
                     </div>
                     <div class="col-md-10 align-self-center">
-                        <div class="header-right-element d-flex"> 
+                        <div class="header-right-element d-flex">
                             <div class="search-element media-body">
                                 <form class="d-flex" action="#">
-                                    <input type="text" placeholder="Tìm theo tên... " />
+                                    <input type="text" placeholder="Enter your search key ... " />
                                     <button><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
@@ -217,10 +230,10 @@
                                             <li class="w-100">
                                                 <ul class="banner-megamenu-wrapper d-flex">
                                                     <li class="banner-wrapper mr-30px">
-                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -334,56 +347,41 @@
 
     <!-- OffCanvas Cart Start -->
     <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
-        <div class="inner">
+        <div class="inner" id="change-item-cart">
+            @if(Session::has('cart') != null) 
             <div class="head">
-                <span class="title">Cart</span>
+                <span class="title">Giỏ hàng</span>
                 <button class="offcanvas-close">×</button>
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
+                    @foreach(Session::get('cart')->items as $item)
                     <li>
                         <a href="single-product.html" class="image"><img
-                                src="http://127.0.0.1:8000/assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
+                                src="{{ asset('uploads/product/' . $item['item']->image_product )}}"
+                                alt="{{$item['item']->title}}"></a>
                         <div class="content">
-                            <a href="single-product.html" class="title">Walnut Cutting Board</a>
-                            <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
-                            <a href="#" class="remove">×</a>
+                            <a href="single-product.html" class="title">{{$item['item']->title}}</a>
+                            <span class="quantity-price">
+                                {{$item['qty']}} x <span class="amount">{{number_format($item['item']->price)}}</span>
+                            </span>
+                            <a href="javascript:" data-id="{{$item['item']->id}}" class="remove remove-cart">×</a>
                         </div>
                     </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img
-                                src="http://127.0.0.1:8000/assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">Lucky Wooden Elephant</a>
-                            <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img
-                                src="http://127.0.0.1:8000/assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">Fish Cut Out Set</a>
-                            <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="foot">
                 <div class="sub-total">
-                    <strong>Subtotal :</strong>
-                    <span class="amount">$144.00</span>
+                    <strong>Tổng :</strong>
+                    <span class="amount">{{number_format(Session::get('cart')->totalPrice)}}&#8363;</span>
                 </div>
                 <div class="buttons">
-                    <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="{{route('shoppingCart')}}" class="btn btn-dark btn-hover-primary mb-30px">xem giỏ hàng</a>
+                    <a href="/check-out" class="btn btn-outline-dark current-btn">Thanh Toán</a>
                 </div>
-                <p class="minicart-message">Free Shipping on All Orders Over $100!</p>
             </div>
+            @endif
         </div>
     </div>
     <!-- OffCanvas Cart End -->
@@ -418,31 +416,20 @@
                 <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="product-details-content">
                         <h2>{{$product[0]->title}}</h2>
-                        {{-- <p class="reference">Reference:<span> demo_17</span></p>
-                                <div class="pro-details-rating-wrap">
-                                    <div class="rating-product">
-                                        <i class="ion-android-star"></i>
-                                        <i class="ion-android-star"></i>
-                                        <i class="ion-android-star"></i>
-                                        <i class="ion-android-star"></i>
-                                        <i class="ion-android-star"></i>
-                                    </div>
-                                    <span class="read-review"><a class="reviews" href="#">Read reviews (1)</a></span>
-                                </div> --}}
                         <div class="pricing-meta">
                             <ul>
                                 <li class="old-price not-cut">&#8363;{{$product[0]->price}}</li>
                             </ul>
                         </div>
+                        @if(isset($seller))
                         <div class="pro-details-list">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor incidid ut labore et
-                                dolore magna aliqua. Ut enim ad minim venialo quis nostrud exercitation ullamco</p>
                             <ul>
-                                <li>- 0.5 mm Dail</li>
-                                <li>- Inspired vector icons</li>
-                                <li>- Very modern style</li>
+                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Tên Shop:</span> {{$seller[0]->shopName}}</li>
+                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Số Điện Thoại:</span> {{$seller[0]->phoneNumber}}</li>
+                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Địa Chỉ:</span> {{$seller[0]->address}}</li>
                             </ul>
                         </div>
+                        @endif
 
                         {{-- bat dau form tao don hang --}}
                             <input type="hidden" name="user_username" value="{{ Auth::user()->username }}" />
@@ -490,57 +477,24 @@
         <div class="container">
             <div class="description-review-wrapper">
                 <div class="description-review-topbar nav">
-                    <a class="active" data-bs-toggle="tab" href="#des-details2">Cửa hàng</a>
-                    <a data-bs-toggle="tab" href="#des-details3">Bình luận và đánh giá</a>
+                    <a class="active" data-bs-toggle="tab" href="#des-details3">Bình luận</a>
                 </div>
                 <div class="tab-content description-review-bottom">
-                    <div id="des-details2" class="tab-pane active">
-                        <div class="product-anotherinfo-wrapper">
-                            <ul>
-                                <li><span>Tên</span> Shop ăn vặt</li>
-                                <li><span>Địa chỉ</span> 121 Chiến Thắng Văn Quán Hà Đông</li>
-                                <li><span>Trạng thái</span> <i class="fas fa-circle" style="color:#00ff00;"></i> đang mở
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div id="des-details1" class="tab-pane">
-                        <div class="product-description-wrapper">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            </p>
-                            <p>
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commo consequat. Duis aute irure dolor in
-                                reprehend in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt
-                            </p>
-                        </div>
-                    </div>
-                    <div id="des-details3" class="tab-pane">
+                    <div id="des-details3" class="tab-pane active">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 <div class="review-wrapper">
                                     <div class="single-review">
                                         <div class="review-img">
                                             <img src="http://127.0.0.1:8000/assets/images/review-image/1.png" alt="" />
                                         </div>
+
                                         <div class="review-content">
                                             <div class="review-top-wrap">
                                                 <div class="review-left">
                                                     <div class="review-name">
                                                         <h4>White Lewis</h4>
                                                     </div>
-                                                    <div class="rating-product">
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="review-left">
-                                                    <a href="#">Reply</a>
                                                 </div>
                                             </div>
                                             <div class="review-bottom">
@@ -552,74 +506,53 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="single-review child-review">
+                                    @if(isset($comment))
+                                    @foreach($comment as $item)
+                                    <div class="single-review">
                                         <div class="review-img">
-                                            <img src="http://127.0.0.1:8000/assets/images/review-image/2.png" alt="" />
+                                            <img src="http://127.0.0.1:8000/assets/images/review-image/1.png" alt="" />
                                         </div>
-                                        <div class="review-content">
-                                            <div class="review-top-wrap">
-                                                <div class="review-left">
-                                                    <div class="review-name">
-                                                        <h4>White Lewis</h4>
-                                                    </div>
-                                                    <div class="rating-product">
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
-                                                        <i class="ion-android-star"></i>
+
+                                            <div class="review-content">
+                                                <div class="review-top-wrap">
+                                                    <div class="review-left">
+                                                        <div class="review-name">
+                                                            <h4>{{isset(\App\User::where('id', $item['id_user'])->get()[0]->fullname) ? \App\User::where('id', $item['id_user'])->get()[0]->fullname : "user".$item['id_user']}}</h4>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="review-left">
-                                                    <a href="#">Reply</a>
+                                                <div class="review-bottom">
+                                                    <p>
+                                                        {{$item['comment']}}
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="review-bottom">
-                                                <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere
-                                                    cubilia Curae Sus pen disse viverra ed viverra. Mauris ullarper
-                                                    euismod vehicula.</p>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                            </div>
+                            <form action="{{route('product.storeComment', ['id' => $product[0]->id])}}" method="POST">
+                                @csrf
+                                <div class="checkout-area mt-60px mb-40px">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="billing-info-wrap">
+                                                    <div class="additional-info-wrap">
+                                                        <h4>Additional information</h4>
+                                                        <div class="additional-info">
+                                                            <label>Order notes</label>
+                                                            <textarea placeholder="Nhập bình luận... " name="comment"></textarea>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Bình luận</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="ratting-form-wrapper pl-50">
-                                    <h3>Add a Review</h3>
-                                    <div class="ratting-form">
-                                        <form action="#">
-                                            <div class="star-box">
-                                                <span>Your rating:</span>
-                                                <div class="rating-product">
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="rating-form-style mb-10">
-                                                        <input placeholder="Name" type="text" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="rating-form-style mb-10">
-                                                        <input placeholder="Email" type="email" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="rating-form-style form-submit">
-                                                        <textarea name="Your Review" placeholder="Message"></textarea>
-                                                        <input type="submit" value="Submit" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -2650,6 +2583,35 @@
     <!-- Main Activation JS -->
     <script src="http://127.0.0.1:8000/assets/js/main.js"></script>
     <script src="https://kit.fontawesome.com/6ea5a547fb.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        function add(id) {
+            $.ajax({
+                url: 'add-to-cart/' + id,
+                type: 'GET',
+            }).done(function (response) {
+                RenderCart(response);
+                alertify.success('Thêm giỏ hàng thành công');
+            });
+        }
+        $("#change-item-cart").on('click', '.content .remove-cart', function () {
+            console.log($(this).data("id"));
+            $.ajax({
+                url: 'delete-item-cart/' + $(this).data("id"),
+                type: 'GET',
+            }).done(function (response) {
+                RenderCart(response);
+                alertify.warning('Xóa sản phẩm thành công');
+            });
+        });
+
+        function RenderCart(response) {
+            $("#change-item-cart").empty();
+            $("#change-item-cart").html(response);
+            $("#total-quanty-show").text($("#total-quanty-cart").val());
+        }
+
+    </script>
 </body>
 
 <!-- Mirrored from template.hasthemes.com/rozer/rozer/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:28:08 GMT -->

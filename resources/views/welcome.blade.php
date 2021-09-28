@@ -52,6 +52,9 @@
         .minicart-product-list li .content .remove {
             font-size: 30px;
         }
+        .header-menu .header-menu-vertical .menu-content {
+            min-width: 170px !important;
+        }
 
     </style>
 </head>

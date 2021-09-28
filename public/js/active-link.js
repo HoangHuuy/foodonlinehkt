@@ -23,3 +23,30 @@
 //        //document.forms[statusChangeForm].submit();
 //     });
 // });
+
+$(".status").each(function(index) {
+    $(this).on("change", function(){
+        $.ajax({
+            url: 'change-status/' + $(this).data("id") + '/' + $(this).find(":selected").val(),
+            type: 'GET',
+            complete: function () {
+                // alert('THanh cong');
+                alertify.success('Cập Nhập Thành Công');
+            }
+        });
+            
+
+
+
+        // // For the boolean value
+        // var boolKey = $(this).data('selected');
+        // // For the mammal value
+        // var mammalKey = $(this).attr('id'); 
+    });
+});
+
+// function RenderCart(response) {
+//     $("#change-item-cart").empty();
+//     $("#change-item-cart").html(response);
+//     $("#total-quanty-show").text($("#total-quanty-cart").val());
+// }

@@ -224,7 +224,23 @@
                                 <div class="cart-info d-flex align-self-center">
                                     <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
                                             class="icon-heart"></i></a>
+<<<<<<< Updated upstream
                                     <a href="/cart" data-number="4"><i class="icon-bag"></i></a>
+=======
+                                    @if(Session::has('cart') != null)
+                                    <a href="#offcanvas-cart"
+                                        class="bag offcanvas-toggle"
+                                        data-number="{{Session::get('cart')->totalQty}}"><i
+                                        class="icon-bag"
+                                        id="total-quanty-show"></i><span>{{number_format(Session::get('cart')->totalPrice)}}&#8363;</span></a>
+                                    @else
+                                    <a href="#offcanvas-cart"
+                                        class="bag offcanvas-toggle"
+                                        data-number="0"><i
+                                        class="icon-bag"
+                                        id="total-quanty-show"></i><span></span></a>
+                                    @endif
+>>>>>>> Stashed changes
                                 </div>
                             </div>
                         </div>
@@ -323,7 +339,12 @@
 
     <!-- OffCanvas Cart Start -->
     <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
+<<<<<<< Updated upstream
         <div class="inner">
+=======
+        <div class="inner" id="change-item-cart">
+            @if(Session::has('cart') != null)
+>>>>>>> Stashed changes
             <div class="head">
                 <span class="title">Cart</span>
                 <button class="offcanvas-close">×</button>
@@ -423,6 +444,11 @@
                                 <li class="old-price not-cut">&#8363;{{$product[0]->price}}</li>
                             </ul>
                         </div>
+<<<<<<< Updated upstream
+=======
+
+                        @if(isset($seller) && $seller != $seller->isEmpty() )
+>>>>>>> Stashed changes
                         <div class="pro-details-list">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor incidid ut labore et
                                 dolore magna aliqua. Ut enim ad minim venialo quis nostrud exercitation ullamco</p>
@@ -469,9 +495,28 @@
                             </div>
                         </div>
                     </div>
+                    <div >
+                       <form action="" id = "FormFB" method = "post">
+                        @csrf
+                            <input type="hidden" name = "id_product" value="{{$product[0]->id}}">
+                            <input type="hidden" name = "id_user" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
+                            <input type="hidden" name = "feba" id = "feba" value = "">
+                        <input type = "button"class="btn btn-danger" onclick="FeedBack()" value = "Báo cáo sản phẩm">
+                            <script>
+                                function FeedBack() {
+                                    document.getElementById('feba').value = prompt('Hãy nhập vấn đề của bạn');
+                                    alert("Phản hồi của bạn đã được gửi");
+                                    $("#FormFB").submit();
+                                }
+
+                            </script>
+                       </form>
+                    </div>
+
                 </div>
             </div>
         </div>
+
     </section>
     <!-- Shop details Area End -->
     <!-- product details description area start -->
@@ -510,6 +555,7 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="review-wrapper">
+<<<<<<< Updated upstream
                                     <div class="single-review">
                                         <div class="review-img">
                                             <img src="http://127.0.0.1:8000/assets/images/review-image/1.png" alt="" />
@@ -542,6 +588,11 @@
                                         </div>
                                     </div>
                                     <div class="single-review child-review">
+=======
+                                    @if(isset($comment))
+                                    @foreach($comment as $item)
+                                    <div class="single-review">
+>>>>>>> Stashed changes
                                         <div class="review-img">
                                             <img src="http://127.0.0.1:8000/assets/images/review-image/2.png" alt="" />
                                         </div>
@@ -2644,3 +2695,4 @@
 <!-- Mirrored from template.hasthemes.com/rozer/rozer/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Sep 2021 11:28:08 GMT -->
 
 </html>
+               

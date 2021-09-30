@@ -19,6 +19,7 @@ class ExampleController extends AdminController
     {
         return $content
             ->title('FoodKTH')
+<<<<<<< Updated upstream
             ->description('Welcome to Admin')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
@@ -27,10 +28,83 @@ class ExampleController extends AdminController
                     $column->append(Dashboard::environment());
                 });
             });
+=======
+            ->description('Product')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) {
+
+                $row->column(12, function (Column $column) {
+                    $column->append(Dashboard::environment());
+                });
+            });
+    }
+
+    public function delete($id, Content $content)//delete product
+    {
+
+        Product::query()->where('id', $id)->delete();
+        return $content
+            ->description('Product')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) {
+                $row->column(12, function (Column $column) {
+                    $column->append(Dashboard::environment());
+                });
+            });
+    }
+
+    public function update2($id, Request $request, Content $content)  //update product
+    {
+        $product = new Product();
+        $product->title = $request->title;
+        $product->type = $request->type;
+        $product->price = $request->price;
+        if ($request->hasfile('image_product')) {
+            $file = $request->file('image_product');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/product/', $filename);
+            $product->image_product = $filename;
+
+        } else {
+            $product2 = Product::query()->where('id', $id)->get();
+            $product->image_product = $product2[0]->image_product;
+        }
+
+        Product::query()->where('id', $id)->update([
+            'title' => $product->title, 'type' => $product->type,
+            'price' => $product->price, 'image_product' => $product->image_product]);
+
+
+        return $content
+            ->title('FoodKTH')
+            ->description('Product')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) use ($id) {
+                $row->column(12, function (Column $column) use ($id) {
+                    $column->append(Dashboard::environment());
+                });
+            });
+    }
+
+    public function edit($id, Content $content)  //edit product
+    {
+        return $content
+            ->title('FoodKTH')
+            ->description('Product')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) use ($id) {
+                $row->column(12, function (Column $column) use ($id) {
+                    $column->append(Dashboard::edit1($id));
+                });
+            });
+
+>>>>>>> Stashed changes
     }
     public function delete($id,Content $content)//delete product
     {
 
+<<<<<<< Updated upstream
         Product::query()->where('id', $id)->delete();
         return $content
             ->title('FoodKTH')
@@ -98,6 +172,45 @@ class ExampleController extends AdminController
             ->row(function (Row $row) use ($request) {
                 $row->column(9, function (Column $column) use ($request) {
                     $column->append(Dashboard::searchProduct($request));
+=======
+    public function searchProduct(Content $content, \Illuminate\Http\Request $request)  //tìm kiếm san pham
+    {
+        return $content
+            ->title('FoodKTH')
+            ->description('Product')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) use ($request) {
+                $row->column(12, function (Column $column) use ($request) {
+                    $column->append(Dashboard::searchProduct($request));
+                });
+            });
+
+    }
+
+    public function showFeedback(Content $content, \Illuminate\Http\Request $request)  //show feedback
+    {
+        return $content
+            ->title('FoodKTH')
+            ->description('Feedback')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) {
+                $row->column(12, function (Column $column) {
+                    $column->append(Dashboard::showFeedback());
+                });
+            });
+    }
+
+    public function deteleFeedback(Content $content, $id)  //delete feedback
+    {
+
+        return $content
+            ->title('FoodKTH')
+            ->description('Feedback')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) use ($id) {
+                $row->column(12, function (Column $column) use ($id) {
+                    $column->append(Dashboard::deleteFeedback($id));
+>>>>>>> Stashed changes
                 });
             });
 

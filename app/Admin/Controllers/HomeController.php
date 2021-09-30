@@ -25,10 +25,17 @@ class HomeController extends Controller
     {
         return $content
             ->title('FoodKTH')
+<<<<<<< Updated upstream
             ->description('Welcome to Admin')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
                 $row->column(9, function (Column $column) {
+=======
+            ->description('User')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) {
+                $row->column(12, function (Column $column) {
+>>>>>>> Stashed changes
                     $column->append(Dashboard::dependencies());
                 });
             });
@@ -40,10 +47,17 @@ class HomeController extends Controller
         User::query()->where('id', $id)->delete();
         return $content
             ->title('FoodKTH')
+<<<<<<< Updated upstream
             ->description('Welcome to Admin')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
                 $row->column(9, function (Column $column) {
+=======
+            ->description('User')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) {
+                $row->column(12, function (Column $column) {
+>>>>>>> Stashed changes
                     $column->append(Dashboard::dependencies());
                 });
             });
@@ -60,10 +74,17 @@ class HomeController extends Controller
         ]);
         return $content
             ->title('FoodKTH')
+<<<<<<< Updated upstream
             ->description('Welcome to Admin')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
                 $row->column(9, function (Column $column) {
+=======
+            ->description('User')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) {
+                $row->column(12, function (Column $column) {
+>>>>>>> Stashed changes
                     $column->append(Dashboard::dependencies());
                 });
             });
@@ -74,10 +95,17 @@ class HomeController extends Controller
 
         return $content
             ->title('FoodKTH')
+<<<<<<< Updated upstream
             ->description('Welcome to Admin')
             ->row(Dashboard::title())
             ->row(function (Row $row) use ($id) {
                 $row->column(9, function (Column $column) use ($id) {
+=======
+            ->description('User')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) use ($id) {
+                $row->column(12, function (Column $column) use ($id) {
+>>>>>>> Stashed changes
                     $column->append(Dashboard::edit($id));
             });
     });
@@ -88,10 +116,17 @@ class HomeController extends Controller
 
         return $content
             ->title('FoodKTH')
+<<<<<<< Updated upstream
             ->description('Welcome to Admin')
             ->row(Dashboard::title())
             ->row(function (Row $row) use ($request) {
                 $row->column(9, function (Column $column) use ($request) {
+=======
+            ->description('User')
+            ->row(Dashboard::title())
+            ->row(function (Row $row) use ($request) {
+                $row->column(12, function (Column $column) use ($request) {
+>>>>>>> Stashed changes
                     $column->append(Dashboard::searchUser($request->searchInput));
                 });
             });

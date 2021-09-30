@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
 use App\Seller;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
@@ -62,7 +63,29 @@ class ProductController extends Controller
 
     public function indexDetail($id){
         $product = Product::query()->where('id', $id)->get();
+<<<<<<< Updated upstream
         return view('productdetail', compact('product'));
+=======
+        $seller = Seller::query()->where('username', $product[0]->username)->get();
+        $comment = Comment::where('id_product', $id)->get();
+//        dd($seller);
+        return view('productdetail', compact('product', 'seller', 'comment'));
+    }
+    public function indexDetail1($id){
+        $product = Product::query()->where('id', $id)->get();
+        $seller = Seller::query()->where('username', $product[0]->username)->get();
+        $comment = Comment::where('id_product', $id)->get();
+        if($_POST['feba'] != "")
+        {
+            $fb = new Feedback;
+            $fb->id_user = $_POST['id_user'];
+            $fb->id_product =$_POST['id_product'];
+            $fb->mo_ta  = $_POST['feba'];
+            $fb->status = "Chưa xử lý";
+            $fb->save();
+        }
+        return view('productdetail', compact('product', 'seller', 'comment'));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -171,7 +194,11 @@ class ProductController extends Controller
                 $product->image_product = $product2[0]->image_product;
             }
 
+<<<<<<< Updated upstream
             Product::query()->where('id', $id)->update(['username' => $product->username,
+=======
+            Product::where('id', $id)->update(['username' => $product->username,
+>>>>>>> Stashed changes
             'title' => $product->title, 'type' => $product->type,
             'price' => $product->price, 'image_product' => $product->image_product ]);
             // dd("success");

@@ -30,6 +30,10 @@ Route::get('/save-item-cart/{id}/{qty}','CartController@SaveItemCart')->name('sa
 Route::get('/check-out','CartController@getCheckOut')->name('checkout')->middleware('auth');
 
 
+<<<<<<< Updated upstream
+=======
+// san pham
+>>>>>>> Stashed changes
 Route::group(['prefix' => 'product'], function (){
     Route::get('/{type}', 'ProductController@typeIndex')->name('user.showProduct');
 
@@ -66,4 +70,11 @@ Route::group(['prefix' => 'account'], function (){
 
 Route::group(['prefix' => 'product'], function (){
     Route::get('/detail/{id}', 'ProductController@indexDetail')->name('product.detail');
+<<<<<<< Updated upstream
+=======
+    Route::post('/detail/{id}', 'ProductController@indexDetail1')->name('product.detail1');
+
+    Route::post('/comment/{id}', 'ProductController@storeComment')->name('product.storeComment');
+
+>>>>>>> Stashed changes
 });

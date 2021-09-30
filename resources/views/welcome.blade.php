@@ -142,14 +142,14 @@
                                     <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
                                             class="icon-heart"></i></a>
                                     @if(Session::has('cart') != null)
-                                    <a href="#offcanvas-cart" 
-                                        class="bag offcanvas-toggle" 
+                                    <a href="#offcanvas-cart"
+                                        class="bag offcanvas-toggle"
                                         data-number="{{Session::get('cart')->totalQty}}"><i
                                         class="icon-bag"
                                         id="total-quanty-show"></i><span>{{number_format(Session::get('cart')->totalPrice)}}&#8363;</span></a>
                                     @else
-                                    <a href="#offcanvas-cart" 
-                                        class="bag offcanvas-toggle" 
+                                    <a href="#offcanvas-cart"
+                                        class="bag offcanvas-toggle"
                                         data-number="0"><i
                                         class="icon-bag"
                                         id="total-quanty-show"></i><span></span></a>
@@ -346,7 +346,7 @@
     <!-- OffCanvas Cart Start -->
     <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
         <div class="inner" id="change-item-cart">
-            @if(Session::has('cart') != null) 
+            @if(Session::has('cart') != null)
             <div class="head">
                 <span class="title">Giỏ hàng</span>
                 <button class="offcanvas-close">×</button>
@@ -461,9 +461,8 @@
                                             </ul>
                                             <div class="product-decs">
                                                 <a class="inner-link"
-                                                    href="shop-4-column.html"><span>{{$item->title}}</span></a>
-                                                <h2><a href="single-product.html" class="product-link">Juicy Couture
-                                                        Juicy Quilted T..</a></h2>
+                                                    href="{{ route('product.detail', ['id' => $item->id]) }}"><span>{{$item->title}}</span></a>
+                                                <h2><a href="{{ route('product.detail', ['id' => $item->id]) }}" class="product-link">Xem chi tiết sản phẩm</a></h2>
                                                 <div class="pricing-meta">
                                                     <ul>
                                                         <li class="current-price">
@@ -1885,7 +1884,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="col-md-6 col-lg-6 ">
                             <div class="single-wedge">
                                 <h4 class="footer-herading">Liên lạc bằng email</h4>

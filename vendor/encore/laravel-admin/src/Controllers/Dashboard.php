@@ -2,6 +2,7 @@
 
 namespace Encore\Admin\Controllers;
 
+use App\Feedback;
 use App\Models\Product;
 use App\User;
 use Encore\Admin\Admin;
@@ -25,7 +26,8 @@ class Dashboard
     public static function environment()
     {
         $products = DB::table('products')->get();
-        return view('admin::dashboard.environment', compact('products'));
+        $feedbacks = DB::table('feedback')->get();
+        return view('admin::dashboard.environment', compact('products','feedbacks'));
     }
     public static function searchUser($a)
     {
@@ -33,23 +35,23 @@ class Dashboard
         return view('admin::dashboard.dependencies', compact('users'));
     }
     public static function searchProduct(\Illuminate\Http\Request $request){
-       $a = $request->searchProduct;
-       $b = $request->sltSearch;
-       $c = $request->priceSort;
-       if($c != "")
-       {
-           if($b == "")
-               $products = DB::table('products')->where("title",'like',"%$a%")->orderBy('price',$c)->get();
+        $a = $request->searchProduct;
+        $b = $request->sltSearch;
+        $c = $request->priceSort;
+        if($c != "")
+        {
+            if($b == "")
+                $products = DB::table('products')->where("title",'like',"%$a%")->orderBy('price',$c)->get();
             else
                 $products = DB::table('products')->where("$b",'like',"%$a%")->orderBy('price',$c)->get();
-       }
-       else
-       {
-           if($b == "")
-               $products = DB::table('products')->where("title",'like',"%$a%")->get();
-           else
-               $products = DB::table('products')->where("$b",'like',"%$a%")->get();
-       }
+        }
+        else
+        {
+            if($b == "")
+                $products = DB::table('products')->where("title",'like',"%$a%")->get();
+            else
+                $products = DB::table('products')->where("$b",'like',"%$a%")->get();
+        }
 
         return view('admin::dashboard.environment', compact('products'));
     }
@@ -60,9 +62,26 @@ class Dashboard
     public static function edit($id)
     {
 //        dd($id);
-       $user = User::query()->where('id', $id)->get();
+        $user = User::query()->where('id', $id)->get();
 //       dd($user);
         return view('admin::dashboard.edituser',compact('user'));
+    }
+    public static function showFeedback($id)
+    {
+        if(isset($id))
+        {
+            $feedbacks = DB::table('feedback')->where('id_product',$id)->get();
+            return view('admin::dashboard.extensions',compact('feedbacks'));
+        }
+        $feedbacks = DB::table('feedback')->get();
+        return view('admin::dashboard.extensions',compact('feedbacks'));
+
+    }
+    public static function deleteFeedback($id)
+    {
+        Feedback::where('id',$id)->delete();
+        $feedbacks = DB::table('feedback')->get();
+        return view('admin::dashboard.extensions',compact('feedbacks'));
     }
     public static function edit1($id)
     {

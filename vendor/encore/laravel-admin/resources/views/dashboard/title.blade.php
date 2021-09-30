@@ -24,13 +24,3 @@
         text-transform: uppercase;
     }
 </style>
-
-<div class="title">
-    FoodTKH ADMIN
-</div>
-<div class="links">
-    <a href="/admin/user" target="_blank">User</a>
-    <a href="/admin/product"  target="_blank">Product</a>
-    <a href="/admin/feedback"  target="_blank">Feedback</a>
-</div>
-

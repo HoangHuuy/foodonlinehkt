@@ -14,42 +14,64 @@
     </select>
     <input type = "submit" value="Tìm kiếm" >
 </form>
+<div class="table-content">
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Người bán</th>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Loại sản phẩm</th>
+                <th>Giá</th>
+                <th colspan="3">Thao tác</th>
+            </tr>
 
-<h3>Quản lý sản phẩm</h3>
-<span class="note">Bạn có thể xem tất cả các sản phẩm tại đây</span>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Người bán</th>
-        <th>Tên sản phẩm</th>
-        <th>Ảnh</th>
-        <th>Loại sản phẩm</th>
-        <th>Giá</th>
-        <th colspan="2">Thao tác</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach ($products as $item)
-        <tr>
-            <td>{{ $item->username }}</td>
-            <td>{{ $item->title }}</td>
-            <td>
-                <img src="{{ asset('uploads/product/' .$item->image_product )}}" width="160px" height="120px"
-                     alt="Image">
-            </td>
-            <td>{{ $item->type }}</td>
-            <td>{{ $item->price }}đ</td>
-            <td>
-                <button class="btn btn-primary"><a href="/admin/product/edit/{{ $item->id }}"
-                                                   class="link-btn link-btn-action"><span style = "color: black">Sửa</span></a></button>
-            </td>
-            <td>
-                <button class="btn btn-danger"><a href="/admin/product/delete/{{ $item->id }}"
-                                                  class="link-btn link-btn-action"><span style = "color: black">Xóa</span></a></button>
-            </td>
-        </tr>
 
-    @endforeach
+            @foreach ($products as $item)
+                <tbody>
+                <tr>
+                    <td>{{ $item->username }}</td>
+                    <td>{{ $item->title }}</td>
+                    <td>
+                        <img src="{{ asset('uploads/product/' .$item->image_product )}}" width="160px" height="120px"
+                             alt="Image">
+                    </td>
+                    <td>{{ $item->type }}</td>
+                    <td>{{ $item->price }}đ</td>
+                    <td>
+                    @foreach($feedbacks as $key=>$value)
 
-    </tbody>
-</table>
+                        @if($item->id == $value->id_product)
+
+                                <button class="btn btn-warning"><a href="/admin/feedback/{{ $item->id }} "
+                                                                   target= "_blank"
+                                                                   class="link-btn link-btn-action"><span style = "color: black">
+                                    Xem báo cáo
+                                </span></a></button>
+                            @break
+                        @endif
+
+                    @endforeach
+                    </td>
+
+
+                                        <td>
+                        <button class="btn btn-primary"><a href="/admin/product/edit/{{ $item->id }}"
+                                                           class="link-btn link-btn-action"><span style = "color: black">Sửa</span></a></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger"><a href="/admin/product/delete/{{ $item->id }}"
+                                                          class="link-btn link-btn-action"><span style = "color: black">Xóa</span></a></button>
+                    </td>
+
+
+
+
+                </tr>
+                </tbody>
+            @endforeach
+
+
+        </table>
+    </div>
+</div>

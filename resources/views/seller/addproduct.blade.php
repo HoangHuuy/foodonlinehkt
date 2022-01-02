@@ -20,12 +20,9 @@
     <div class="mb-3">
         <label class="form-check-label" for="exampleCheck1" for="type">Loại sản phẩm</label>
         <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="type">
-            <option value="rice">Cơm</option>
-            <option value="congee">Cháo</option>
-            <option value="noodles">Phở</option>
-            <option value="snack">Đồ ăn vặt</option>
-            <option value="others">Đồ ăn khác</option>
-            <option value="drink">Đồ uống</option>
+            @foreach($category as $item)
+            <option value="{{$item->cate_name}}">{{ $item->cate_name }}</option>
+            @endforeach
         </select>
     </div>
 
@@ -54,4 +51,11 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+@if(session()->has('message'))
+<div class="alert alert-success">
+    {{ session()->get('message') }}
+    <a href="#">Đến xem</a>
+</div>
+@endif
 @endsection

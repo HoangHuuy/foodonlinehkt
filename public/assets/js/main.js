@@ -26,11 +26,11 @@ $(function () {
         $lis[isExpanded ? "show" : "hide"]();
         if ($lis.length > 0) {
             $ul.append($('<li class="expand">' +
-                (isExpanded ? '<a href="javascript:;"><span><i class="ion-android-remove"></i>Close Categories</span></a>' : '<a href="javascript:;"><span><i class="ion-android-add"></i>More Categories</span></a>') +
+                (isExpanded ? '<a href="javascript:;"><span><i class="ion-android-remove"></i>Thu Gọn</span></a>' : '<a href="javascript:;"><span><i class="ion-android-add"></i>More Categories</span></a>') +
                 "</li>").click(function (event) {
                 var isExpanded = $ul.hasClass("expanded");
                 event.preventDefault();
-                $(this).html(isExpanded ? '<a href="javascript:;"><span><i class="ion-android-add"></i>More Categories</span></a>' : '<a href="javascript:;"><span><i class="ion-android-remove"></i>Close Categories</span></a>');
+                $(this).html(isExpanded ? '<a href="javascript:;"><span><i class="ion-android-add"></i>Xem Thêm</span></a>' : '<a href="javascript:;"><span><i class="ion-android-remove"></i>Close Categories</span></a>');
                 $ul.toggleClass("expanded");
                 $lis.toggle(300);
             }));

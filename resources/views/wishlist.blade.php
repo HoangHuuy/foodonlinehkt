@@ -102,6 +102,112 @@
                             <div class="header-right-element d-flex">
                                 <div class="search-element media-body">
                                     <form class="d-flex" action="#">
+                                        <div class="search-category">
+                                            <select>
+                                                <option value="0">All categories</option>
+                                                <option value="12">Laptop</option>
+                                                <option value="13">- - Hot Categories</option>
+                                                <option value="19">- - - - Dresses</option>
+                                                <option value="20">- - - - Jackets &amp; Coats</option>
+                                                <option value="21">- - - - Sweaters</option>
+                                                <option value="22">- - - - Jeans</option>
+                                                <option value="23">- - - - Blouses &amp; Shirts</option>
+                                                <option value="14">- - Outerwear &amp; Jackets</option>
+                                                <option value="24">- - - - Basic Jackets</option>
+                                                <option value="25">- - - - Real Fur</option>
+                                                <option value="26">- - - - Down Coats</option>
+                                                <option value="27">- - - - Blazers</option>
+                                                <option value="28">- - - - Trench Coats</option>
+                                                <option value="15">- - Weddings &amp; Events</option>
+                                                <option value="29">- - - - Wedding Dresses</option>
+                                                <option value="30">- - - - Evening Dresses</option>
+                                                <option value="31">- - - - Prom Dresses</option>
+                                                <option value="32">- - - - Bridesmaid Dresses</option>
+                                                <option value="33">- - - - Wedding Accessories</option>
+                                                <option value="16">- - Bottoms</option>
+                                                <option value="34">- - - - Skirts</option>
+                                                <option value="35">- - - - Leggings</option>
+                                                <option value="36">- - - - Pants &amp; Capris</option>
+                                                <option value="37">- - - - Wide Leg Pants</option>
+                                                <option value="38">- - - - Shorts</option>
+                                                <option value="17">- - Tops &amp; Sets</option>
+                                                <option value="39">- - - - Tank Tops</option>
+                                                <option value="40">- - - - Suits &amp; Sets</option>
+                                                <option value="41">- - - - Jumpsuits</option>
+                                                <option value="42">- - - - Rompers</option>
+                                                <option value="43">- - - - Sleep &amp; Lounge</option>
+                                                <option value="18">- - Accessories</option>
+                                                <option value="44">- - - - Eyewear &amp; Accessories</option>
+                                                <option value="45">- - - - Hats &amp; Caps</option>
+                                                <option value="46">- - - - Belts &amp; Cummerbunds</option>
+                                                <option value="47">- - - - Scarves &amp; Wraps</option>
+                                                <option value="48">- - - - Gloves &amp; Mittens</option>
+                                                <option value="49">Computer</option>
+                                                <option value="50">- - Bottoms</option>
+                                                <option value="53">- - - - Skirts</option>
+                                                <option value="54">- - - - Leggings</option>
+                                                <option value="55">- - - - Jeans</option>
+                                                <option value="56">- - - - Pants &amp; Capris</option>
+                                                <option value="57">- - - - Shorts</option>
+                                                <option value="51">- - Outerwear &amp; Jackets</option>
+                                                <option value="58">- - - - Trench</option>
+                                                <option value="59">- - - - Genuine Leather</option>
+                                                <option value="60">- - - - Parkas</option>
+                                                <option value="61">- - - - Down Jackets</option>
+                                                <option value="62">- - - - Wool &amp; Blends</option>
+                                                <option value="52">- - Underwear &amp; Loungewear</option>
+                                                <option value="63">- - - - Boxers</option>
+                                                <option value="64">- - - - Briefs</option>
+                                                <option value="65">- - - - Long Johns</option>
+                                                <option value="66">- - - - Men's Sleep &amp; Lounge</option>
+                                                <option value="67">- - - - Pajama Sets</option>
+                                                <option value="68">Smartphone</option>
+                                                <option value="69">- - Accessories &amp; Parts</option>
+                                                <option value="75">- - - - Cables &amp; Adapters</option>
+                                                <option value="76">- - - - Batteries</option>
+                                                <option value="77">- - - - Chargers</option>
+                                                <option value="78">- - - - Bags &amp; Cases</option>
+                                                <option value="79">- - - - Electronic Cigarettes</option>
+                                                <option value="70">- - Audio &amp; Video</option>
+                                                <option value="80">- - - - Televisions</option>
+                                                <option value="81">- - - - TV Receivers</option>
+                                                <option value="82">- - - - Projectors</option>
+                                                <option value="83">- - - - Audio Amplifier Boards</option>
+                                                <option value="84">- - - - TV Sticks</option>
+                                                <option value="71">- - Camera &amp; Photo</option>
+                                                <option value="85">- - - - Digital Cameras</option>
+                                                <option value="86">- - - - Camcorders</option>
+                                                <option value="87">- - - - Camera Drones</option>
+                                                <option value="88">- - - - Action Cameras</option>
+                                                <option value="89">- - - - Photo Studio Supplies</option>
+                                                <option value="72">- - Portable Audio &amp; Video</option>
+                                                <option value="90">- - - - Headphones</option>
+                                                <option value="91">- - - - Speakers</option>
+                                                <option value="92">- - - - MP3 Players</option>
+                                                <option value="93">- - - - VR/AR Devices</option>
+                                                <option value="94">- - - - Microphones</option>
+                                                <option value="73">- - Smart Electronics</option>
+                                                <option value="95">- - - - Wearable Devices</option>
+                                                <option value="96">- - - - Smart Home Appliances</option>
+                                                <option value="97">- - - - Smart Remote Controls</option>
+                                                <option value="98">- - - - Smart Watches</option>
+                                                <option value="99">- - - - Smart Wristbands</option>
+                                                <option value="74">- - Video Games</option>
+                                                <option value="100">- - - - Handheld Game Players</option>
+                                                <option value="101">- - - - Game Controllers</option>
+                                                <option value="102">- - - - Joysticks</option>
+                                                <option value="103">- - - - Stickers</option>
+                                                <option value="104">Game Consoles</option>
+                                                <option value="105">Mp3 &amp; headphone</option>
+                                                <option value="106">Tv &amp; Video</option>
+                                                <option value="107">Watches</option>
+                                                <option value="108">Washing Machine</option>
+                                                <option value="109">Camera</option>
+                                                <option value="110">Audio &amp; Theater</option>
+                                                <option value="111">Accessories</option>
+                                                <option value="112">Games &amp; Consoles</option>
+                                            </select>
+                                        </div>
                                         <input type="text" placeholder="Nhập tên sản phẩm (tối thiểu 3 kí tự) ..." />
                                         <button><i class="icon-magnifier"></i></button>
                                     </form>
@@ -109,7 +215,8 @@
                                 <!--Cart info Start -->
                                 <div class="header-tools d-flex">
                                     <div class="cart-info d-flex align-self-center">
-                                        <a href="/cart" data-number="5"><i class="icon-bag"></i></a>
+                                        <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i class="icon-heart"></i></a>
+                                        <a href="/cart" data-number="3"><i class="icon-bag"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -142,18 +249,100 @@
                                 <ul class="menu-content">
                                     <li class="active menu-dropdown">
                                         <a href="/">Trang chủ</a>
-                                    </li><li class="active menu-dropdown">
-                                        <a href="/product/com">Cơm</a>
-                                    </li><li class="active menu-dropdown">
-                                        <a href="/product/do-an-dang-soi">Đồ ăn dạng sợi</a>
-                                    </li><li class="active menu-dropdown">
-                                        <a href="/product/do-an-chien-ran/">Đồ ăn chiên rán</a>
-                                    </li><li class="active menu-dropdown">
-                                        <a href="/product/kem">Kem</a>
                                     </li>
-                                    <li class="active menu-dropdown">
-                                        <a href="/product/do-uong">Đồ Uống</a>
+                                    {{-- <li class="menu-dropdown">
+                                        <a href="#">Shop <i class="ion-ios-arrow-down"></i></a>
+                                        <ul class="mega-menu-wrap">
+                                            <li>
+                                                <ul>
+                                                    <li class="mega-menu-title"><a href="#">Shop Grid</a></li>
+                                                    <li><a href="shop-3-column.html">Shop Grid 3 Column</a></li>
+                                                    <li><a href="shop-4-column.html">Shop Grid 4 Column</a></li>
+                                                    <li><a href="shop-left-sidebar.html">Shop Grid Left Sidebar</a></li>
+                                                    <li><a href="shop-right-sidebar.html">Shop Grid Right Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="mega-menu-title"><a href="#">Shop List</a></li>
+                                                    <li><a href="shop-list.html">Shop List</a></li>
+                                                    <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
+                                                    <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="mega-menu-title"><a href="#">Shop Single</a></li>
+                                                    <li><a href="single-product.html">Shop Single</a></li>
+                                                    <li><a href="single-product-variable.html">Shop Variable</a></li>
+                                                    <li><a href="single-product-affiliate.html">Shop Affiliate</a></li>
+                                                    <li><a href="single-product-group.html">Shop Group</a></li>
+                                                    <li><a href="single-product-tabstyle-2.html">Shop Tab 2</a></li>
+                                                    <li><a href="single-product-tabstyle-3.html">Shop Tab 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="mega-menu-title"><a href="#">Shop Single</a></li>
+                                                    <li><a href="single-product-slider.html">Shop Slider</a></li>
+                                                    <li><a href="single-product-gallery-left.html">Shop Gallery Left</a></li>
+                                                    <li><a href="single-product-gallery-right.html">Shop Gallery Right</a></li>
+                                                    <li><a href="single-product-sticky-left.html">Shop Sticky Left</a></li>
+                                                    <li><a href="single-product-sticky-right.html">Shop Sticky Right</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="w-100">
+                                                <ul class="banner-megamenu-wrapper d-flex">
+                                                    <li class="banner-wrapper mr-30px">
+                                                        <a href="single-product.html"><img src="http://127.0.0.1:8000/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                    </li>
+                                                    <li class="banner-wrapper">
+                                                        <a href="single-product.html"><img src="http://127.0.0.1:8000/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
+                                    <li class="menu-dropdown">
+                                        <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
+                                        <ul class="main-sub-menu">
+                                            <li><a href="about.html">About Page</a></li>
+                                            <li><a href="cart.html">Cart Page</a></li>
+                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                            <li><a href="compare.html">Compare Page</a></li>
+                                            <li><a href="login.html">Login & Register Page</a></li>
+                                            <li><a href="my-account.html">Account Page</a></li>
+                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                            <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-dropdown">
+                                        <a href="#">Blog <i class="ion-ios-arrow-down"></i></a>
+                                        <ul class="main-sub-menu">
+                                            <li class="menu-dropdown position-static">
+                                                <a href="#">Blog Grid <i class="ion-ios-arrow-right"></i></a>
+                                                <ul class="main-sub-menu main-sub-menu-2">
+                                                    <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-dropdown position-static">
+                                                <a href="#">Blog List <i class="ion-ios-arrow-right"></i></a>
+                                                <ul class="main-sub-menu main-sub-menu-2">
+                                                    <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
+                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-dropdown position-static">
+                                                <a href="#">Blog Single <i class="ion-ios-arrow-right"></i></a>
+                                                <ul class="main-sub-menu main-sub-menu-2">
+                                                    <li><a href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
+                                                    <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidbar</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li> --}}
+                                    <li><a href="#">Danh sách món ưa thích</a></li>
                                 </ul>
                             </div>
                             <!-- header horizontal menu -->
@@ -214,6 +403,20 @@
 
     <div class="offcanvas-overlay"></div>
     <!-- Breadcrumb Area Start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="breadcrumb-content">
+                            <ul class="nav">
+                                <li><a href="/">Home</a></li>
+                                <li>Shop</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- Breadcrumb Area End-->
             <!-- Shop Category Area End -->
             <div class="shop-category-area mt-30px">
@@ -259,6 +462,7 @@
                                                     </ul>
                                                     <div class="product-decs">
                                                         <a class="inner-link" href="shop-4-column.html"><span>{{$item->title}}</span></a>
+                                                        <h2><a href="single-product.html" class="product-link">Juicy Couture Juicy Quilted T..</a></h2>
                                                         <div class="pricing-meta">
                                                             <ul>
                                                                 <li class="current-price">&#8363;{{$item->price}}</li>
@@ -269,6 +473,10 @@
                                                         <ul>
                                                             <li class="cart"><a class="cart-btn" href="#">THÊM VÀO GIỎ</a>
                                                             </li>
+                                                            <li>
+                                                                <a href="wishlist.html"><i class="icon-heart"></i></a>
+                                                            </li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </article>
@@ -330,6 +538,9 @@
                                                                     <div class="add-to-link">
                                                                         <ul>
                                                                             <li class="cart"><a title="Add to cart" class="cart-btn" href="#">ADD TO CART </a></li>
+                                                                            <li>
+                                                                                <a href="wishlist.html" title="Add to wishlist"><i class="icon-heart"></i> Add to Wishlist</a>
+                                                                            </li>
                                                                             <li>
                                                                                 <a href="compare.html" title="Add to compare"><i class="icon-shuffle"></i> Add to Compare</a>
                                                                             </li>
@@ -1337,6 +1548,18 @@
                                 </div>
                                 <!-- Shop Tab Content End -->
                                 <!--  Pagination Area Start -->
+                                <div class="pro-pagination-style text-center mb-60px mt-30px">
+                                    <ul>
+                                        <li>
+                                            <a class="prev" href="#"><i class="ion-ios-arrow-left"></i></a>
+                                        </li>
+                                        <li><a class="active" href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li>
+                                            <a class="next" href="#"><i class="ion-ios-arrow-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <!--  Pagination Area End -->
                             </div>
                             <!-- Shop Bottom Area End -->
@@ -1351,16 +1574,13 @@
                 <div class="footer-top">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6 col-lg-6 mb-md-30px mb-lm-30px">
+                            <div class="col-md-6 col-lg-4 mb-md-30px mb-lm-30px">
                                 <div class="single-wedge">
-                                    <h4 class="footer-herading">Về công ty</h4>
-                                    <p class="text-infor">Công ty được thành lập từ 2016, có kinh nghiệm về mua bán online,
-                                        giúp
-                                        khách hàng có một trải nghiệm mua hàng một cách tốt nhất
-                                    </p>
+                                    <h4 class="footer-herading">ABOUT US</h4>
+                                    <p class="text-infor">We are a team of designers and developers that create high quality HTML template</p>
                                     <div class="need-help">
                                         <p class="phone-info">
-                                            Số điện thoại hỗ trợ
+                                            NEED HELP?
                                             <span>
                                                 0123456789 <br />
                                                 0123456789
@@ -1369,29 +1589,59 @@
                                     </div>
                                 </div>
                             </div>
-    
-                            <div class="col-md-6 col-lg-6 ">
+                            <div class="col-md-6 col-lg-2 mb-md-30px mb-lm-30px">
                                 <div class="single-wedge">
-                                    <h4 class="footer-herading">Liên lạc bằng email</h4>
+                                    <h4 class="footer-herading">Information</h4>
+                                    <div class="footer-links">
+                                        <ul>
+                                            <li><a href="#">Delivery</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="#">Secure Payment</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="#">Sitemap</a></li>
+                                            <li><a href="#">Stores</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-2 mb-sm-30px mb-lm-30px">
+                                <div class="single-wedge">
+                                    <h4 class="footer-herading">CUSTOM LINKS</h4>
+                                    <div class="footer-links">
+                                        <ul>
+                                            <li><a href="#">Legal Notice</a></li>
+                                            <li><a href="#">Prices Drop</a></li>
+                                            <li><a href="#">New Products</a></li>
+                                            <li><a href="#">Best Sales</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="my-account.html">My Account</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 ">
+                                <div class="single-wedge">
+                                    <h4 class="footer-herading">NEWSLETTER</h4>
                                     <div class="subscrib-text">
-                                        <p>Hãy góp ý cho chúng tôi để nâng cao trải nghiệm khi sử dụng <span
-                                                style="font-weight: bold;">foodTHK</span></p>
+                                        <p>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</p>
                                     </div>
                                     <div id="mc_embed_signup" class="subscribe-form">
-                                        <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank"
-                                            name="mc-embedded-subscribe-form" method="post"
-                                            action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
+                                        <form
+                                            id="mc-embedded-subscribe-form"
+                                            class="validate"
+                                            novalidate=""
+                                            target="_blank"
+                                            name="mc-embedded-subscribe-form"
+                                            method="post"
+                                            action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef"
+                                        >
                                             <div id="mc_embed_signup_scroll" class="mc-form">
-                                                <input class="email" type="email" required="" placeholder="Viết đóng góp .."
-                                                    name="EMAIL" value="" />
-                                                <div class="mc-news" aria-hidden="true"
-                                                    style="position: absolute; left: -5000px;">
-                                                    <input type="text" value="" tabindex="-1"
-                                                        name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" />
+                                                <input class="email" type="email" required="" placeholder="Enter your email here.." name="EMAIL" value="" />
+                                                <div class="mc-news" aria-hidden="true" style="position: absolute; left: -5000px;">
+                                                    <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" />
                                                 </div>
                                                 <div class="clear">
-                                                    <input id="mc-embedded-subscribe" class="button" type="submit"
-                                                        name="subscribe" value="Gửi" />
+                                                    <input id="mc-embedded-subscribe" class="button" type="submit" name="subscribe" value="Sign Up" />
                                                 </div>
                                             </div>
                                         </form>
@@ -1410,9 +1660,26 @@
                                             <li>
                                                 <a href="#"><i class="icon-social-google"></i></a>
                                             </li>
+                                            <li>
+                                                <a href="#"><i class="icon-social-instagram"></i></a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+								<p class="copy-text"> © 2021 <strong>Rozer</strong> Made With <i class="fa fa-heart" style="color: red;" aria-hidden="true"></i> By <a class="company-name" href="https://hasthemes.com/">
+                                <strong> HasThemes</strong></a>.</p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <img class="payment-img" src="http://127.0.0.1:8000/assets/images/icons/payment.png" alt="" />
                             </div>
                         </div>
                     </div>

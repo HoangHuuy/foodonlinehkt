@@ -28,16 +28,16 @@ Route::get('/delete-single-item-cart/{id}','CartController@DeleteSingleItem')->n
 
 Route::get('/save-item-cart/{id}/{qty}','CartController@SaveItemCart')->name('saveItemCart');
 
-
 // thanh toan
 Route::get('/check-out','CheckOutController@getCheckOut')->name('checkout')->middleware('auth');
+
 Route::post('/check-out','CheckOutController@postCheckOut')->name('postCheckout');
 
 // san pham 
 Route::group(['prefix' => 'product'], function (){
     Route::get('/{type}', 'ProductController@typeIndex')->name('user.showProduct');
 
-    Route::get('/search/id', 'ProductController@searchProduct')->name('user.searchProduct');
+    Route::get('/search', 'ProductController@searchProduct')->name('user.searchProduct');
 });
 
 
@@ -68,9 +68,6 @@ Route::group(['prefix' => 'seller'], function (){
     Route::post('/orders/show/{id}', 'SellerController@showOrders')->name('seller.showOrders');
 
     Route::get('/orders/change-status/{id}/{val}', 'SellerController@changeStatus')->name('seller.changeStatus');
-
-
-
 });
 
 
@@ -83,9 +80,22 @@ Route::group(['prefix' => 'account'], function (){
     Route::get('/orders', 'AccountController@showOrders')->name('user.showOrders');
 });
 
+
+// chi tiet san pham
 Route::group(['prefix' => 'product'], function (){
     Route::get('/detail/{id}', 'ProductController@indexDetail')->name('product.detail');
 
     Route::post('/comment/{id}', 'ProductController@storeComment')->name('product.storeComment');
 
+    Route::post('/detail/{id}', 'ProductController@report')->name('product.report');
 });
+
+// yeu thich
+Route::get('/wishlist/{id}','WhistlistController@save')->name('wishlist.save');
+Route::get('/wishlist-show','WhistlistController@show')->name('wishlist.show');
+
+//danh muc
+Route::get('/admin/category', 'CategoryController@show')->name('category.show');
+Route::post('/admin/category/add', 'CategoryController@add')->name('category.add');
+Route::post('/admin/category/update', 'CategoryController@update')->name('category.update');
+Route::get('/admin/category/delete/{id}', 'CategoryController@delete')->name('category.delete');

@@ -10,13 +10,13 @@
         <ul class="a-deco w-100 dddrop-one-show">
             <li><a href="/seller/orders/show" class="active-link dropdown-item my-color-text p1-4 p-2">
                 Tất cả đơn
-            </a></li>
+            {{-- </a></li>
             <li><a href="#" class="active-link dropdown-item my-color-text p1-4 p-2">
                 Đơn hủy
             </a></li>
             <li><a href="#" class="active-link dropdown-item my-color-text p1-4 p-2">
                 Trả hàng/ Hoàn tiền
-            </a></li>
+            </a></li> --}}
         </ul>
     </li>
     <li class="nav-item w-100">
@@ -28,11 +28,11 @@
                 <i class="fas fa-caret-down second"></i>
         </a>
         <ul class="a-deco w-100 dddrop-two-show">
-            <li><a href="/seller/product/list" class="active-link dropdown-item my-color-text p1-4 p-2">
-                Tất cả sản phẩm
-            </a></li>
             <li><a href="/seller/product/add" class="active-link dropdown-item my-color-text p1-4 p-2">
                 Thêm sản phẩm
+            </a></li>
+            <li><a href="/seller/product/list" class="active-link dropdown-item my-color-text p1-4 p-2">
+                Tất cả sản phẩm
             </a></li>
         </ul>
     </li>

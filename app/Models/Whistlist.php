@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class Whistlist extends Model
 {
     protected $fillable = [
-        'cate_name',
+        'id_user',
+        'id_product',
     ];
 }

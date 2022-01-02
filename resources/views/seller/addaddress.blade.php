@@ -8,6 +8,11 @@
 
     <form class="container" action="{{ route('seller.updateAddress',['id'=>isset($seller[0]->id) ? $seller[0]->id : ' '])}}" method="post" enctype="multipart/form-data">
         @csrf
+        @if (isset($alert))
+            <div class="alert alert-warning">
+                {{ $alert }}
+            </div>
+        @endif
         <div class="mb-3">
             <label for="title" class="form-label">Tên Shop</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="shopName">
@@ -17,7 +22,7 @@
             <input type="text" class="form-control" id="exampleInputPassword1" name="phoneNumber">
         </div>
         <div class="mb-3">
-            <label for="title" class="form-label">Tỉnh</label>
+            <label for="title" class="form-label">Tỉnh/Thành Phố</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="province">
         </div>
 

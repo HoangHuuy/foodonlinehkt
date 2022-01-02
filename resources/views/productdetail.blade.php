@@ -40,8 +40,22 @@
         .minicart-product-list li .content .remove {
             font-size: 30px;
         }
+
         .header-menu .header-menu-vertical .menu-content {
             min-width: 170px;
+        }
+
+        .description-review-bottom {
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+
+        .single-review {
+            width: 100%;
+        }
+
+        .single-review .review-content {
+            width: 100% !important;
         }
 
     </style>
@@ -82,8 +96,8 @@
                             <li class="pr-0">
                                 <div class="dropdown">
                                     <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>&#160; {{ Auth::user()->username }} <i
-                                            class="ion-ios-arrow-down"></i></button>
+                                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>&#160;
+                                        {{ Auth::user()->username }} <i class="ion-ios-arrow-down"></i></button>
 
                                     <ul class="dropdown-menu animation slideDownIn"
                                         aria-labelledby="dropdownMenuButton">
@@ -96,12 +110,12 @@
                                                 @csrf
                                             </form>
                                         </li>
-                                        <li><a href="{{ route('user.showprofile') }}" >
-                                            Tài khoản của tôi
+                                        <li><a href="{{ route('user.showprofile') }}">
+                                                Tài khoản của tôi
                                             </a>
                                         </li>
-                                        <li><a href="{{ route('user.showOrders') }}" >
-                                            Đơn mua
+                                        <li><a href="{{ route('user.showOrders') }}">
+                                                Đơn mua
                                             </a>
                                         </li>
                                     </ul>
@@ -130,7 +144,7 @@
                         <div class="header-right-element d-flex">
                             <div class="search-element media-body">
                                 <form class="d-flex" action="#">
-                                    <input type="text" placeholder="Enter your search key ... " />
+                                    <input type="text" placeholder="Nhập sản phẩm bạn cần tìm ... " />
                                     <button><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
@@ -138,20 +152,13 @@
                             <div class="header-tools d-flex">
                                 <div class="cart-info d-flex align-self-center">
                                     {{-- <a href="compare.html" class="shuffle" data-number="3"><i class="icon-shuffle"></i></a> --}}
-                                    <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
-                                            class="icon-heart"></i></a>
                                     @if(Session::has('cart') != null)
-                                    <a href="#offcanvas-cart" 
-                                        class="bag offcanvas-toggle" 
-                                        data-number="{{Session::get('cart')->totalQty}}"><i
-                                        class="icon-bag"
-                                        id="total-quanty-show"></i><span>{{number_format(Session::get('cart')->totalPrice)}}&#8363;</span></a>
+                                    <a href="#offcanvas-cart" class="bag offcanvas-toggle"
+                                        data-number="{{Session::get('cart')->totalQty}}"><i class="icon-bag"
+                                            id="total-quanty-show"></i><span>{{number_format(Session::get('cart')->totalPrice)}}&#8363;</span></a>
                                     @else
-                                    <a href="#offcanvas-cart" 
-                                        class="bag offcanvas-toggle" 
-                                        data-number="0"><i
-                                        class="icon-bag"
-                                        id="total-quanty-show"></i><span></span></a>
+                                    <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="0"><i
+                                            class="icon-bag" id="total-quanty-show"></i><span></span></a>
                                     @endif
                                 </div>
                             </div>
@@ -185,100 +192,18 @@
                             <ul class="menu-content">
                                 <li class="active menu-dropdown">
                                     <a href="/">Trang chủ</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/com">Cơm</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/do-an-dang-soi">Đồ ăn dạng sợi</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/do-an-chien-ran/">Đồ ăn chiên rán</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/kem">Kem</a>
                                 </li>
-                                {{-- <li class="menu-dropdown">
-                                        <a href="#">Shop <i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="mega-menu-wrap">
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop Grid</a></li>
-                                                    <li><a href="shop-3-column.html">Shop Grid 3 Column</a></li>
-                                                    <li><a href="shop-4-column.html">Shop Grid 4 Column</a></li>
-                                                    <li><a href="shop-left-sidebar.html">Shop Grid Left Sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Shop Grid Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop List</a></li>
-                                                    <li><a href="shop-list.html">Shop List</a></li>
-                                                    <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop Single</a></li>
-                                                    <li><a href="single-product.html">Shop Single</a></li>
-                                                    <li><a href="single-product-variable.html">Shop Variable</a></li>
-                                                    <li><a href="single-product-affiliate.html">Shop Affiliate</a></li>
-                                                    <li><a href="single-product-group.html">Shop Group</a></li>
-                                                    <li><a href="single-product-tabstyle-2.html">Shop Tab 2</a></li>
-                                                    <li><a href="single-product-tabstyle-3.html">Shop Tab 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop Single</a></li>
-                                                    <li><a href="single-product-slider.html">Shop Slider</a></li>
-                                                    <li><a href="single-product-gallery-left.html">Shop Gallery Left</a></li>
-                                                    <li><a href="single-product-gallery-right.html">Shop Gallery Right</a></li>
-                                                    <li><a href="single-product-sticky-left.html">Shop Sticky Left</a></li>
-                                                    <li><a href="single-product-sticky-right.html">Shop Sticky Right</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="w-100">
-                                                <ul class="banner-megamenu-wrapper d-flex">
-                                                    <li class="banner-wrapper mr-30px">
-                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
-                                                    </li>
-                                                    <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-dropdown">
-                                        <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="main-sub-menu">
-                                            <li><a href="about.html">About Page</a></li>
-                                            <li><a href="cart.html">Cart Page</a></li>
-                                            <li><a href="/check-out">Thanh Toán Page</a></li>
-                                            <li><a href="compare.html">Compare Page</a></li>
-                                            <li><a href="login.html">Login & Register Page</a></li>
-                                            <li><a href="my-account.html">Account Page</a></li>
-                                            <li><a href="wishlist.html">Wishlist Page</a></li>
-                                            <li><a href="thank-you-page.html">Thank You Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-dropdown">
-                                        <a href="#">Blog <i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="main-sub-menu">
-                                            <li class="menu-dropdown position-static">
-                                                <a href="#">Blog Grid <i class="ion-ios-arrow-right"></i></a>
-                                                <ul class="main-sub-menu main-sub-menu-2">
-                                                    <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-dropdown position-static">
-                                                <a href="#">Blog List <i class="ion-ios-arrow-right"></i></a>
-                                                <ul class="main-sub-menu main-sub-menu-2">
-                                                    <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-dropdown position-static">
-                                                <a href="#">Blog Single <i class="ion-ios-arrow-right"></i></a>
-                                                <ul class="main-sub-menu main-sub-menu-2">
-                                                    <li><a href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
-                                                    <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidbar</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
-                                <li><a href="#">Danh sách món ưa thích</a></li>
+                                <li class="active menu-dropdown">
+                                    <a href="/product/do-uong">Đồ Uống</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- header horizontal menu -->
@@ -348,7 +273,7 @@
     <!-- OffCanvas Cart Start -->
     <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
         <div class="inner" id="change-item-cart">
-            @if(Session::has('cart') != null) 
+            @if(Session::has('cart') != null)
             <div class="head">
                 <span class="title">Giỏ hàng</span>
                 <button class="offcanvas-close">×</button>
@@ -388,20 +313,6 @@
 
     <div class="offcanvas-overlay"></div>
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="breadcrumb-content">
-                        <ul class="nav">
-                            <li><a href="/">Home</a></li>
-                            <li>Single Product</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Breadcrumb Area End-->
     <!-- Shop details Area start -->
     <section class="product-details-area mtb-60px">
@@ -424,32 +335,45 @@
                         @if(isset($seller))
                         <div class="pro-details-list">
                             <ul>
-                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Tên Shop:</span> {{$seller[0]->shopName}}</li>
-                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Số Điện Thoại:</span> {{$seller[0]->phoneNumber}}</li>
-                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Địa Chỉ:</span> {{$seller[0]->address}}</li>
+                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Tên
+                                        Shop:</span> {{$seller[0]->shopName}}</li>
+                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Số Điện
+                                        Thoại:</span> {{$seller[0]->phoneNumber}}</li>
+                                <li style="color: black;font-size: 15px;"><span style="font-weight: bold;">- Địa
+                                        Chỉ:</span> {{$seller[0]->address}}</li>
                             </ul>
                         </div>
                         @endif
 
                         {{-- bat dau form tao don hang --}}
-                            <input type="hidden" name="user_username" value="{{ Auth::user()->username }}" />
-                            <input type="hidden" name="id_product" value="{{ $product[0]->id }}">
-                            <div class="pro-details-quality mt-0px">
-                                <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" type="text" name="quantity" value="1" />
-                                </div>
+                        @if(!isset(Auth::user()->username))
 
-                                <div class="pro-details-cart btn-hover">
-                                    <a href="{{ route('addToCart', ['id' => $product[0]->id])}}">Thêm vào giỏ hàng</a>
-                                </div>
+                        <div class="pro-details-quality mt-0px">
+                            <div class="cart-plus-minus">
+                                <input class="cart-plus-minus-box" type="text" name="quantity" value="1" />
                             </div>
-                        {{-- ket thuc form tao don hang --}}
 
-                        <div class="pro-details-wish-com">
-                            <div class="pro-details-wishlist">
-                                <a href="#"><i class="icon-heart"></i>Yêu thích</a>
+                            <div class="pro-details-cart btn-hover">
+                                <a href="/login">Thêm vào giỏ hàng</a>
                             </div>
                         </div>
+                        
+                        @elseif(isset(Auth::user()->username))
+                        <input type="hidden" name="user_username" value="{{ Auth::user()->username }}" />
+                        <input type="hidden" name="id_product" value="{{ $product[0]->id }}">
+
+                        <div class="pro-details-quality mt-0px">
+                            <div class="cart-plus-minus">
+                                <input class="cart-plus-minus-box" type="text" name="quantity" value="1" />
+                            </div>
+
+                            <div class="pro-details-cart btn-hover">
+                                <a href="{{ route('addToCart', ['id' => $product[0]->id])}}">Thêm vào giỏ hàng</a>
+                            </div>
+                        </div>
+                        @endif
+                        {{-- ket thuc form tao don hang --}}
+
                         <div class="pro-details-social-info">
                             <span>Chia sẻ với bạn bè của bạn</span>
                             <div class="social-info">
@@ -465,6 +389,36 @@
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                        <div>
+                            @if(isset(Auth::user()->id))
+                            <form action="" id = "FormFB" method = "post">
+                                @csrf
+                                    <input type="hidden" name = "id_product" value="{{$product[0]->id}}">
+                                    <input type="hidden" name = "id_user" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
+                                    <input type="hidden" name = "report" id = "report">
+                                    <input type = "button" class="btn btn-danger" onclick="FeedBack()" value = "Báo cáo sản phẩm">
+                                    <script>
+                                        function FeedBack() {
+                                            document.getElementById("report").value = "";
+                                            var report = prompt('Hãy nhập vấn đề của bạn');
+                                            document.getElementById("report").value = report ;
+                                            if(report.length == 0 )
+                                            {
+                                                alert("Bạn chưa nhập gì");
+                                                return false;
+                                            }
+                                            else if(report == null){
+                                                return false;
+                                            }
+                                            alert("Phản hồi của bạn đã được gửi");
+                                            $("#FormFB").submit();
+                                        }
+        
+                                    </script>
+                               </form>
+        
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -484,7 +438,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="review-wrapper">
-                                    <div class="single-review">
+                                    {{-- <div class="single-review">
                                         <div class="review-img">
                                             <img src="http://127.0.0.1:8000/assets/images/review-image/1.png" alt="" />
                                         </div>
@@ -505,32 +459,30 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     @if(isset($comment))
                                     @foreach($comment as $item)
                                     <div class="single-review">
-                                        <div class="review-img">
-                                            <img src="http://127.0.0.1:8000/assets/images/review-image/1.png" alt="" />
-                                        </div>
 
-                                            <div class="review-content">
-                                                <div class="review-top-wrap">
-                                                    <div class="review-left">
-                                                        <div class="review-name">
-                                                            <h4>{{isset(\App\User::where('id', $item['id_user'])->get()[0]->fullname) ? \App\User::where('id', $item['id_user'])->get()[0]->fullname : "user".$item['id_user']}}</h4>
-                                                        </div>
+                                        <div class="review-content">
+                                            <div class="review-top-wrap">
+                                                <div class="review-left">
+                                                    <div class="review-name">
+                                                        <h4>{{isset(\App\User::where('id', $item['id_user'])->get()[0]->fullname) ? \App\User::where('id', $item['id_user'])->get()[0]->fullname : "user".$item['id_user']}}
+                                                        </h4>
                                                     </div>
                                                 </div>
-                                                <div class="review-bottom">
-                                                    <p>
-                                                        {{$item['comment']}}
-                                                    </p>
-                                                </div>
+                                            </div>
+                                            <div class="review-bottom">
+                                                <p>
+                                                    {{$item['comment']}}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
-                                    @endif
+                                </div>
+                                @endforeach
+                                @endif
                             </div>
                             <form action="{{route('product.storeComment', ['id' => $product[0]->id])}}" method="POST">
                                 @csrf
@@ -540,10 +492,9 @@
                                             <div class="col-lg-12">
                                                 <div class="billing-info-wrap">
                                                     <div class="additional-info-wrap">
-                                                        <h4>Additional information</h4>
                                                         <div class="additional-info">
-                                                            <label>Order notes</label>
-                                                            <textarea placeholder="Nhập bình luận... " name="comment"></textarea>
+                                                            <textarea placeholder="Nhập bình luận... "
+                                                                name="comment"></textarea>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Bình luận</button>
                                                     </div>
@@ -561,1752 +512,8 @@
     </div>
     <!-- product details description area end -->
     <!-- Feature Area start -->
-    <div class="feature-area single-product-responsive mt-60px mb-30px">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h2 class="section-heading">You Might Also Like</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="feature-slider-two slider-nav-style-1">
-                <div class="feature-slider-wrapper swiper-wrapper">
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/6.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/7.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/8.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price">€23.90</li>
-                                        <li class="current-price">€21.51</li>
-                                        <li class="discount-price">-10%</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/9.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/10.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/15.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/16.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/17.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/18.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/19.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/20.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/21.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/22.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/23.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/24.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/25.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/26.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/27.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/28.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/29.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/6.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/8.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/9.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/10.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/11.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/15.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="swiper-buttons">
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Feature Area End -->
     <!-- Feature Area start -->
-    <div class="feature-area single-product-responsive  mb-30px">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h2 class="section-heading">16 Other Products In The Same Category:</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="feature-slider-two slider-nav-style-1">
-                <div class="feature-slider-wrapper swiper-wrapper">
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/6.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/7.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/8.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price">€23.90</li>
-                                        <li class="current-price">€21.51</li>
-                                        <li class="discount-price">-10%</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/9.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/10.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/15.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/16.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/17.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/18.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/19.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/20.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/21.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/22.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/23.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/24.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/25.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/26.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/27.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/28.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/29.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/6.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/7.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img" src="http://127.0.0.1:8000/assets/images/product-image/8.jpg"
-                                        alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/9.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/10.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/11.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/12.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/13.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Single Item -->
-                    <div class="feature-slider-item swiper-slide">
-                        <article class="list-product">
-                            <div class="img-block">
-                                <a href="single-product.html" class="thumbnail">
-                                    <img class="first-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/14.jpg" alt="" />
-                                    <img class="second-img"
-                                        src="http://127.0.0.1:8000/assets/images/product-image/15.jpg" alt="" />
-                                </a>
-                                <div class="quick-view">
-                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="icon-magnifier icons"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <ul class="product-flag">
-                                <li class="new">New</li>
-                            </ul>
-                            <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
-                                <h2><a href="single-product.html" class="product-link">New Balance Arishi Sport v1</a>
-                                </h2>
-                                <div class="rating-product">
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                    <i class="ion-android-star"></i>
-                                </div>
-                                <div class="pricing-meta">
-                                    <ul>
-                                        <li class="old-price not-cut">€18.90</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="add-to-link">
-                                <ul>
-                                    <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
-                                    <li>
-                                        <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="swiper-buttons">
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Feature Area End -->
     <!-- Footer Area Start -->
     <div class="footer-area">
@@ -2314,14 +521,16 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 mb-md-30px mb-lm-30px">
+                        <div class="col-md-6 col-lg-6 mb-md-30px mb-lm-30px">
                             <div class="single-wedge">
-                                <h4 class="footer-herading">ABOUT US</h4>
-                                <p class="text-infor">We are a team of designers and developers that create high quality
-                                    HTML template</p>
+                                <h4 class="footer-herading">Về công ty</h4>
+                                <p class="text-infor">Công ty được thành lập từ 2016, có kinh nghiệm về mua bán online,
+                                    giúp
+                                    khách hàng có một trải nghiệm mua hàng một cách tốt nhất
+                                </p>
                                 <div class="need-help">
                                     <p class="phone-info">
-                                        NEED HELP?
+                                        Số điện thoại hỗ trợ
                                         <span>
                                             0123456789 <br />
                                             0123456789
@@ -2330,50 +539,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-2 mb-md-30px mb-lm-30px">
+
+                        <div class="col-md-6 col-lg-6 ">
                             <div class="single-wedge">
-                                <h4 class="footer-herading">Information</h4>
-                                <div class="footer-links">
-                                    <ul>
-                                        <li><a href="#">Delivery</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="#">Secure Payment</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="#">Sitemap</a></li>
-                                        <li><a href="#">Stores</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-2 mb-sm-30px mb-lm-30px">
-                            <div class="single-wedge">
-                                <h4 class="footer-herading">CUSTOM LINKS</h4>
-                                <div class="footer-links">
-                                    <ul>
-                                        <li><a href="#">Legal Notice</a></li>
-                                        <li><a href="#">Prices Drop</a></li>
-                                        <li><a href="#">New Products</a></li>
-                                        <li><a href="#">Best Sales</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="my-account.html">My Account</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 ">
-                            <div class="single-wedge">
-                                <h4 class="footer-herading">NEWSLETTER</h4>
+                                <h4 class="footer-herading">Liên lạc bằng email</h4>
                                 <div class="subscrib-text">
-                                    <p>You may unsubscribe at any moment. For that purpose, please find our contact info
-                                        in the legal notice.</p>
+                                    <p>Hãy góp ý cho chúng tôi để nâng cao trải nghiệm khi sử dụng <span
+                                            style="font-weight: bold;">foodTHK</span></p>
                                 </div>
                                 <div id="mc_embed_signup" class="subscribe-form">
                                     <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank"
                                         name="mc-embedded-subscribe-form" method="post"
                                         action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
                                         <div id="mc_embed_signup_scroll" class="mc-form">
-                                            <input class="email" type="email" required=""
-                                                placeholder="Enter your email here.." name="EMAIL" value="" />
+                                            <input class="email" type="email" required="" placeholder="Viết đóng góp .."
+                                                name="EMAIL" value="" />
                                             <div class="mc-news" aria-hidden="true"
                                                 style="position: absolute; left: -5000px;">
                                                 <input type="text" value="" tabindex="-1"
@@ -2381,7 +561,7 @@
                                             </div>
                                             <div class="clear">
                                                 <input id="mc-embedded-subscribe" class="button" type="submit"
-                                                    name="subscribe" value="Sign Up" />
+                                                    name="subscribe" value="Gửi" />
                                             </div>
                                         </div>
                                     </form>
@@ -2400,29 +580,9 @@
                                         <li>
                                             <a href="#"><i class="icon-social-google"></i></a>
                                         </li>
-                                        <li>
-                                            <a href="#"><i class="icon-social-instagram"></i></a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-
-                            <p class="copy-text"> © 2021 <strong>Rozer</strong> Made With <i class="fa fa-heart"
-                                    style="color: red;" aria-hidden="true"></i> By <a class="company-name"
-                                    href="https://hasthemes.com/">
-                                    <strong> HasThemes</strong></a>.</p>
-                        </div>
-                        <div class="col-md-6 text-end">
-                            <img class="payment-img" src="http://127.0.0.1:8000/assets/images/icons/payment.png"
-                                alt="" />
                         </div>
                     </div>
                 </div>

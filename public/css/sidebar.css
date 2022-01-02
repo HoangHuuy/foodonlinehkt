@@ -63,6 +63,10 @@
     margin-left: 8px;
 }
 
+.a-deco li a:focus {
+    color: red;
+}
+
 .dropdown-item:hover {
     background: white;
     

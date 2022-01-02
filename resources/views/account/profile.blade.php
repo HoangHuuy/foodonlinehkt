@@ -127,10 +127,7 @@
                         <div class="header-right-element d-flex">
                             <div class="search-element media-body">
                                 <form class="d-flex" action="#">
-                                    <div class="search-category">
-                                        <select name="" id=""></select>
-                                    </div>
-                                    <input type="text" placeholder="Enter your search key ... " />
+                                    <input type="text" placeholder="Nhập sản phẩm bạn cần tìm ... " />
                                     <button><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
@@ -138,8 +135,6 @@
                             <div class="header-tools d-flex">
                                 <div class="cart-info d-flex align-self-center">
                                     {{-- <a href="compare.html" class="shuffle" data-number="3"><i class="icon-shuffle"></i></a> --}}
-                                    <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
-                                            class="icon-heart"></i></a>
                                     @if(Session::has('cart') != null)
                                     <a href="#offcanvas-cart" 
                                         class="bag offcanvas-toggle" 
@@ -185,100 +180,18 @@
                             <ul class="menu-content">
                                 <li class="active menu-dropdown">
                                     <a href="/">Trang chủ</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/com">Cơm</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/do-an-dang-soi">Đồ ăn dạng sợi</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/do-an-chien-ran/">Đồ ăn chiên rán</a>
+                                </li><li class="active menu-dropdown">
+                                    <a href="/product/kem">Kem</a>
                                 </li>
-                                {{-- <li class="menu-dropdown">
-                                        <a href="#">Shop <i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="mega-menu-wrap">
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop Grid</a></li>
-                                                    <li><a href="shop-3-column.html">Shop Grid 3 Column</a></li>
-                                                    <li><a href="shop-4-column.html">Shop Grid 4 Column</a></li>
-                                                    <li><a href="shop-left-sidebar.html">Shop Grid Left Sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Shop Grid Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop List</a></li>
-                                                    <li><a href="shop-list.html">Shop List</a></li>
-                                                    <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop Single</a></li>
-                                                    <li><a href="single-product.html">Shop Single</a></li>
-                                                    <li><a href="single-product-variable.html">Shop Variable</a></li>
-                                                    <li><a href="single-product-affiliate.html">Shop Affiliate</a></li>
-                                                    <li><a href="single-product-group.html">Shop Group</a></li>
-                                                    <li><a href="single-product-tabstyle-2.html">Shop Tab 2</a></li>
-                                                    <li><a href="single-product-tabstyle-3.html">Shop Tab 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Shop Single</a></li>
-                                                    <li><a href="single-product-slider.html">Shop Slider</a></li>
-                                                    <li><a href="single-product-gallery-left.html">Shop Gallery Left</a></li>
-                                                    <li><a href="single-product-gallery-right.html">Shop Gallery Right</a></li>
-                                                    <li><a href="single-product-sticky-left.html">Shop Sticky Left</a></li>
-                                                    <li><a href="single-product-sticky-right.html">Shop Sticky Right</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="w-100">
-                                                <ul class="banner-megamenu-wrapper d-flex">
-                                                    <li class="banner-wrapper mr-30px">
-                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
-                                                    </li>
-                                                    <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-dropdown">
-                                        <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="main-sub-menu">
-                                            <li><a href="about.html">About Page</a></li>
-                                            <li><a href="cart.html">Cart Page</a></li>
-                                            <li><a href="/check-out">Thanh Toán Page</a></li>
-                                            <li><a href="compare.html">Compare Page</a></li>
-                                            <li><a href="login.html">Login & Register Page</a></li>
-                                            <li><a href="my-account.html">Account Page</a></li>
-                                            <li><a href="wishlist.html">Wishlist Page</a></li>
-                                            <li><a href="thank-you-page.html">Thank You Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-dropdown">
-                                        <a href="#">Blog <i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="main-sub-menu">
-                                            <li class="menu-dropdown position-static">
-                                                <a href="#">Blog Grid <i class="ion-ios-arrow-right"></i></a>
-                                                <ul class="main-sub-menu main-sub-menu-2">
-                                                    <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-dropdown position-static">
-                                                <a href="#">Blog List <i class="ion-ios-arrow-right"></i></a>
-                                                <ul class="main-sub-menu main-sub-menu-2">
-                                                    <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-dropdown position-static">
-                                                <a href="#">Blog Single <i class="ion-ios-arrow-right"></i></a>
-                                                <ul class="main-sub-menu main-sub-menu-2">
-                                                    <li><a href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
-                                                    <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidbar</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
-                                <li><a href="#">Danh sách món ưa thích</a></li>
+                                <li class="active menu-dropdown">
+                                    <a href="/product/do-uong">Đồ Uống</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- header horizontal menu -->
@@ -597,14 +510,16 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 mb-md-30px mb-lm-30px">
+                        <div class="col-md-6 col-lg-6 mb-md-30px mb-lm-30px">
                             <div class="single-wedge">
-                                <h4 class="footer-herading">ABOUT US</h4>
-                                <p class="text-infor">We are a team of designers and developers that create high quality
-                                    HTML template</p>
+                                <h4 class="footer-herading">Về công ty</h4>
+                                <p class="text-infor">Công ty được thành lập từ 2016, có kinh nghiệm về mua bán online,
+                                    giúp
+                                    khách hàng có một trải nghiệm mua hàng một cách tốt nhất
+                                </p>
                                 <div class="need-help">
                                     <p class="phone-info">
-                                        NEED HELP?
+                                        Số điện thoại hỗ trợ
                                         <span>
                                             0123456789 <br />
                                             0123456789
@@ -613,50 +528,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-2 mb-md-30px mb-lm-30px">
+
+                        <div class="col-md-6 col-lg-6 ">
                             <div class="single-wedge">
-                                <h4 class="footer-herading">Information</h4>
-                                <div class="footer-links">
-                                    <ul>
-                                        <li><a href="#">Delivery</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="#">Secure Payment</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="#">Sitemap</a></li>
-                                        <li><a href="#">Stores</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-2 mb-sm-30px mb-lm-30px">
-                            <div class="single-wedge">
-                                <h4 class="footer-herading">CUSTOM LINKS</h4>
-                                <div class="footer-links">
-                                    <ul>
-                                        <li><a href="#">Legal Notice</a></li>
-                                        <li><a href="#">Prices Drop</a></li>
-                                        <li><a href="#">New Products</a></li>
-                                        <li><a href="#">Best Sales</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="my-account.html">My Account</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 ">
-                            <div class="single-wedge">
-                                <h4 class="footer-herading">NEWSLETTER</h4>
+                                <h4 class="footer-herading">Liên lạc bằng email</h4>
                                 <div class="subscrib-text">
-                                    <p>You may unsubscribe at any moment. For that purpose, please find our contact info
-                                        in the legal notice.</p>
+                                    <p>Hãy góp ý cho chúng tôi để nâng cao trải nghiệm khi sử dụng <span
+                                            style="font-weight: bold;">foodTHK</span></p>
                                 </div>
                                 <div id="mc_embed_signup" class="subscribe-form">
                                     <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank"
                                         name="mc-embedded-subscribe-form" method="post"
                                         action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
                                         <div id="mc_embed_signup_scroll" class="mc-form">
-                                            <input class="email" type="email" required=""
-                                                placeholder="Enter your email here.." name="EMAIL" value="" />
+                                            <input class="email" type="email" required="" placeholder="Viết đóng góp .."
+                                                name="EMAIL" value="" />
                                             <div class="mc-news" aria-hidden="true"
                                                 style="position: absolute; left: -5000px;">
                                                 <input type="text" value="" tabindex="-1"
@@ -664,7 +550,7 @@
                                             </div>
                                             <div class="clear">
                                                 <input id="mc-embedded-subscribe" class="button" type="submit"
-                                                    name="subscribe" value="Sign Up" />
+                                                    name="subscribe" value="Gửi" />
                                             </div>
                                         </div>
                                     </form>
@@ -683,28 +569,9 @@
                                         <li>
                                             <a href="#"><i class="icon-social-google"></i></a>
                                         </li>
-                                        <li>
-                                            <a href="#"><i class="icon-social-instagram"></i></a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-
-                            <p class="copy-text"> © 2021 <strong>Rozer</strong> Made With <i class="fa fa-heart"
-                                    style="color: red;" aria-hidden="true"></i> By <a class="company-name"
-                                    href="https://hasthemes.com/">
-                                    <strong> HasThemes</strong></a>.</p>
-                        </div>
-                        <div class="col-md-6 text-end">
-                            <img class="payment-img" src="/assets/images/icons/payment.png" alt="" />
                         </div>
                     </div>
                 </div>

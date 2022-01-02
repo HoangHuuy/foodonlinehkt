@@ -73,7 +73,7 @@ class CheckOutController extends Controller
         //luu vao bang Detail
             
             
-        return redirect()->route('showAllProduct');
+        return redirect()->route('user.showOrders');
     }
 }
 

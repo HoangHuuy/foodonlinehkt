@@ -3325,11 +3325,11 @@ offcanvas-menu>ul>li .menu-expand {
 }
 
 .search-element input {
-    width: 80%;
+    width: 60%;
     border: 2px solid #ebebeb;
     height: 46px;
     line-height: 42px;
-    padding: 20px 20px 20px 200px
+    padding: 20px 20px 20px 20px
 }
 
 @media only screen and (max-width:575px) {
@@ -3343,7 +3343,7 @@ offcanvas-menu>ul>li .menu-expand {
 .search-element button {
     position: absolute;
     top: 0;
-    right: 95px;
+    right: 270px;
     height: 45px;
     line-height: 42px;
     text-align: center;
@@ -3361,7 +3361,7 @@ offcanvas-menu>ul>li .menu-expand {
 .search-element button i {
     font-size: 24px;
     display: block;
-    line-height: 46px
+    line-height: 46px;
 }
 
 @media only screen and (max-width:360px) {
